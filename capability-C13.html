@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Patient Information Maintenance - GP (C13) — DSIC Capability Catalogue. Requirements for suppliers onboarding to the NHS England Digital Services for Integrated Care catalogue.">
+  <title>Patient Information Maintenance - GP — DSIC Capability Catalogue</title>
+
+  <!--
+    Prototype: DSIC Capabilities as Code
+    This page is generated from: data/capabilities/C13.yaml
+    Frontend: NHS.UK Design System (nhsuk-frontend)
+    See: https://nhsbsa.github.io/nhsbsa-frontend/ for NHSBSA design system extensions
+  -->
+  <link rel="stylesheet" href="assets/nhsuk-frontend.min.css">
+
+  <style>
+    /* ── Layout: widen the default 960px container ─────────────────────── */
+    .nhsuk-width-container {
+      max-width: 1400px;
+    }
+
+    /* ── Header overrides ───────────────────────────────────────────────── */
+
+    /* Force NHS logo white (currentcolor doesn't cascade through the header context) */
+    .nhsuk-header svg.nhsuk-header__logo {
+      color: #fff;
+    }
+
+    /* Larger service name title */
+    .nhsuk-header__service-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* ── Prototype-specific styles ─────────────────────────────────────── */
+
+    /* Epic ID monospace label */
+    .dsic-epic-id {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #425563;
+      background: #f0f4f5;
+      border: 1px solid #d8dde0;
+      border-radius: 3px;
+      padding: 0 4px;
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+
+    /* User story formatted block */
+    .dsic-user-story {
+      background: #f0f4f5;
+      border-left: 4px solid #005eb8;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .dsic-user-story p {
+      margin: 0;
+      line-height: 2;
+    }
+
+    /* Given/When/Then acceptance criterion */
+    .dsic-criterion {
+      border: 1px solid #d8dde0;
+      border-radius: 4px;
+      padding: 0.875rem 1rem;
+      margin-bottom: 0.625rem;
+      background: #fff;
+    }
+    .dsic-criterion-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #212b32;
+      margin: 0 0 0.625rem;
+    }
+    .dsic-gwt {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
+      gap: 0.375rem 0.5rem;
+      align-items: start;
+    }
+    .dsic-gwt-label {
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: #425563;
+      padding-top: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .dsic-gwt-text {
+      margin: 0;
+    }
+    .dsic-gwt-text ul {
+      margin: 0.25rem 0 0 1rem;
+      padding: 0;
+    }
+
+    /* Roadmap status tags */
+    .dsic-tag-published { background-color: #007f3b; }
+    .dsic-tag-draft     { background-color: #768692; }
+    .dsic-tag-new       { background-color: #005eb8; }
+    .dsic-tag-uplift    { background-color: #330072; }
+
+    /* Horizontal "On this page" jump-link bar */
+    .dsic-page-nav {
+      border-top: 1px solid #d8dde0;
+      border-bottom: 1px solid #d8dde0;
+      padding: 0.75rem 0;
+      margin: 1.25rem 0 1.5rem;
+    }
+    .dsic-page-nav__label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #425563;
+      margin-right: 0.75rem;
+      white-space: nowrap;
+    }
+    .dsic-page-nav__list {
+      display: inline;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .dsic-page-nav__list li {
+      display: inline;
+    }
+    .dsic-page-nav__list li + li::before {
+      content: "·";
+      margin: 0 0.4rem;
+      color: #768692;
+    }
+    .dsic-page-nav__list a {
+      font-size: 1rem;
+    }
+
+    /* Section spacing */
+    .dsic-section { margin-bottom: 2rem; }
+
+    /* Outcome cards row */
+    .dsic-outcomes { display: flex; flex-direction: column; gap: 0.75rem; }
+    @media (min-width: 48.0625em) {
+      .dsic-outcomes { flex-direction: row; }
+      .dsic-outcomes .nhsuk-card { flex: 1; margin-bottom: 0; }
+    }
+
+    /* Suppress nhsuk-card default bottom margin inside outcome row */
+    .dsic-outcomes .nhsuk-card { margin-bottom: 0; }
+
+    /* Tighter expander group gap */
+    .nhsuk-expander-group > .nhsuk-details + .nhsuk-details { margin-top: 4px; }
+
+    /* Subtle "prototype" banner */
+    .dsic-prototype-banner {
+      background: #fff9c4;
+      border-bottom: 2px solid #ffdd00;
+      padding: 0.5rem 0;
+      font-size: 0.875rem;
+    }
+    .dsic-prototype-banner .nhsuk-width-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .dsic-prototype-banner strong { color: #212b32; }
+
+    /* Epic count badge */
+    .dsic-count-badge {
+      display: inline-block;
+      background: #005eb8;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 0 8px;
+      margin-left: 6px;
+      vertical-align: middle;
+      line-height: 1.6;
+    }
+
+    /* Capability header grid */
+    .dsic-cap-header { margin-bottom: 1.5rem; }
+    .dsic-tags-row { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem; }
+
+    /* Roadmap table responsive */
+    @media (max-width: 40em) {
+      .dsic-roadmap-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Skip link -->
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+  <!-- Prototype banner -->
+  <div class="dsic-prototype-banner" role="complementary" aria-label="Prototype notice">
+    <div class="nhsuk-width-container">
+      <strong>Prototype</strong>
+      <span>This page demonstrates DSIC capabilities rendered from a YAML source file. <a href="data/capabilities/C13.yaml">View source data (C13.yaml)</a></span>
+    </div>
+  </div>
+
+  <!-- ── NHS Header ─────────────────────────────────────────────────────── -->
+  <header class="nhsuk-header" role="banner">
+    <div class="nhsuk-width-container nhsuk-header__container">
+      <div class="nhsuk-header__logo">
+        <a class="nhsuk-header__link" href="#" aria-label="NHS — DSIC Capability Catalogue home">
+          <svg class="nhsuk-header__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40" width="100" focusable="false" role="img" aria-label="NHS">
+            <title>NHS</title>
+            <path fill="currentcolor" d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="nhsuk-header__content" id="content-header">
+        <div class="nhsuk-header__menu">
+          <a class="nhsuk-header__service-name" href="#">DSIC Capability Catalogue</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ── Main ──────────────────────────────────────────────────────────── -->
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent" role="main">
+      <!-- ── Content ───────────────────────────────────────────────────── -->
+
+          <!-- Capability heading & metadata -->
+          <div class="dsic-cap-header">
+            <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+              Patient Information Maintenance - GP
+            </h1>
+
+            <div class="dsic-tags-row">
+              <strong class="nhsuk-tag nhsuk-tag--green">Effective</strong>
+              <strong class="nhsuk-tag">Capability</strong>
+              <strong class="nhsuk-tag nhsuk-tag--grey">v10.0.2</strong>
+            </div>
+
+            <dl class="nhsuk-summary-list">
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">Capability ID</dt>
+                <dd class="nhsuk-summary-list__value"><code>C13</code></dd>
+              </div>
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">Category</dt>
+                <dd class="nhsuk-summary-list__value">Patient care management</dd>
+              </div>
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">Effective date</dt>
+                <dd class="nhsuk-summary-list__value"><time datetime="2026-09-23">23 September 2026</time></dd>
+              </div>
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">Contracting vehicles</dt>
+                <dd class="nhsuk-summary-list__value">
+                  Digital Primary Care<br>
+                  GP IT Futures<br>
+                  Tech Innovation
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- ── On this page ──────────────────────────────────────────── -->
+          <nav class="dsic-page-nav" aria-label="On this page">
+            <span class="dsic-page-nav__label">On this page:</span>
+            <ul class="dsic-page-nav__list">
+              <li><a href="#description">Description</a></li>
+              <li><a href="#outcomes">Outcomes</a></li>
+              <li><a href="#must-epics">MUST Epics (35)</a></li>
+              <li><a href="#may-epics">MAY Epics (20)</a></li>
+              <li><a href="#roadmap">Roadmap</a></li>
+            </ul>
+          </nav>
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <!-- ── Description ─────────────────────────────────────────── -->
+          <section class="dsic-section" aria-labelledby="description">
+            <h2 class="nhsuk-heading-l" id="description">Description</h2>
+            <p>Supports the registration of Patients and the maintenance of all Patient personal information including demographics. Supports the organisation and presentation of a comprehensive Electronic Patient Record (EPR) and enables other organisations to access this information.</p>
+            <p>Also supports configuring access to Citizen Services and the submission of data to the Authority for monitoring, research and payment purposes.</p>
+          </section>
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <!-- ── Outcomes ─────────────────────────────────────────────── -->
+          <section class="dsic-section" aria-labelledby="outcomes">
+            <h2 class="nhsuk-heading-l" id="outcomes">Outcomes</h2>
+            <div class="dsic-outcomes">
+
+              <div class="nhsuk-card">
+                <div class="nhsuk-card__content">
+                  <h3 class="nhsuk-card__heading nhsuk-heading-s">For a Patient</h3>
+                  <p class="nhsuk-card__description">The accurate recording of a Patient's personal information which contributes to the identification of the Patient and sharing of correct data across health and care. Increased involvement in their own care through enablement of Citizen Services. Patient safety is increased and facilitates finding Patients at risk.</p>
+                </div>
+              </div>
+
+              <div class="nhsuk-card">
+                <div class="nhsuk-card__content">
+                  <h3 class="nhsuk-card__heading nhsuk-heading-s">For General Practice</h3>
+                  <p class="nhsuk-card__description">The organisation and presentation of a comprehensive Electronic Patient Record (EPR) ensures up to date and relevant information is available to appropriate staff to support timely Patient care. It supports effective communication with Patients and other organisations as well as forming the basis for enabling access to Citizen services.</p>
+                </div>
+              </div>
+
+              <div class="nhsuk-card">
+                <div class="nhsuk-card__content">
+                  <h3 class="nhsuk-card__heading nhsuk-heading-s">For the wider NHS and social care system</h3>
+                  <p class="nhsuk-card__description">The accurate recording of a Patient's personal information, the organisation and presentation of a comprehensive EPR and making it available across care settings improves efficiency, promotes collaboration and encourages the use of a lifelong integrated care record.</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <!-- ── MUST Epics ───────────────────────────────────────────── -->
+          <section class="dsic-section" aria-labelledby="must-epics">
+            <h2 class="nhsuk-heading-l" id="must-epics">
+              MUST Epics
+              <span class="dsic-count-badge" aria-label="35 epics">35</span>
+            </h2>
+            <p>Describes the minimum functionality required to deliver a Capability. Solutions <strong>MUST</strong> be successfully evaluated against each Epic and Acceptance Criteria via Capability Assessment in order to be associated with this Capability.</p>
+
+            <div class="nhsuk-expander-group">
+
+              <!-- E00163 -->
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00163</span>manage Patient Registrations
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p>
+                      <strong>As a</strong> Health or Care Professional<br>
+                      <strong>I want to</strong> manage Patients Registrations<br>
+                      <strong>So that</strong> I can manage which Patients are currently registered with my Healthcare Organisation
+                    </p>
+                  </div>
+
+                  <h4 class="nhsuk-heading-s">Acceptance criteria</h4>
+
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">Acceptance criterion 1: create a Patient Registration</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional is permitted to create Patient Registrations</p>
+                      <span class="dsic-gwt-label">When</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional selects to create a Patient Registration</p>
+                      <span class="dsic-gwt-label">Then</span>
+                      <div class="dsic-gwt-text">
+                        <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0">
+                          <li>the Registration Type is recorded</li>
+                          <li>the date the Patient Registration started is recorded</li>
+                          <li>the Named Accountable GP for the Patient is recorded</li>
+                          <li>the Patient Registration is created</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">Acceptance criterion 2: amend a Patient Registration</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional is permitted to amend Patient Registrations</p>
+                      <span class="dsic-gwt-label">When</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional selects to amend a Patient Registration</p>
+                      <span class="dsic-gwt-label">Then</span>
+                      <p class="dsic-gwt-text">the Patient Registration is amended</p>
+                    </div>
+                  </div>
+
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">Acceptance criterion 3: end a Patient Registration</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional is permitted to end Patient Registrations</p>
+                      <span class="dsic-gwt-label">When</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional selects to end a Patient Registration</p>
+                      <span class="dsic-gwt-label">Then</span>
+                      <div class="dsic-gwt-text">
+                        <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0">
+                          <li>the date the Patient Registration ended is recorded</li>
+                          <li>the Patient Registration is ended</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">Acceptance criterion 4: view Patient Registration information</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional is permitted to view Patient Registration information</p>
+                      <span class="dsic-gwt-label">When</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional selects to view a Patient's Registration information</p>
+                      <span class="dsic-gwt-label">Then</span>
+                      <p class="dsic-gwt-text">the Patient's Registration information is displayed</p>
+                    </div>
+                  </div>
+
+                  <details class="nhsuk-details nhsuk-u-margin-top-3">
+                    <summary class="nhsuk-details__summary">
+                      <span class="nhsuk-details__summary-text">Additional implementation details</span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                      <p>Solutions MUST comply with the following when implementing this Epic:</p>
+                      <ul class="nhsuk-list nhsuk-list--bullet">
+                        <li>Patient Registration Types will be in line with legislative registration statuses as defined in the GP Contract</li>
+                      </ul>
+                    </div>
+                  </details>
+
+                  <details class="nhsuk-details">
+                    <summary class="nhsuk-details__summary">
+                      <span class="nhsuk-details__summary-text">Supporting information</span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                      <p>Registration Types MAY include, but are not limited to:</p>
+                      <ul class="nhsuk-list nhsuk-list--bullet">
+                        <li>Fully Registered</li>
+                        <li>Temporary Resident</li>
+                        <li>Immediately necessary treatment</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <!-- E00164 -->
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00164</span>manage Patient Demographic Information
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p>
+                      <strong>As a</strong> Health or Care Professional<br>
+                      <strong>I want to</strong> manage Patient Demographic Information<br>
+                      <strong>So that</strong> Patient Demographic Information is managed
+                    </p>
+                  </div>
+
+                  <h4 class="nhsuk-heading-s">Acceptance criteria</h4>
+
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">Acceptance criterion 1: create Patient Demographic Information</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional is permitted to create Patient Demographic Information</p>
+                      <span class="dsic-gwt-label">When</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional selects to create Demographic Information for a Patient</p>
+                      <span class="dsic-gwt-label">Then</span>
+                      <div class="dsic-gwt-text">
+                        <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0">
+                          <li>the Patient's NHS Number is recorded</li>
+                          <li>the Patient's name is recorded</li>
+                          <li>the Patient's date of birth is recorded</li>
+                          <li>the Patient's address is recorded</li>
+                          <li>the Patient's telephone number can be recorded</li>
+                          <li>other contact details for the Patient can be recorded</li>
+                          <li>the Patient's ethnicity can be recorded</li>
+                          <li>the Patient Demographic Information is created</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">Acceptance criterion 2: amend Patient Demographic Information</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional is permitted to amend Patient Demographic Information</p>
+                      <span class="dsic-gwt-label">When</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional selects to amend Patient Demographic Information</p>
+                      <span class="dsic-gwt-label">Then</span>
+                      <p class="dsic-gwt-text">the Patient Demographic Information is amended</p>
+                    </div>
+                  </div>
+
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">Acceptance criterion 3: view Patient Demographic Information</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional is permitted to view Patient Demographic Information</p>
+                      <span class="dsic-gwt-label">When</span>
+                      <p class="dsic-gwt-text">the Health or Care Professional selects to view a Patient's Demographic Information</p>
+                      <span class="dsic-gwt-label">Then</span>
+                      <p class="dsic-gwt-text">the Patient's Demographic Information is displayed</p>
+                    </div>
+                  </div>
+
+                  <details class="nhsuk-details nhsuk-u-margin-top-3">
+                    <summary class="nhsuk-details__summary">
+                      <span class="nhsuk-details__summary-text">Supporting information</span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                      <p>Examples of other contact details MAY include, but are not limited to: Email address, Alternative telephone numbers (e.g. work).</p>
+                      <p>Other examples of Demographic Information MAY include, but are not limited to: Preferred Name, Former Family Name, Preferred written language, Preferred spoken language, Gender identity, Sex.</p>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <!-- E00165 -->
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00165</span>manage Electronic Patient Records (EPRs)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p>
+                      <strong>As a</strong> Health or Care Professional<br>
+                      <strong>I want to</strong> manage Electronic Patient Records (EPRs)<br>
+                      <strong>So that</strong> clinical and administrative information relating to a Patient is stored in a single Electronic Patient Record (EPR)
+                    </p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria</h4>
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">AC1: view an EPR</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span><p class="dsic-gwt-text">the Health or Care Professional is permitted to view EPRs</p>
+                      <span class="dsic-gwt-label">When</span><p class="dsic-gwt-text">the Health or Care Professional selects to view an EPR</p>
+                      <span class="dsic-gwt-label">Then</span><p class="dsic-gwt-text">the Electronic Patient Record (EPR) is displayed</p>
+                    </div>
+                  </div>
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">AC2: update an EPR</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span><p class="dsic-gwt-text">the Health or Care Professional is permitted to update EPRs</p>
+                      <span class="dsic-gwt-label">When</span><p class="dsic-gwt-text">the Health or Care Professional selects to update an EPR</p>
+                      <span class="dsic-gwt-label">Then</span><p class="dsic-gwt-text">the Electronic Patient Record (EPR) is updated</p>
+                    </div>
+                  </div>
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">AC3: view all historical information relating to a Patient's care</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span><p class="dsic-gwt-text">the Health or Care Professional is permitted to view EPRs</p>
+                      <span class="dsic-gwt-label">When</span><p class="dsic-gwt-text">they select to view all historical information relating to a Patient's care</p>
+                      <span class="dsic-gwt-label">Then</span><p class="dsic-gwt-text">a view of all historical information relating to a Patient's care is displayed</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- E00166 -->
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00166</span>manage Citizen Service access for a Patient
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p>
+                      <strong>As a</strong> Health or Care Professional<br>
+                      <strong>I want to</strong> manage Citizen Service access for Patients<br>
+                      <strong>So that</strong> Patients have access to Citizen Services
+                    </p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria</h4>
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">AC1: enable Citizen Service access for a Patient</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span><p class="dsic-gwt-text">the Health or Care Professional is permitted to enable Citizen Service access</p>
+                      <span class="dsic-gwt-label">When</span><p class="dsic-gwt-text">the Health or Care Professional selects to enable Citizen Service access for a Patient</p>
+                      <span class="dsic-gwt-label">Then</span><p class="dsic-gwt-text">Citizen Service access is enabled for that Patient</p>
+                    </div>
+                  </div>
+                  <div class="dsic-criterion">
+                    <p class="dsic-criterion-title">AC2: disable Citizen Service access for a Patient</p>
+                    <div class="dsic-gwt">
+                      <span class="dsic-gwt-label">Given</span><p class="dsic-gwt-text">the Health or Care Professional is permitted to disable Citizen Service access</p>
+                      <span class="dsic-gwt-label">When</span><p class="dsic-gwt-text">the Health or Care Professional selects to disable Citizen Service access for a Patient</p>
+                      <span class="dsic-gwt-label">Then</span><p class="dsic-gwt-text">Citizen Service access is disabled for that Patient</p>
+                    </div>
+                  </div>
+                  <details class="nhsuk-details nhsuk-u-margin-top-3">
+                    <summary class="nhsuk-details__summary">
+                      <span class="nhsuk-details__summary-text">Additional implementation details</span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                      <p>Solutions MUST comply with the following when implementing this Epic:</p>
+                      <p><strong>Suppliers of new Solutions:</strong></p>
+                      <ul class="nhsuk-list nhsuk-list--bullet">
+                        <li>GP Connect (Patient Facing) User Permissions Standard (Provider requirements)</li>
+                        <li>NHS login Provisioning Standard</li>
+                      </ul>
+                      <p><strong>Suppliers of Solutions which ARE currently deployed into an operational environment:</strong></p>
+                      <ul class="nhsuk-list nhsuk-list--bullet">
+                        <li>IM1 - Interface Mechanism Standard (Patient interface Provider requirements) or GP Connect (Patient Facing) User Permissions Standard (Provider requirements)</li>
+                        <li>Ability to create, view and amend Verified User Accounts</li>
+                        <li>Ability to generate Verified User Accounts credentials information (ODS Code, VUA ID, VUA Linkage Key, list of available Citizen Services)</li>
+                        <li>Support linking of Online Service Account and Verified User Account</li>
+                        <li>Solution supports resetting of the VUA Linkage Key; upon reset, VUA reverts to Inactive and all Citizen Services access is terminated</li>
+                        <li>Access to Citizen Services will be disabled immediately for deceased or otherwise deducted Patients</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <!-- E00167 — E00172 (compact format, same pattern) -->
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00167</span>manage Identity Verifications for a Patient
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Identity Verifications for Patients<br><strong>So that</strong> Patients are accurately identified before being granted access to Citizen Services</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (3)</h4>
+                  <p>Create, amend, and view Identity Verifications for a Patient — recording Identity Evidence type and who carried out the verification process.</p>
+                  <details class="nhsuk-details">
+                    <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">Supporting information</span></summary>
+                    <div class="nhsuk-details__text">
+                      <p>For further information on Identity Verification see DAPB3051 (previously DCB3051): Identity Verification and Authentication Standard for Digital Health and Care Services.</p>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00169</span>manage Appointments Management Citizen Service access for a Patient and the Practice
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Patient access to the Appointments Management Citizen Service<br><strong>So that</strong> I can manage Patient access to the Appointments Management Citizen Service</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Enable and disable Patient access; enable and disable the Appointments Management Citizen Service for the Practice.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00170</span>manage Prescription Ordering Citizen Service access for a Patient and the Practice
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Patient access to the Prescription Ordering Citizen Service<br><strong>So that</strong> I can manage Patient access to Prescription Ordering Citizen Service for Repeat Medication</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Enable and disable Patient access; enable and disable the Prescription Ordering Citizen Service for the Practice.</p>
+                  <details class="nhsuk-details nhsuk-u-margin-top-3">
+                    <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">Additional implementation details</span></summary>
+                    <div class="nhsuk-details__text">
+                      <p><strong>Suppliers of new Solutions:</strong> GP Connect (Patient Facing) Prescriptions Standard (Provider requirements)</p>
+                      <p><strong>Suppliers of Solutions which ARE currently deployed:</strong> IM1 - Interface Mechanism Standard or GP Connect (Patient Facing) Prescriptions Standard</p>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00171</span>manage View Record Citizen Service access for the Practice
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage access to the View Record Citizen Service for the Practice<br><strong>So that</strong> I can manage access to View Record Citizen Service</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (8)</h4>
+                  <p>Enable and disable access to Summary Information Record, Detailed Coded Record, Document, and Full Record Access Levels for the Practice.</p>
+                  <details class="nhsuk-details nhsuk-u-margin-top-3">
+                    <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">Additional implementation details</span></summary>
+                    <div class="nhsuk-details__text">
+                      <p><strong>Suppliers of new Solutions:</strong> GP Connect (Patient Facing) Access Record Standard (Provider requirements)</p>
+                      <p><strong>Suppliers of Solutions which ARE currently deployed:</strong> IM1 or GP Connect (Patient Facing) Access Record Standard</p>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00755</span>configure defaults for Citizen Service access for Patients
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> configure default access to Citizen Services for Patients<br><strong>So that</strong> configuring access is more efficient and inline with current policy</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (7)</h4>
+                  <p>Enable/disable defaults for Prospective Access, Full Record, Appointments Management, and Prescription Ordering Citizen Services. Includes SNOMED CT exclusion criteria for Prospective Access and age-16 transition rules.</p>
+                  <details class="nhsuk-details nhsuk-u-margin-top-3">
+                    <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">Additional implementation details</span></summary>
+                    <div class="nhsuk-details__text">
+                      <p>When Prospective Access to Full Record Access Level is enabled, Patients excluded for Prospective Access default to Summary Information Record Access Level. Exclusion criteria include specific SNOMED CT codes and Patients under 16 years old. On the Patient's 16th Birthday, Access Level automatically updates unless the Patient has existing access.</p>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00172</span>manage View Record Citizen Service access for a Patient
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage access to the View Record Citizen Service for individual Patients<br><strong>So that</strong> I can manage Patient access to View Record Citizen Service</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (10)</h4>
+                  <p>Enable and disable access to Summary Information Record, Detailed Coded Record, Document, Full Record, and Prospective Access to Full Record Access Levels for individual Patients.</p>
+                  <details class="nhsuk-details nhsuk-u-margin-top-3">
+                    <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">Additional implementation details</span></summary>
+                    <div class="nhsuk-details__text">
+                      <ul class="nhsuk-list nhsuk-list--bullet">
+                        <li>The Access Level for a Patient will not exceed the configured Access Level for the Practice</li>
+                        <li>Suppliers of new Solutions: GP Connect (Patient Facing) Access Record Standard</li>
+                        <li>Suppliers of Solutions which ARE currently deployed: IM1 or GP Connect (Patient Facing) Access Record Standard</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00174</span>configure access to elements of the EPR in the View Record Citizen Service
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> record that elements of the EPR are Restricted from View Record<br><strong>So that</strong> elements recorded as Restricted are not displayed to Citizens</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Record existing or newly-entered EPR elements as Restricted from View Record; indicate restricted elements to Health or Care Professionals; remove restrictions to make elements available again.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00255</span>display Patient Alerts for Electronic Patient Records (EPRs)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> Patient Alerts to be displayed for EPRs<br><strong>So that</strong> key characteristics relating to the Patient are indicated</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>When a Patient Alert is recorded for an EPR, the alert is displayed when the EPR is viewed.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00175</span>NHAIS HA/GP Links
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> maintain Patient Registration information via NHAIS HA/GP Links<br><strong>So that</strong> Patient Registration information is up to date</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Send Patient Registration Information to NHAIS on Patient Registration; receive and display NHAIS HA/GP Links messages.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3">
+                    <span class="nhsuk-u-visually-hidden">Standard:</span>
+                    <p>Solutions MUST comply with: <strong>NHAIS HA/GP Links Standard</strong></p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00176</span>Personal Demographics Service (PDS)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> the Solution to be integrated with PDS<br><strong>So that</strong> Personal Demographics information for Patients is up to date</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (3)</h4>
+                  <p>Update PDS data from Solution; update Solution data from PDS; verify Patients using Advanced Trace on PDS during Registration.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Personal Demographics Service (PDS) Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00177</span>transfer Electronic Patient Records (EPRs) between GP Practices
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> electronically transfer EPRs between GP Practices<br><strong>So that</strong> EPRs are transferred directly and securely when a Patient moves Practice</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Automatically transfer and integrate an EPR on Patient Registration; view transferred and integrated EPR.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>GP2GP Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00178</span>Summary Care Record (SCR)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Summary Care Records for Patients<br><strong>So that</strong> up to date Summary Care Records are available to be viewed</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Create, update, view, and withdraw Summary Care Records.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Summary Care Record (SCR) Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00179</span>GP Connect - Access Record
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> enable access to Patient information for other Healthcare Organisations via GP Connect<br><strong>So that</strong> Patient information can be accessed by other Healthcare Organisations</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Provide access to GP Patient Information as HTML view; provide access in a Structured format.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3">
+                    <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0">
+                      <li>GP Connect Access Record HTML Standard (Provider requirements)</li>
+                      <li>GP Connect Access Record Structured Standard (Provider requirements)</li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00180</span>GP Connect Messaging - Send Document
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> receive Patient documents from other Healthcare Organisations<br><strong>So that</strong> Patient documents can be stored in EPRs</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>View received Patient documents with labels and flags displayed.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>GP Connect Send Document Standard (Receiver requirements)</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00181</span>NHS 111 CDA messages
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> receive NHS 111 CDA messages from 111 providers<br><strong>So that</strong> NHS 111 information can be stored in EPRs</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>View NHS 111 CDA message content for a Patient.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>111 Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00182</span>General Practice Extraction Service (GPES)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> submit data extracts to the Authority using the GPES Data Extraction Service<br><strong>So that</strong> data relating to my GP Practice can be submitted to the Authority</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>Create GPES data extract files on trigger.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>GPES Data Extraction Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00183</span>Digital Medicines and Pharmacy FHIR Messages
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> view immunisation and medication data via Digital Medicines and Pharmacy FHIR messages<br><strong>So that</strong> I have an up to date record of immunisations and medications administered</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>View Digital Medicines and Pharmacy FHIR message content for a Patient.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Digital Medicines and Pharmacy FHIR Payload Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00185</span>submit Primary Care Clinical Terminology Usage data to the Authority
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> submit Primary Care Clinical Terminology Usage data to the Authority<br><strong>So that</strong> aggregated counts of clinical coded terms can be submitted to enable monitoring</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>Create the Primary Care Clinical Terminology Usage data file for submission.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Primary Care Clinical Terminology Usage Report Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00277</span>Transfer of Care FHIR Payload
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> receive Transfer of Care FHIR messages for Patients<br><strong>So that</strong> Transfer of Care information can be viewed and processed</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>View Transfer of Care FHIR message content.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Transfer of Care FHIR Payload Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00303</span>extract vaccination data for Patients
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want</strong> vaccination data recorded for Patients to be sent to the Authority<br><strong>So that</strong> vaccination data can be submitted to the Authority</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>Create the vaccination data extract file on trigger.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Vaccination Extract Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00285</span>National Data Opt-Out
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want</strong> the Solution to retrieve and uphold each Patient's National Data Opt-Out preference<br><strong>So that</strong> only appropriate Patient data is included when sharing confidential information beyond individual care</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>Patients with a National Data Opt-Out recorded are excluded from Patient data extracts.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>National Data Opt-Out Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00304</span>Patient-based report on lipid management
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> generate a Patient-based report on lipid management<br><strong>So that</strong> I can identify patients who may benefit from treatment intervention or review</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>Generate and display a Patient-based report on lipid management.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Lipid management business rules and expanded cluster list</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00396</span>firearms warnings
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> be warned of any conditions of concern when completing a Medical Information Proforma in support of a firearm license request<br><strong>So that</strong> I can be supported in completing the Medical Information Proforma</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Display warning listing conditions of concern when a new firearms application is recorded; display warning when a FTCSRS code is recorded for a Patient that holds or has recently applied for a Firearms Certificate.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Business Rules for Firearms</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00440</span>GP Connect - Update Patient Record
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> receive structured clinical updates for Patients from other Healthcare Organisations<br><strong>So that</strong> structured clinical updates can be stored in EPRs</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>View received Patient encounter information, observations, and medications.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>GP Connect Update Record Standard (Receiver requirements)</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00680</span>automatically update Patient details for received PDS Record Change notifications
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> receive notifications when PDS information for a Patient is updated by the Patient<br><strong>So that</strong> information held for Patients can be automatically updated</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Automatically update mobile phone number and email address from PDS Record Change notifications where the source is the Patient.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>National Events Management Service (NEMS) Standard</strong></p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00681</span>automated Patient Registration
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want</strong> Patients to be automatically registered with my GP Practice<br><strong>So that</strong> Patients are registered more efficiently</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Automatically register a Patient from a GP Registration Request signal; record Health and Lifestyle information in EPR; update EPS Nominated Pharmacy; view Health and Lifestyle questions and answers in EPR.</p>
+                  <details class="nhsuk-details nhsuk-u-margin-top-3">
+                    <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text">Additional implementation details</span></summary>
+                    <div class="nhsuk-details__text">
+                      <ul class="nhsuk-list nhsuk-list--bullet">
+                        <li>Personal Demographics Service (PDS) Standard</li>
+                        <li>Multicast Notification Service Standard (Validated GP Registration Request signal)</li>
+                        <li>Register with a GP Surgery Service Standard (to obtain Health and Lifestyle information)</li>
+                        <li>Follow on system activity should be triggered as it would for a manual registration (including NHAIS HA/GP Links and GP2GP)</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00749</span>enabling Proxy access for baby Patient Registrations
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want</strong> Proxy access to a Patient's Citizen Services to be provided when registering a new Patient under the age of 1 year old<br><strong>So that</strong> Proxy access to a baby's Citizen Services can be provided immediately upon registration</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>When creating a Patient Registration for a Patient aged under 1 year old without an existing EPR, enable Citizen Services access for a Proxy during the registration process.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00750</span>view Verified Candidate Relationships when enabling access to Citizen Services for Patients
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> view Verified Candidate Relationships when enabling access to Citizen Services for Patients<br><strong>So that</strong> I can make informed decisions when granting Proxy access</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>View Verified Candidate Relationships for a Patient; select a Verified Candidate Relationship to enable Proxy access to the Patient's Citizen Services.</p>
+                  <div class="nhsuk-inset-text nhsuk-u-margin-top-3"><p>Solutions MUST comply with: <strong>Validated Relationship Service (VRS) Standard</strong>. Only Verified Candidate Relationships where the Proxy and Patient are Fully Registered at the same GP Practice can be selected.</p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00751</span>re-enable Citizen Service Access for a Proxy
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> re-enable Citizen Service Access for a Proxy without requiring the re-entry of Proxy's information<br><strong>So that</strong> I can efficiently restore Proxy Citizen Services Access on behalf of Patients</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>Re-enable Citizen Service Access for a Proxy (without re-entering their information); optionally set an end date; notify the Proxy.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00206</span>manage Citizen Service Access for a Proxy
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Citizen Service Access for Proxies<br><strong>So that</strong> Proxies have access to Citizen Services on behalf of Patients</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Enable Proxy access (with optional end date and Proxy notification); disable Proxy access; notify Proxy 3 months before end date; automatically disable access when end date is reached.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00207</span>manage Identity Verifications for a Proxy
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Proxy Identity Verifications<br><strong>So that</strong> Proxies are appropriately identified before being granted access to Citizen Services</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (3)</h4>
+                  <p>Create, amend, and view Proxy Identity Verifications — recording Identity Evidence type and who carried out the verification process.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00209</span>manage Appointments Management Citizen Service Access for a Proxy
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Proxy access to Appointments Management Citizen Service<br><strong>So that</strong> I can manage a Proxy's access to Appointments Management Citizen Service</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Enable and disable Proxy access to the Appointments Management Citizen Service.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00210</span>manage Prescription Ordering Citizen Service Access for a Proxy
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Proxy access to Prescription Ordering Citizen Service<br><strong>So that</strong> I can manage a Proxy's access to Prescription Ordering for Repeat Medication</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Enable and disable Proxy access to the Prescription Ordering Citizen Service.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00212</span>manage View Record Citizen Service Access for a Proxy
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Proxy access to View Record Citizen Service<br><strong>So that</strong> I can manage a Proxy's access to View Record Citizen Service</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (5)</h4>
+                  <p>Enable Proxy access to Summary Information Record, Detailed Coded Record, Document, and Full Record Access Levels; disable Proxy access to a Record Access Level. Access Level for a Proxy will not exceed the configured Access Level for the Practice.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00752</span>display Proxies when managing Patient Electronic Patient Records (EPRs)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> view an indication of any Proxies with Citizen Service Access for a Patient when managing the Patient's EPR<br><strong>So that</strong> I can make informed decisions about the Patient's care</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>When viewing or updating an EPR where the Patient has a Proxy, display an indication of Proxies with access — including name, legal basis, relationship, and Citizen Service Access.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00753</span>view Proxy Citizen Service usage
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> view Proxy Citizen Service usage<br><strong>So that</strong> I can see a Proxy's activity on Citizen Services on behalf of a Patient</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>View a Proxy's Citizen Services usage for a Patient (views of record, appointment management, prescription ordering).</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00754</span>view Patient Citizen Service usage
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> view Patient Citizen Service usage<br><strong>So that</strong> I can see a Patient's activity on Citizen Services</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>View a Patient's Citizen Services usage (record views, appointment management, prescription ordering).</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    <span class="dsic-epic-id">E00211</span>manage Acute Prescription Request Citizen Service for a Proxy
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story">
+                    <p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Proxy access to the Acute Prescription Request Citizen Service<br><strong>So that</strong> I can manage Proxy access to the Acute Prescription Request Citizen Service</p>
+                  </div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Enable and disable Proxy access to the Acute Prescription Request Citizen Service.</p>
+                </div>
+              </details>
+
+            </div><!-- /nhsuk-expander-group (MUST) -->
+          </section>
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <!-- ── MAY Epics ────────────────────────────────────────────── -->
+          <section class="dsic-section" aria-labelledby="may-epics">
+            <h2 class="nhsuk-heading-l" id="may-epics">
+              MAY Epics
+              <span class="dsic-count-badge" aria-label="20 epics">20</span>
+            </h2>
+            <p>Describes additional functionality associated with the Capability. Suppliers should consider all MAY Epics as part of their User Research. Suppliers can choose to map their Solutions to these Epics and they will be evaluated via Capability Assessment. Contracting Authorities or purchasing organisations may require these Epics as product qualification or requirements criteria.</p>
+
+            <div class="nhsuk-expander-group">
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00186</span>search for Electronic Patient Records (EPRs)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> search for EPRs<br><strong>So that</strong> I can find Electronic Patient Records for Patients</p></div>
+                  <p>Search by demographic information (family name, given name, date of birth, NHS Number, address, postcode, telephone number, registration type, local patient identifier).</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00187</span>search content of an Electronic Patient Record (EPR)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> search the content of an EPR<br><strong>So that</strong> I can view Patient information relevant to my search term</p></div>
+                  <p>Search across coded/structured data, free text fields, and document metadata.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00188</span>search the contents of documents attached to an Electronic Patient Record (EPR)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> search the contents of a document attached to an EPR<br><strong>So that</strong> I can view content within the document relevant to my search term</p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00189</span>print the Electronic Patient Record (EPR)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> print the EPR<br><strong>So that</strong> the EPR can be printed</p></div>
+                  <p>Health or Care Professionals MAY be able to select whether to print attached documents or audit trails.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00190</span>export the Electronic Patient Record (EPR)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> export the EPR<br><strong>So that</strong> the EPR can be exported into an electronic file format</p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00191</span>manage a personalised display of Electronic Patient Records (EPRs)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage a personalised display for EPRs<br><strong>So that</strong> I have a personalised display that can be saved and applied to all EPRs</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Create, view with, amend, and delete a personalised display. Personalisation MAY include reordering content, filtering by groups of elements, or creating a custom subset.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00192</span>notifications for outstanding actions on an Electronic Patient Record (EPR)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> be notified when there are outstanding actions on an EPR<br><strong>So that</strong> I am notified of outstanding actions</p></div>
+                  <p>Notifications MAY include: incomplete registration record, contact details requiring verification, outstanding tasks, referrals, or documents with outstanding filing status.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00193</span>manage Patient Related Persons</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Patient Related Persons<br><strong>So that</strong> there is an up to date record of Patient Related Persons</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Create, amend, view, and delete Patient Related Persons. Types MAY include: Family member, Carer, Next of Kin, Cared for Individual, Psychiatric nurse, Patient's social worker.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00194</span>manage Patient Problem lists</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want</strong> a problem-orientated approach to recording and viewing Patient data<br><strong>So that</strong> information relating to a single Problem can be viewed together</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Add and remove Problems from a Patient's Problem list.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00195</span>manage manual Patient Alerts for Electronic Patient Records (EPRs)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manually manage Patient Alerts for EPRs<br><strong>So that</strong> key characteristics relating to the Patient are indicated</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (3)</h4>
+                  <p>Create, view, and remove manual Patient Alerts.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00196</span>manage automatic Patient Alerts for Electronic Patient Records (EPRs)</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want</strong> Patient Alerts to be automatically displayed for EPRs<br><strong>So that</strong> key characteristics relating to the Patient are indicated automatically</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (5)</h4>
+                  <p>Create (with configurable criteria), view configuration, amend, display for matching Patients, and delete automatic Patient Alerts.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00197</span>support Registrations for Private Patients</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> categorise Patients as being Private Registrations<br><strong>So that</strong> I can support Private Registrations</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>Record Patient Registration Type as Private; record the Patient's individual GP.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00198</span>support Registrations for Other Services</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> categorise Patients as Registered for Other Services<br><strong>So that</strong> I can support Registrations for Other Services</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (1)</h4>
+                  <p>Record Patient Registration Type as Other Services (e.g. Enhanced services, Locally commissioned services).</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00199</span>manage Subject Access Request (SAR) requests</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage SAR requests<br><strong>So that</strong> I can manage SAR requests</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Create, amend, view, and delete SAR requests. Must support screening EPR for sensitive data before responding; must adhere to GDPR.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00200</span>view Subject Access Request reports</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> view Subject Access Request reports<br><strong>So that</strong> I can see Subject Access Request activity</p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00201</span>verify Patient Contact Details</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> verify a Patient's Contact Details<br><strong>So that</strong> I have a record that the Patient's Contact Details have been verified</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (2)</h4>
+                  <p>Successful verification updates status to Verified; manual update to verification status also supported. Verification via a time-limited challenge-response mechanism.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00202</span>configure Welcome Message for Citizen Services</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> configure a Welcome Message for Citizen Services<br><strong>So that</strong> a Welcome Message is displayed for Citizens when accessing Citizen Services</p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00205</span>manage Acute Prescription Request Citizen Service for a Patient and the Practice</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want to</strong> manage Patient access to the Acute Prescription Request Citizen Service<br><strong>So that</strong> I can manage Patient access to the Acute Prescription Request Citizen Service</p></div>
+                  <h4 class="nhsuk-heading-s">Acceptance criteria (4)</h4>
+                  <p>Enable and disable Patient access; enable and disable the Acute Prescription Request Citizen Service for the Practice.</p>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00213</span>identify Patients outside of Catchment Area</span></summary>
+                <div class="nhsuk-details__text">
+                  <div class="dsic-user-story"><p><strong>As a</strong> Health or Care Professional<br><strong>I want</strong> Patients that reside outside the Catchment Area to be identified<br><strong>So that</strong> Patients outside the Catchment Area are identified</p></div>
+                </div>
+              </details>
+
+              <details class="nhsuk-details nhsuk-expander">
+                <summary class="nhsuk-details__summary"><span class="nhsuk-details__summary-text"><span class="dsic-epic-id">E00214</span>view Patient reports / <span class="dsic-epic-id">E00215</span>manage Patient Cohorts / <span class="dsic-epic-id">E00216–E00218</span>Patient-based reports</span></summary>
+                <div class="nhsuk-details__text">
+                  <p>Additional reporting epics:</p>
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li><strong>E00214</strong> — view Patient reports (Patient activity)</li>
+                    <li><strong>E00215</strong> — manage Patient Cohorts from Search Results (create, update, delete cohorts)</li>
+                    <li><strong>E00216</strong> — Patient-based report on Capitation (current registered Patients listed by GP)</li>
+                    <li><strong>E00217</strong> — Patient-based report on childhood vaccinations and immunisations (requires Childhood Immunisation Schemes support)</li>
+                    <li><strong>E00218</strong> — Patient-based report on Carers (list of Carers linked to Patients)</li>
+                  </ul>
+                </div>
+              </details>
+
+            </div><!-- /nhsuk-expander-group (MAY) -->
+          </section>
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <!-- ── Roadmap ──────────────────────────────────────────────── -->
+          <section class="dsic-section" aria-labelledby="roadmap">
+            <h2 class="nhsuk-heading-l" id="roadmap">Roadmap</h2>
+            <p>Items on the Roadmap which impact or relate to this Capability.</p>
+
+            <div class="dsic-roadmap-table">
+              <table class="nhsuk-table">
+                <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Roadmap items for Patient Information Maintenance - GP</caption>
+                <thead class="nhsuk-table__head">
+                  <tr class="nhsuk-table__row">
+                    <th scope="col" class="nhsuk-table__header">Roadmap item</th>
+                    <th scope="col" class="nhsuk-table__header">Status</th>
+                    <th scope="col" class="nhsuk-table__header">Effective date</th>
+                    <th scope="col" class="nhsuk-table__header">Change type</th>
+                  </tr>
+                </thead>
+                <tbody class="nhsuk-table__body">
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Automated Patient Registration - uplift to include all encounter types</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-published">Published</strong></td>
+                    <td class="nhsuk-table__cell"><time datetime="2026-11-16">16 Nov 2026</time></td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-uplift">Uplift</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Ingestion of Pharmacy First Urgent Medicine Supply information from Community Pharmacies into GP Solutions</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-published">Published</strong></td>
+                    <td class="nhsuk-table__cell"><time datetime="2026-12-09">09 Dec 2026</time></td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-uplift">Uplift</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Patient Flags Service - Reasonable Adjustments (RA) Flag</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-published">Published</strong></td>
+                    <td class="nhsuk-table__cell"><time datetime="2027-01-08">08 Jan 2027</time></td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-new">New</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Patient Flags Service - Child Protection - Information Sharing (CP-IS) Flag</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-published">Published</strong></td>
+                    <td class="nhsuk-table__cell"><time datetime="2027-02-08">08 Feb 2027</time></td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-uplift">Uplift</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Patient Flags Service - Female Genital Mutilation (FGM) Flag</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-published">Published</strong></td>
+                    <td class="nhsuk-table__cell"><time datetime="2027-03-08">08 Mar 2027</time></td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-uplift">Uplift</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">National Proxy Service</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-published">Published</strong></td>
+                    <td class="nhsuk-table__cell"><time datetime="2027-04-20">20 Apr 2027</time></td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-new">New</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Recording and displaying Unknown Clinical Trial Medication</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-draft">Draft</strong></td>
+                    <td class="nhsuk-table__cell">TBC</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-uplift">Uplift</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Calculate QRISK3 Scores</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-draft">Draft</strong></td>
+                    <td class="nhsuk-table__cell">TBC</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-uplift">Uplift</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">NHS Health Check online</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-draft">Draft</strong></td>
+                    <td class="nhsuk-table__cell">TBC</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-new">New</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Access documents in the National Document Repository (NDR) via the National Record Locator Service (NRLS)</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-draft">Draft</strong></td>
+                    <td class="nhsuk-table__cell">TBC</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-new">New</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Improved GP contract indicators for Index of Deprivation</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-draft">Draft</strong></td>
+                    <td class="nhsuk-table__cell">TBC</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-uplift">Uplift</strong></td>
+                  </tr>
+
+                  <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">Data environment for OpenSAFELY</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-draft">Draft</strong></td>
+                    <td class="nhsuk-table__cell">TBC</td>
+                    <td class="nhsuk-table__cell"><strong class="nhsuk-tag dsic-tag-new">New</strong></td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+    </main>
+  </div><!-- /nhsuk-width-container -->
+
+  <!-- ── Footer ────────────────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="nhsuk-footer" id="nhsuk-footer">
+      <div class="nhsuk-width-container">
+        <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+        <ul class="nhsuk-footer__list nhsuk-footer__list--three-columns">
+          <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">NHS England</a></li>
+          <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a></li>
+          <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a></li>
+          <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a></li>
+          <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Contact us</a></li>
+          <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">API reference</a></li>
+        </ul>
+        <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- NHS.UK Frontend JS v10 (ES module) — enhances expanders/header -->
+  <script type="module">
+    import { initAll } from './assets/nhsuk-frontend.min.js';
+    initAll();
+  </script>
+
+</body>
+</html>

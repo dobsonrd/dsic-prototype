@@ -1,0 +1,1756 @@
+# C13 - Patient Information Maintenance - GP
+# DSIC Capability Catalogue — NHS England Digital Services for Integrated Care
+#
+# This file is the canonical source of truth for this capability.
+# Changes are reviewed, version-controlled, and promoted through a build pipeline
+# to regenerate the published catalogue frontend.
+#
+# Schema: /schema/capability.schema.yaml
+# Last updated: 2026-09-23
+
+metadata:
+  id: C13
+  name: "Patient Information Maintenance - GP"
+  version: "10.0.2"
+  type: Capability
+  category: "Patient care management"
+  status: Effective
+  effective_date: "2026-09-23"
+  contracting_vehicles:
+    - "Digital Primary Care"
+    - "GP IT Futures"
+    - "Tech Innovation"
+
+description: >
+  Supports the registration of Patients and the maintenance of all Patient personal
+  information including demographics. Supports the organisation and presentation of a
+  comprehensive Electronic Patient Record (EPR) and enables other organisations to access
+  this information. Also supports configuring access to Citizen Services and the submission
+  of data to the Authority for monitoring, research and payment purposes.
+
+outcomes:
+  - audience: "For a Patient"
+    text: >
+      The accurate recording of a Patient's personal information which contributes to the
+      identification of the Patient and sharing of correct data across health and care.
+      Increased involvement in their own care through enablement of Citizen Services.
+      Patient safety is increased and facilitates finding Patients at risk.
+
+  - audience: "For General Practice"
+    text: >
+      The organisation and presentation of a comprehensive Electronic Patient Record (EPR)
+      ensures up to date and relevant information is available to appropriate staff to
+      support timely Patient care. It supports effective communication with Patients and
+      other organisations as well as forming the basis for enabling access to Citizen services.
+
+  - audience: "For the wider NHS and social care system"
+    text: >
+      The accurate recording of a Patient's personal information, the organisation and
+      presentation of a comprehensive Electronic Patient Record (EPR) and making it
+      available across care settings improves efficiency, promotes collaboration and
+      encourages the use of a lifelong integrated care record.
+
+epics:
+  must:
+    description: >
+      Describes the minimum functionality required to deliver a Capability. Solutions MUST
+      be successfully evaluated against each Epic and Acceptance Criteria via Capability
+      Assessment in order to be associated with this Capability.
+    items:
+
+      - id: E00163
+        title: "manage Patient Registrations"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Patients Registrations"
+          so_that: "I can manage which Patients are currently registered with my Healthcare Organisation"
+        acceptance_criteria:
+          - id: AC1
+            title: "create a Patient Registration"
+            given: "the Health or Care Professional is permitted to create Patient Registrations"
+            when: "the Health or Care Professional selects to create a Patient Registration"
+            then:
+              - "the Registration Type is recorded"
+              - "the date the Patient Registration started is recorded"
+              - "the Named Accountable GP for the Patient is recorded"
+              - "the Patient Registration is created"
+          - id: AC2
+            title: "amend a Patient Registration"
+            given: "the Health or Care Professional is permitted to amend Patient Registrations"
+            when: "the Health or Care Professional selects to amend a Patient Registration"
+            then:
+              - "the Patient Registration is amended"
+          - id: AC3
+            title: "end a Patient Registration"
+            given: "the Health or Care Professional is permitted to end Patient Registrations"
+            when: "the Health or Care Professional selects to end a Patient Registration"
+            then:
+              - "the date the Patient Registration ended is recorded"
+              - "the Patient Registration is ended"
+          - id: AC4
+            title: "view Patient Registration information"
+            given: "the Health or Care Professional is permitted to view Patient Registration information"
+            when: "the Health or Care Professional selects to view a Patient's Registration information"
+            then:
+              - "the Patient's Registration information is displayed"
+        implementation_details:
+          - "Patient Registration Types will be in line with legislative registration statuses as defined in the GP Contract"
+        supporting_info: >
+          Registration Types MAY include, but are not limited to: Fully Registered,
+          Temporary Resident, Immediately necessary treatment.
+
+      - id: E00164
+        title: "manage Patient Demographic Information"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Patient Demographic Information"
+          so_that: "Patient Demographic Information is managed"
+        acceptance_criteria:
+          - id: AC1
+            title: "create Patient Demographic Information"
+            given: "the Health or Care Professional is permitted to create Patient Demographic Information"
+            when: "the Health or Care Professional selects to create Demographic Information for a Patient"
+            then:
+              - "the Patient's NHS Number is recorded"
+              - "the Patient's name is recorded"
+              - "the Patient's date of birth is recorded"
+              - "the Patient's address is recorded"
+              - "the Patient's telephone number can be recorded"
+              - "other contact details for the Patient can be recorded"
+              - "the Patient's ethnicity can be recorded"
+              - "the Patient Demographic Information is created"
+          - id: AC2
+            title: "amend Patient Demographic Information"
+            given: "the Health or Care Professional is permitted to amend Patient Demographic Information"
+            when: "the Health or Care Professional selects to amend Patient Demographic Information"
+            then:
+              - "the Patient Demographic Information is amended"
+          - id: AC3
+            title: "view Patient Demographic Information"
+            given: "the Health or Care Professional is permitted to view Patient Demographic Information"
+            when: "the Health or Care Professional selects to view a Patient's Demographic Information"
+            then:
+              - "the Patient's Demographic Information is displayed"
+        supporting_info: >
+          Examples of other contact details MAY include, but are not limited to: Email address,
+          Alternative telephone numbers (e.g. work). Other examples of Demographic Information
+          MAY include, but are not limited to: Preferred Name, Former Family Name, Preferred
+          written language, Preferred spoken language, Gender identity, Sex.
+
+      - id: E00165
+        title: "manage Electronic Patient Records (EPRs)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Electronic Patient Records (EPRs)"
+          so_that: "clinical and administrative information relating to a Patient is stored in a single Electronic Patient Record (EPR)"
+        acceptance_criteria:
+          - id: AC1
+            title: "view an Electronic Patient Record (EPR)"
+            given: "the Health or Care Professional is permitted to view Electronic Patient Records (EPRs)"
+            when: "the Health or Care Professional selects to view an Electronic Patient Record (EPR)"
+            then:
+              - "the Electronic Patient Record (EPR) is displayed"
+          - id: AC2
+            title: "update an Electronic Patient Record (EPR)"
+            given: "the Health or Care Professional is permitted to update Electronic Patient Records (EPRs)"
+            when: "the Health or Care Professional selects to update an Electronic Patient Record (EPR)"
+            then:
+              - "the Electronic Patient Record (EPR) is updated"
+          - id: AC3
+            title: "view all historical information relating to a Patient's care"
+            given: "the Health or Care Professional is permitted to view Electronic Patient Records (EPRs)"
+            when: "they select to view all historical information relating to a Patient's care"
+            then:
+              - "a view of all historical information relating to a Patient's care is displayed"
+
+      - id: E00166
+        title: "manage Citizen Service access for a Patient"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Citizen Service access for Patients"
+          so_that: "Patients have access to Citizen Services"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Citizen Service access for a Patient"
+            given: "the Health or Care Professional is permitted to enable Citizen Service access"
+            when: "the Health or Care Professional selects to enable Citizen Service access for a Patient"
+            then:
+              - "Citizen Service access is enabled for that Patient"
+          - id: AC2
+            title: "disable Citizen Service access for a Patient"
+            given: "the Health or Care Professional is permitted to disable Citizen Service access"
+            when: "the Health or Care Professional selects to disable Citizen Service access for a Patient"
+            then:
+              - "Citizen Service access is disabled for that Patient"
+        implementation_details:
+          - "Suppliers of new Solutions: GP Connect (Patient Facing) User Permissions Standard (Provider requirements); NHS login Provisioning Standard"
+          - "Suppliers of Solutions which ARE currently deployed: IM1 - Interface Mechanism Standard (Patient interface Provider requirements) or GP Connect (Patient Facing) User Permissions Standard"
+          - "Ability to create, view and amend Verified User Accounts"
+          - "Ability to generate Verified User Accounts credentials information (ODS Code, Verified User Accounts ID, Verified User Accounts Linkage Key, List of available Citizen Services)"
+          - "Support linking of Online Service Account and Verified User Account"
+          - "The Solution supports resetting of the VUA Linkage Key; upon reset, VUA reverts to Inactive and all Citizen Services access is terminated"
+          - "Access to Citizen Services will be disabled immediately for deceased or otherwise deducted Patients"
+        supporting_info: >
+          Further information on Citizen Services can be found in the Citizen Services
+          Implementation Guidance.
+
+      - id: E00167
+        title: "manage Identity Verifications for a Patient"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Identity Verifications for Patients"
+          so_that: "Patients are accurately identified before being granted access to Citizen Services"
+        acceptance_criteria:
+          - id: AC1
+            title: "create Identity Verifications for a Patient"
+            given: "the Health or Care Professional is permitted to create Identity Verifications"
+            when: "the Health or Care Professional selects to create an Identity Verification for a Patient"
+            then:
+              - "the Identity Evidence type is recorded"
+              - "who carried out the identity verification process is recorded"
+              - "the Identity Verification is created for that Patient"
+          - id: AC2
+            title: "amend Identity Verifications for a Patient"
+            given: "the Health or Care Professional is permitted to amend Identity Verifications"
+            when: "the Health or Care Professional selects to amend an Identity Verification for a Patient"
+            then:
+              - "the Identity Verification is amended for that Patient"
+          - id: AC3
+            title: "view Identity Verifications for a Patient"
+            given: "the Health or Care Professional is permitted to view Identity Verifications"
+            when: "the Health or Care Professional selects to view an Identity Verification for a Patient"
+            then:
+              - "the Identity Verification is displayed for that Patient"
+              - "the Identity Evidence type is displayed"
+              - "who carried out the identity verification process is displayed"
+        supporting_info: >
+          For further information on Identity Verification please see DAPB3051 (previously
+          DCB3051): Identity Verification and Authentication Standard for Digital Health and
+          Care Services. Further information on Citizen Services can be found in the Citizen
+          Services Implementation Guidance.
+
+      - id: E00169
+        title: "manage Appointments Management Citizen Service access for a Patient and the Practice"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Patient access to the Appointments Management Citizen Service"
+          so_that: "I can manage Patient access to the Appointments Management Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Patient access to the Appointments Management Citizen Service"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to enable the Patient's access to the Appointments Management Citizen Service"
+            then: ["access to the Appointments Management Citizen Service is enabled for the Patient"]
+          - id: AC2
+            title: "disable Patient access to the Appointments Management Citizen Service"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to disable the Patient's access to the Appointments Management Citizen Service"
+            then: ["access to the Appointments Management Citizen Service is disabled for the Patient"]
+          - id: AC3
+            title: "enable Appointments Management Citizen Service for the Practice"
+            given: "the Health or Care Professional is permitted to enable a Citizen Service for the Practice"
+            when: "they select to enable the Appointments Management Citizen Service for the Practice"
+            then: ["the Appointments Management Citizen Service is enabled for the Practice"]
+          - id: AC4
+            title: "disable Appointments Management Citizen Service for the Practice"
+            given: "the Health or Care Professional is permitted to disable a Citizen Service for the Practice"
+            when: "they select to disable the Appointments Management Citizen Service for the Practice"
+            then: ["the Appointments Management Citizen Service is disabled for the Practice"]
+        supporting_info: >
+          Further information can be found in the Appointments Management - Citizen
+          Capability and Citizen Services Implementation Guidance.
+
+      - id: E00170
+        title: "manage Prescription Ordering Citizen Service access for a Patient and the Practice"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to manage Patient access to the Prescription Ordering Citizen Service"
+          so_that: "I can manage Patient access to Prescription Ordering Citizen Service for Repeat Medication"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Patient access to the Prescription Ordering Citizen Service"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to enable the Patient's access to the Prescription Ordering Citizen Service"
+            then: ["access to the Prescription Ordering Citizen Service is enabled for the Patient"]
+          - id: AC2
+            title: "disable Patient access to the Prescription Ordering Citizen Service"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to disable the Patient's access to Prescription Ordering"
+            then: ["access to the Prescription Ordering Citizen Service is disabled for the Patient"]
+          - id: AC3
+            title: "enable Prescription Ordering Citizen Service for the Practice"
+            given: "the Health or Care Professional is permitted to enable a Citizen Service for the Practice"
+            when: "the Health or Care Professional selects to enable the Prescription Ordering Citizen Service for the Practice"
+            then: ["the Prescription Ordering Citizen service is enabled for the Practice"]
+          - id: AC4
+            title: "disable Prescription Ordering Citizen Service for the Practice"
+            given: "the Health or Care Professional is permitted to disable a Citizen Service for the Practice"
+            when: "the Health or Care Professional selects to disable the Prescription Ordering Citizen Service for the Practice"
+            then: ["the Prescription Ordering Citizen Service is disabled for the Practice"]
+        implementation_details:
+          - "Suppliers of new Solutions: GP Connect (Patient Facing) Prescriptions Standard (Provider requirements)"
+          - "Suppliers of Solutions which ARE currently deployed: IM1 - Interface Mechanism Standard (Patient interface Provider requirements) or GP Connect (Patient Facing) Prescriptions Standard (Provider requirements)"
+        supporting_info: >
+          Further information can be found in the Prescription Ordering - Citizen Capability
+          and Citizen Services Implementation Guidance.
+
+      - id: E00171
+        title: "manage View Record Citizen Service access for the Practice"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to manage access to the View Record Citizen Service for the Practice"
+          so_that: "I can manage access to View Record Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable access to Summary Information Record Access Level for the Practice"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services for the Practice"
+            when: "the Health or Care Professional selects to enable access to the Summary Information Record Level for the Practice"
+            then: ["the Summary Information Record Access Level is enabled for the Practice"]
+          - id: AC2
+            title: "disable access to Summary Information Record Access Level for the Practice"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services for the Practice"
+            when: "the Health or Care Professional selects to disable access to the Summary Information Record Access Level for the Practice"
+            then: ["the Summary Information Record Access Level is disabled for the Practice"]
+          - id: AC3
+            title: "enable access to Detailed Coded Record Access Level for the Practice"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services for the Practice"
+            when: "the Health or Care Professional selects to enable access to the Detailed Coded Record Access Level for the Practice"
+            then: ["the Detailed Coded Record Access Level is enabled for the Practice"]
+          - id: AC4
+            title: "disable access to Detailed Coded Record Access Level for the Practice"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services for the Practice"
+            when: "the Health or Care Professional selects to disable a Patient's access to the Detailed Coded Record Access Level for the Practice"
+            then: ["the Detailed Coded Record Access Level is disabled for the Practice"]
+          - id: AC5
+            title: "enable access to Document Access Level for the Practice"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services for the Practice; and the Detailed Coded Recorded Access Level is enabled"
+            when: "the Health or Care Professional selects to enable access to the Document Access Level for the Practice"
+            then: ["the Document Access Level is enabled for the Practice"]
+          - id: AC6
+            title: "disable access to Document Access Level for the Practice"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services for the Practice"
+            when: "the Health or Care Professional selects to disable access to the Document Access Level for the Practice"
+            then: ["the Document Access Level is disabled for the Practice"]
+          - id: AC7
+            title: "enable access to Full Record Access Level for the Practice"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services for the Practice"
+            when: "the Health or Care Professional selects to enable access to the Full Record Access Level for the Practice"
+            then: ["the Full Record Access Level is enabled for the Practice"]
+          - id: AC8
+            title: "disable access to Full Record Access Level for the Practice"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services for the Practice"
+            when: "the Health or Care Professional selects to disable access to the Full Record Access Level for the Practice"
+            then: ["the Full Record Access Level is disabled for the Practice"]
+        implementation_details:
+          - "Suppliers of new Solutions: GP Connect (Patient Facing) Access Record Standard (Provider requirements)"
+          - "Suppliers of Solutions which ARE currently deployed: IM1 - Interface Mechanism Standard (Patient interface Provider requirements) or GP Connect (Patient Facing) Access Record Standard (Provider requirements)"
+
+      - id: E00755
+        title: "configure defaults for Citizen Service access for Patients"
+        user_story:
+          role: "Health or Care Professional"
+          want: "configure default access to Citizen Services for Patients"
+          so_that: "configuring access to Citizen Services for Patients is more efficient and inline with current policy"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable the default as Prospective Access to Full Record Access Level for View Record Citizen Service"
+            given: "the Health or Care Professional is permitted to configure the default access to Citizen Services for Patients"
+            when: "the Health or Care Professional selects to enable the default as Prospective Access to Full Record Access Level for Patients"
+            then:
+              - "the Health or Care Professional records a start date for data to be available from"
+              - "Prospective Access to Full Record Access Level is enabled by default when a new Patient is enabled for access to Citizen Services"
+              - "Prospective Access to Full Record Access Level is automatically enabled when a Patient who is already enabled for access to Citizen Services reaches their 16th birthday"
+          - id: AC2
+            title: "enable the default as Full Record Access Level for View Record Citizen Service"
+            given: "the Health or Care Professional is permitted to configure the default access to Citizen Services for Patients"
+            when: "the Health or Care Professional selects to enable the default as Full Record Access Level for Patients"
+            then: ["the Full Record Access Level is enabled by default when a new Patient is enabled for access to Citizen Services"]
+          - id: AC3
+            title: "disable the default for View Record Citizen Service for Patients"
+            given: "the Health or Care Professional is permitted to configure the default access to Citizen Services for Patients"
+            when: "the Health or Care Professional selects to disable the default for the View Record Citizen Service for Patients"
+            then: ["the default is disabled"]
+          - id: AC4
+            title: "enable the default for Appointments Management Citizen Service for Patients"
+            given: "the Health or Care Professional is permitted to configure the default access to Citizen Services for Patients"
+            when: "the Health or Care Professional selects to enable the default for Appointments Management Citizen Service for Patients"
+            then: ["the Appointments Management Citizen Service is enabled by default when a new Patient is enabled for access to Citizen Services"]
+          - id: AC5
+            title: "disable the default for Appointments Management Citizen Service for Patients"
+            given: "the Health or Care Professional is permitted to configure the default access to Citizen Services for Patients"
+            when: "the Health or Care Professional selects to disable the default for the Appointments Management Citizen Service for Patients"
+            then: ["the default is disabled"]
+          - id: AC6
+            title: "enable the default for Prescription Ordering Citizen Service for Patients"
+            given: "the Health or Care Professional is permitted to configure the default access to Citizen Services for Patients"
+            when: "the Health or Care Professional selects to enable the default for Prescription Ordering Citizen Service for Patients"
+            then: ["the Prescription Ordering Citizen Service is enabled by default when a new Patient is enabled for access to Citizen Services"]
+          - id: AC7
+            title: "disable the default for Prescription Ordering Citizen Service for Patients"
+            given: "the Health or Care Professional is permitted to configure the default access to Citizen Services for Patients"
+            when: "the Health or Care Professional selects to disable the default for the Prescription Ordering Citizen Service for Patients"
+            then: ["the default is disabled"]
+        implementation_details:
+          - "When Prospective Access to Full Record Access Level is enabled as the default, Patients excluded for Prospective Access default to Summary Information Record Access Level. Exclusion criteria: specific SNOMED CT codes recorded (1364731000000104, 1290301000000109, 1290331000000103) without a later override code; or Patient is under 16 years old."
+          - "On the Patient's 16th Birthday, Access Level automatically updates to Summary Information Record Access Level for Patients with no previous access; remains the same for Patients with existing access."
+          - "If the start date is before the date the Patient Registration started, the start date is set to the same as the Patient Registration started date."
+
+      - id: E00172
+        title: "manage View Record Citizen Service access for a Patient"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to manage access to the View Record Citizen Service for individual Patients"
+          so_that: "I can manage Patient access to View Record Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable access to Summary Information Record Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to enable the Patient's access to the Summary Information Record Level"
+            then: ["the Summary Information Record Access Level is enabled for the Patient"]
+          - id: AC2
+            title: "disable access to Summary Information Record Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to disable a Patient's access to the Summary Information Record Access Level"
+            then: ["the Summary Information Record Access Level is disabled for the Patient"]
+          - id: AC3
+            title: "enable access to Detailed Coded Record Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to enable the Patient's access to the Detailed Coded Record Access Level"
+            then: ["the Detailed Coded Record Access Level is enabled for the Patient"]
+          - id: AC4
+            title: "disable access to Detailed Coded Record Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to disable a Patient's access to the Detailed Coded Record Access Level"
+            then: ["the Detailed Coded Record Access Level is disabled for the Patient"]
+          - id: AC5
+            title: "enable access to Document Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services; and the Detailed Coded Recorded Access Level is enabled"
+            when: "the Health or Care Professional selects to enable the Patient's access to the Document Access Level"
+            then: ["the Document Access Level is enabled for the Patient"]
+          - id: AC6
+            title: "disable access to Document Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to disable a Patient's access to the Document Access Level"
+            then: ["the Document Access Level is disabled for the Patient"]
+          - id: AC7
+            title: "enable access to Full Record Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to enable the Patient's access to the Full Record Access Level"
+            then: ["the Full Record Access Level is enabled for the Patient"]
+          - id: AC8
+            title: "disable access to Full Record Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to disable a Patient's access to the Full Record Access Level"
+            then: ["the Full Record Access Level is disabled for the Patient"]
+          - id: AC9
+            title: "enable Prospective Access to the Full Record Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to enable Prospective Access to the Full Record Access Level for a Patient"
+            then:
+              - "the Health or Care Professional records a start date for data to be available from"
+              - "the Prospective Access to the Full Record Access Level is enabled for the Patient"
+          - id: AC10
+            title: "disable Prospective Access to the Full Record Access Level for a Patient"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to disable Prospective Access to the Full Record Access Level for a Patient"
+            then: ["the Prospective Access to the Full Record Access Level is disabled for the Patient"]
+        implementation_details:
+          - "The Access Level for a Patient will not exceed the configured Access Level for the Practice"
+          - "Suppliers of new Solutions: GP Connect (Patient Facing) Access Record Standard (Provider requirements)"
+          - "Suppliers of Solutions which ARE currently deployed: IM1 - Interface Mechanism Standard (Patient interface Provider requirements) or GP Connect (Patient Facing) Access Record Standard (Provider requirements)"
+
+      - id: E00174
+        title: "configure access to elements of the Electronic Patient Record (EPR) in the View Record Citizen Service"
+        user_story:
+          role: "Health or Care Professional"
+          want: "record that elements of the Electronic Patient Record (EPR) are Restricted from View Record"
+          so_that: "elements recorded as Restricted from View Record are not displayed to Citizens via the View Record Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "record existing elements of the EPR as Restricted from View Record upon review"
+            given: "the Health or Care Professional is permitted to review the Electronic Patient Record (EPR)"
+            when: "the Health or Care Professional selects to record an existing element of the EPR as Restricted from View Record"
+            then:
+              - "this element is recorded as Restricted from View Record"
+              - "it is not displayed in Citizen Services"
+          - id: AC2
+            title: "record elements of the EPR as Restricted from View Record whilst entering information"
+            given: "the Health or Care Professional is permitted to enter information into the EPR"
+            when: "the Health or Care Professional enters information into the EPR and selects to record an element as Restricted from View Record"
+            then:
+              - "this element is recorded as Restricted from View Record"
+              - "it is not displayed via the View Record Citizen Service"
+          - id: AC3
+            title: "indicate Restricted from View Record elements to Health or Care Professionals"
+            given: "the Health or Care Professional is permitted to view the EPR and there are elements recorded as Restricted from View Record"
+            when: "the Health or Care Professional selects to view the EPR"
+            then: ["the Health or Care Professional can view that these elements are Restricted from View Record"]
+          - id: AC4
+            title: "update elements recorded as Restricted from View Record as available for View Record"
+            given: "the Health or Care Professional is permitted to view the EPR and there are elements recorded as Restricted from View Record"
+            when: "the Health or Care Professional selects to record an element as available for View Record"
+            then:
+              - "this element is recorded as available for the View Record Citizen Service"
+              - "it is displayed via the View Record Citizen Service"
+        implementation_details:
+          - "Ability for Health or Care Professionals to record any type of element recorded in the EPR as Restricted from View Record Citizen Service"
+        supporting_info: >
+          Elements of the EPR MAY include, but are not limited to: an EPR as a whole,
+          groups of elements (e.g. an entire consultation), or individual elements
+          (e.g. a code, a medication). Examples of when restriction may be needed include
+          reviewing Pathology results, Radiology results, or external documents.
+
+      - id: E00255
+        title: "display Patient Alerts for Electronic Patient Records (EPRs)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "Patient Alerts to be displayed for Electronic Patient Records (EPRs)"
+          so_that: "key characteristics relating to the Patient are indicated to Health or Care Professionals"
+        acceptance_criteria:
+          - id: AC1
+            title: "display Patient Alert in Electronic Patient Records (EPRs)"
+            given: "the Health or Care Professional is permitted to view EPRs and a Patient Alert is recorded for that Patient's EPR"
+            when: "the Health or Care Professional selects to view a Patient's EPR"
+            then: ["the Patient Alert is displayed"]
+        supporting_info: >
+          Examples of Patient Alerts MAY include, but are not limited to: indicating the
+          Patient is violent; indicating the Patient is on a certain chronic disease register.
+
+      - id: E00175
+        title: "NHAIS HA/GP Links"
+        user_story:
+          role: "Health or Care Professional"
+          want: "maintain Patient Registration information via NHAIS HA/GP Links"
+          so_that: "Patient Registration information is up to date"
+        acceptance_criteria:
+          - id: AC1
+            title: "send Patient Registration Information"
+            given: "a Health or Care Professional is permitted to manage Patient Registrations"
+            when: "the Health or Care Professional creates a Registration for a Patient"
+            then: ["a NHAIS HA/GP Links registration message is created"]
+          - id: AC2
+            title: "receive Patient Registration Information"
+            given: "a NHAIS HA/GP Links message has been sent to the GP Practice"
+            when: "the Health or Care Professional selects to view the received NHAIS HA/GP Links messages"
+            then: ["the NHAIS HA/GP Links messages are displayed"]
+        implementation_details:
+          - "NHAIS HA/GP Links Standard"
+
+      - id: E00176
+        title: "Personal Demographics Service (PDS)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "the Solution to be integrated with Personal Demographics Service (PDS)"
+          so_that: "Personal Demographics information for Patients is up to date"
+        acceptance_criteria:
+          - id: AC1
+            title: "update PDS data based on Solution data"
+            given: "the local EPR is matched to a PDS record and there are differences between the information held in the Solution and the PDS record"
+            when: "the Health or Care Professional selects to update the PDS record based on the local EPR"
+            then: ["the data held in the PDS record for that Patient is updated to match the local EPR"]
+          - id: AC2
+            title: "update Solution data based on PDS data"
+            given: "the local EPR is linked to a PDS record and there are differences"
+            when: "the Health or Care Professional selects to update the local EPR based on PDS record information"
+            then: ["the data held in the Patient's local EPR is updated to match the PDS record"]
+          - id: AC3
+            title: "verify Patients using PDS during the Registration process"
+            given: "the Health or Care Professional is creating a Patient Registration"
+            when: "the Health or Care Professional enters the Patient's information"
+            then:
+              - "an Advanced Trace on PDS data is triggered"
+              - "the results are displayed"
+        implementation_details:
+          - "Personal Demographics Service (PDS) Standard"
+
+      - id: E00177
+        title: "transfer Electronic Patient Records (EPRs) between GP Practices"
+        user_story:
+          role: "Health or Care Professional"
+          want: "electronically transfer Electronic Patient Records (EPRs) between GP Practices"
+          so_that: "Electronic Patient Records are transferred directly and securely when they move from one GP Practice to another"
+        acceptance_criteria:
+          - id: AC1
+            title: "automatically transfer and integrate an Electronic Patient Record (EPR)"
+            given: "the Health or Care Professional is permitted to create Patient Registrations"
+            when: "the Health or Care Professional selects to complete the Patient Registration"
+            then:
+              - "the Patient's EPR is electronically transferred to the GP Practice"
+              - "the EPR is automatically integrated"
+          - id: AC2
+            title: "view a Patient's transferred and integrated EPR"
+            given: "a Patient's EPR has been transferred and integrated to a new GP Practice"
+            when: "the Health or Care Professional selects to view the Patient's integrated EPR"
+            then: ["the Patient's EPR is displayed"]
+        implementation_details:
+          - "GP2GP Standard"
+
+      - id: E00178
+        title: "Summary Care Record (SCR)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Summary Care Records for Patients"
+          so_that: "up to date Summary Care Records are available to be viewed"
+        acceptance_criteria:
+          - id: AC1
+            title: "create Summary Care Record"
+            given: "the Health or Care Professional is permitted to create Summary Care Records"
+            when: "the Health or Care Professional selects to create a Summary Care Record for a Patient"
+            then: ["the Summary Care Record is created"]
+          - id: AC2
+            title: "update Summary Care Record"
+            given: "the Health or Care Professional is permitted to update Summary Care Records"
+            when: "the Health or Care Professional selects to update the Summary Care Record for a Patient"
+            then: ["the Summary Care Record is updated"]
+          - id: AC3
+            title: "view Summary Care Record"
+            given: "the Health or Care Professional is permitted to view Summary Care Records"
+            when: "the Health or Care Professional selects to view the Summary Care Record for a Patient"
+            then: ["the Summary Care Record is displayed"]
+          - id: AC4
+            title: "withdraw Summary Care Record"
+            given: "there is a Summary Care Record for a Patient and the Health or Care Professional is permitted to withdraw Summary Care Records"
+            when: "the Health or Care Professional selects to withdraw the Summary Care Record for a Patient"
+            then: ["the Summary Care Record is withdrawn"]
+        implementation_details:
+          - "Summary Care Record (SCR) Standard"
+
+      - id: E00179
+        title: "GP Connect - Access Record"
+        user_story:
+          role: "Health or Care Professional"
+          want: "enable access to Patient information for other Healthcare Organisations via GP Connect"
+          so_that: "Patient information can be accessed by other Healthcare Organisations"
+        acceptance_criteria:
+          - id: AC1
+            title: "provide access to GP Patient Information as a HTML view"
+            given: "there is Patient data to be shared for a Patient"
+            when: "the Health or Care Professional at another Healthcare Organisation selects information from the Patient's GP Record"
+            then: ["the Patient information is displayed as a HTML view"]
+          - id: AC2
+            title: "provide access to GP Patient Information in a Structured format"
+            given: "there is Patient data to be shared for a Patient"
+            when: "the Health or Care Professional at another Healthcare Organisation selects to view data from the Patient's GP Practice EPR"
+            then: ["the Patient data is displayed"]
+        implementation_details:
+          - "GP Connect Access Record HTML Standard (Provider requirements)"
+          - "GP Connect Access Record Structured Standard (Provider requirements)"
+
+      - id: E00180
+        title: "GP Connect Messaging - Send Document"
+        user_story:
+          role: "Health or Care Professional"
+          want: "receive Patient documents from other Healthcare Organisations"
+          so_that: "Patient documents from other Healthcare Organisations can be stored in Electronic Patient Records (EPRs)"
+        acceptance_criteria:
+          - id: AC1
+            title: "view Patient documents"
+            given: "Patient documents have been received by the Healthcare Organisation"
+            when: "the Health or Care Professional selects to view the Patient documents"
+            then:
+              - "the label for each document is displayed"
+              - "the flag for each document is displayed"
+              - "the Health or Care Professional can view the Patient documents"
+        implementation_details:
+          - "GP Connect Send Document Standard (Receiver requirements)"
+        supporting_info: >
+          Document labels MAY include: Consultation Summary, Online Consultation Summary,
+          Online Consultation Request, Attendance at a course/support group, Screening results,
+          Clinical letters, Fit notes, Advice and Guidance. Document flags MAY include:
+          For Information (FI), For Action (FA).
+
+      - id: E00181
+        title: "NHS 111 CDA messages"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to receive NHS111 CDA messages from 111 providers"
+          so_that: "NHS111 information for Patients can be stored in Electronic Patient Records (EPRs)"
+        acceptance_criteria:
+          - id: AC1
+            title: "view NHS111 CDA messages message content"
+            given: "a valid NHS111 CDA message has been sent to the Healthcare Organisation"
+            when: "the Health or Care Professional selects to view information received via a NHS111 CDA message for a Patient"
+            then: ["the information is displayed"]
+        implementation_details:
+          - "111 Standard"
+
+      - id: E00182
+        title: "General Practice Extraction Service (GPES)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "submit data extracts to the Authority using the GPES Data Extraction Service"
+          so_that: "data relating to my GP Practice can be submitted to the Authority"
+        acceptance_criteria:
+          - id: AC1
+            title: "create GPES data extracts"
+            given: "there is GPES data to be submitted for the GP Practice"
+            when: "the creation of the GPES data extract file is triggered"
+            then: ["the GPES data extract file is created"]
+        implementation_details:
+          - "GPES Data Extraction Standard"
+
+      - id: E00183
+        title: "Digital Medicines and Pharmacy FHIR Messages"
+        user_story:
+          role: "Health or Care Professional"
+          want: "view immunisation and medication data shared via Digital Medicines and Pharmacy FHIR messages"
+          so_that: "I have an up to date record of immunisations and medications administered to a Patient"
+        acceptance_criteria:
+          - id: AC1
+            title: "view Digital Medicines and Pharmacy FHIR messages"
+            given: "a valid Digital Medicines and Pharmacy FHIR message has been sent to the Healthcare Organisation"
+            when: "the Health or Care Professional selects to view information received via a Digital Medicines and Pharmacy FHIR message for a Patient"
+            then: ["the information is displayed"]
+        implementation_details:
+          - "Digital Medicines and Pharmacy FHIR Payload Standard"
+
+      - id: E00185
+        title: "submit Primary Care Clinical Terminology Usage data to the Authority"
+        user_story:
+          role: "Health or Care Professional"
+          want: "submit Primary Care Clinical Terminology Usage data to the Authority on behalf of my Healthcare Organisation"
+          so_that: "aggregated counts of clinical coded terms can be submitted to the Authority to enable monitoring"
+        acceptance_criteria:
+          - id: AC1
+            title: "create Primary Care Clinical Terminology Usage data for submission"
+            given: "there is Primary Care Clinical Terminology Usage data to be submitted by the Solution"
+            when: "the creation of the Primary Care Clinical Terminology Usage data file is triggered"
+            then: ["the Primary Care Clinical Terminology Usage data file is created"]
+        implementation_details:
+          - "Primary Care Clinical Terminology Usage Report Standard"
+
+      - id: E00277
+        title: "Transfer of Care FHIR Payload"
+        user_story:
+          role: "Health or Care Professional"
+          want: "receive Transfer of Care FHIR messages for Patients"
+          so_that: "Transfer of Care information can be viewed and processed"
+        acceptance_criteria:
+          - id: AC1
+            title: "view Transfer of Care FHIR message content"
+            given: "a Transfer of Care FHIR message has been received for a Patient"
+            when: "the Health or Care Professional selects to view the Transfer of Care information"
+            then: ["the Transfer of Care information is displayed"]
+        implementation_details:
+          - "Transfer of Care FHIR Payload Standard"
+
+      - id: E00303
+        title: "extract vaccination data for Patients"
+        user_story:
+          role: "Health or Care Professional"
+          want: "vaccination data recorded for Patients to be sent to the Authority on behalf of my Healthcare Organisation"
+          so_that: "vaccination data recorded at my Healthcare Organisation for Patients can be submitted to the Authority"
+        acceptance_criteria:
+          - id: AC1
+            title: "create the vaccination data extract file"
+            given: "there is vaccination data for Patients to be submitted for the Healthcare Organisation"
+            when: "the creation of the vaccination data extract file is triggered"
+            then: ["the vaccination data extract file is created"]
+        implementation_details:
+          - "Vaccination Extract Standard"
+
+      - id: E00285
+        title: "National Data Opt-Out"
+        user_story:
+          role: "Health or Care Professional"
+          want: "the Solution to retrieve and uphold each Patient's National Data Opt-Out preference for data dissemination"
+          so_that: "only appropriate Patient data is included when sharing confidential Patient information for purposes beyond individual care in line with national policy"
+        acceptance_criteria:
+          - id: AC1
+            title: "uphold National Data Opt-Out preferences"
+            given: "a Patient data extract has been triggered"
+            when: "a Patient has a National Data Opt-Out recorded"
+            then: ["they are excluded from the Patient data extract"]
+        implementation_details:
+          - "National Data Opt-Out Standard"
+
+      - id: E00304
+        title: "Patient-based report on lipid management"
+        user_story:
+          role: "Health or Care Professional"
+          want: "generate a Patient-based report on lipid management"
+          so_that: "I can identify patients who may benefit from treatment intervention or review"
+        acceptance_criteria:
+          - id: AC1
+            title: "generate a Patient-based report on lipid management"
+            given: "the Health or Care Professional is permitted to generate a report"
+            when: "they select to generate a Patient-based report on lipid management"
+            then: ["the report results are displayed"]
+        implementation_details:
+          - "Lipid management business rules and expanded cluster list"
+
+      - id: E00396
+        title: "firearms warnings"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be warned of any conditions that may cause concern when completing a Medical Information Proforma for an Applicant in support of a firearm license request"
+          so_that: "I can be supported in completing the Medical Information Proforma"
+        acceptance_criteria:
+          - id: AC1
+            title: "warning listing all conditions of concern when recording new firearms application"
+            given: "the Health or Care Professional has recorded the coded term for a new firearms application to the EPR"
+            when: "there are any coded terms from the Firearms Trigger Concept Simple Reference Set (FTCSRS) in the EPR"
+            then: ["a warning is displayed listing these coded terms"]
+          - id: AC2
+            title: "warning when recording FTCSRS code for a Patient that holds or has recently applied for a Firearms Certificate"
+            given: "there is a current Firearm Certificate Code in the EPR"
+            when: "the Health or Care Professional records a coded term from the FTCSRS in the EPR"
+            then: ["a warning is displayed advising that the Patient holds or has recently applied for a Firearms Certificate"]
+        implementation_details:
+          - "Business Rules for Firearms"
+        supporting_info: >
+          For information on the Digital Firearms marker process, see Digital Firearms Marker.
+
+      - id: E00440
+        title: "GP Connect - Update Patient Record"
+        user_story:
+          role: "Health or Care Professional"
+          want: "receive structured clinical updates for Patients from other Healthcare Organisations"
+          so_that: "structured clinical updates from other Healthcare Organisations can be stored in Electronic Patient Records (EPRs)"
+        acceptance_criteria:
+          - id: AC1
+            title: "view received structured clinical updates"
+            given: "structured clinical updates for a Patient have been sent to the Healthcare Organisation"
+            when: "the Health or Care Professional selects to view the EPR"
+            then:
+              - "the received Patient encounter information is displayed"
+              - "the received Patient observations are displayed"
+              - "the received Patient medications are displayed"
+        implementation_details:
+          - "GP Connect Update Record Standard (Receiver requirements)"
+
+      - id: E00680
+        title: "automatically update Patient details for received PDS Record Change notifications"
+        user_story:
+          role: "Health or Care Professional"
+          want: "receive notifications when PDS information for a Patient is updated by the Patient"
+          so_that: "the information held for Patients by my Healthcare Organisation can be automatically updated"
+        acceptance_criteria:
+          - id: AC1
+            title: "automatically update mobile phone number for Patients"
+            given: "the PDS Record Change notification has been received for a Patient"
+            when: "the source of the change is specified as the Patient in the PDS Record Change notification"
+            then: ["the Patient's mobile phone number is automatically updated"]
+          - id: AC2
+            title: "automatically update email address for Patients"
+            given: "a PDS Record Change notification has been received for a Patient"
+            when: "the source of the change is specified as the Patient in the PDS Record Change notification"
+            then: ["the Patient's email address is automatically updated"]
+        implementation_details:
+          - "National Events Management Service (NEMS) Standard (PDS Record Change event messages)"
+
+      - id: E00681
+        title: "automated Patient Registration"
+        user_story:
+          role: "Health or Care Professional"
+          want: "Patients to be automatically registered with my GP Practice"
+          so_that: "Patients are registered more efficiently"
+        acceptance_criteria:
+          - id: AC1
+            title: "automatically register a Patient"
+            given: "a GP Registration Request signal is received"
+            when: "the Patient's Demographic Information is retrieved from PDS"
+            then: ["the Patient is automatically registered"]
+          - id: AC2
+            title: "automatically record Health and Lifestyle information in a Patient's EPR"
+            given: "the Patient is registered with the GP Practice"
+            when: "the Health and Lifestyle information for the Patient is received"
+            then: ["the Health and Lifestyle information is automatically recorded in the Patient's EPR"]
+          - id: AC3
+            title: "update Electronic Prescription Service (EPS) Nominated Pharmacy for a Patient"
+            given: "the Patient has provided Pharmacy information in their Health and Lifestyle information"
+            when: "the Health and Lifestyle information is automatically recorded in the Patient's EPR"
+            then:
+              - "the Electronic Prescription Service (EPS) Nominated Pharmacy for the Patient is automatically updated"
+              - "the Patient's PDS record is updated"
+          - id: AC4
+            title: "view Health and Lifestyle information questions and answers in the Patient's EPR"
+            given: "the Health and Lifestyle information has been automatically recorded in the Patient's EPR"
+            when: "the Health or Care Professional selects to view the Health and Lifestyle information in the Patient's EPR"
+            then: ["the Health and Lifestyle information questions and answers are displayed"]
+        implementation_details:
+          - "Personal Demographics Service (PDS) Standard"
+          - "Multicast Notification Service Standard (Validated GP Registration Request signal)"
+          - "Register with a GP Surgery Service Standard (to obtain Health and Lifestyle information)"
+          - "Follow on system activity should be triggered as it would for a manual registration, including NHAIS HA/GP Links and GP2GP"
+
+      - id: E00749
+        title: "enabling Proxy access for baby Patient Registrations"
+        user_story:
+          role: "Health or Care Professional"
+          want: "Proxy access to a Patient's Citizen Services to be provided when registering a new Patient under the age of 1 year old"
+          so_that: "Proxy access to a baby's Citizen Services can be provided immediately upon the baby's registration at the GP Practice"
+        acceptance_criteria:
+          - id: AC1
+            title: "enabling Proxy access for baby Patient Registrations"
+            given: "the Health or Care Professional is permitted to create Patient Registrations"
+            when: "the Health or Care Professional selects to create a Patient Registration; and the Patient is aged under 1 year old; and the Patient does not have an existing EPR"
+            then:
+              - "the Health or Care Professional can select to enable access to the Patient's Citizen Services for a Proxy during the Patient Registration process"
+              - "access to the Patient's Citizen Services for a Proxy is enabled"
+
+      - id: E00750
+        title: "view Verified Candidate Relationships when enabling access to Citizen Services for Patients"
+        user_story:
+          role: "Health or Care Professional"
+          want: "view Verified Candidate Relationships when enabling access to Citizen Services for Patients"
+          so_that: "I can understand the Verified Candidate Relationships and make informed decisions when granting Proxy access to Citizen Services"
+        acceptance_criteria:
+          - id: AC1
+            title: "view Verified Candidate Relationships when enabling access to Citizen Services for Patients"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "the Health or Care Professional selects to view Verified Candidate Relationships for a Patient"
+            then: ["the Verified Candidate Relationships are displayed"]
+          - id: AC2
+            title: "select Verified Candidate Relationships to enable access to the Patient's Citizen Services for a Proxy"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services and the Verified Candidate Relationships are displayed"
+            when: "the Health or Care Professional selects a Verified Candidate Relationship to enable access to the Patient's Citizen Services for a Proxy"
+            then: ["access to the Patient's Citizen Services for the Proxy is enabled"]
+        implementation_details:
+          - "Validated Relationship Service (VRS) Standard"
+          - "Only Verified Candidate Relationships where the Proxy and Patient are Fully Registered at the same GP Practice can be selected"
+
+      - id: E00751
+        title: "re-enable Citizen Service Access for a Proxy"
+        user_story:
+          role: "Health or Care Professional"
+          want: "re-enable Citizen Service Access for a Proxy without requiring the re-entry of Proxy's information"
+          so_that: "I can efficiently restore Proxy Citizen Services Access on behalf of Patients"
+        acceptance_criteria:
+          - id: AC1
+            title: "re-enable Citizen Service Access for a Proxy"
+            given: "the Health or Care Professional is permitted to enable Citizen Service Access"
+            when: "the Health or Care Professional selects to re-enable Citizen Service Access for a Proxy"
+            then:
+              - "the Citizen Service Access is re-enabled for that Proxy without requiring the re-entry of the Proxy's information"
+              - "the Health or Care Professional can specify an end date for the Citizen Service Access for the Proxy"
+              - "the Proxy is notified the Citizen Service Access is enabled on behalf of the Patient"
+
+      - id: E00206
+        title: "manage Citizen Service Access for a Proxy"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Citizen Service Access for Proxies"
+          so_that: "Proxies have access to Citizen Services on behalf of Patients"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Proxy Citizen Service Access"
+            given: "the Health or Care Professional is permitted to enable Citizen Service Access"
+            when: "the Health or Care Professional selects to enable Citizen Service Access for a Proxy"
+            then:
+              - "the Citizen Service Access is enabled for that Proxy"
+              - "the Health or Care Professional can specify an end date for the Citizen Service Access for that Proxy"
+              - "the Proxy is notified that the Citizen Service Access is enabled on behalf of the Patient"
+          - id: AC2
+            title: "disable Proxy Citizen Service Access"
+            given: "the Health or Care Professional is permitted to disable Citizen Service Access"
+            when: "the Health or Care Professional selects to disable Citizen Service Access for a Proxy"
+            then: ["the Citizen Service Access is disabled for that Proxy"]
+          - id: AC3
+            title: "notification 3 months before Proxy Citizen Service Access end date"
+            given: "the Health or Care Professional has specified an end date for the Citizen Service Access for a Proxy"
+            when: "the date is 3 months before the end date specified"
+            then: ["the Proxy is notified their Citizen Service Access on behalf of the Patient will be disabled in 3 months"]
+          - id: AC4
+            title: "Proxy Citizen Service Access is automatically disabled when end date is reached"
+            given: "the Health or Care Professional has specified an end date for the Citizen Service Access for a Proxy"
+            when: "the end date for the Citizen Service Access for a Proxy is reached"
+            then:
+              - "the Citizen Service Access is automatically disabled for that Proxy"
+              - "the Proxy is notified their Citizen Service Access on behalf of the Patient has been disabled"
+
+      - id: E00207
+        title: "manage Identity Verifications for a Proxy"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Proxy Identity Verifications"
+          so_that: "Proxies are appropriately identified before being granted access to Citizen Services on behalf of Patients"
+        acceptance_criteria:
+          - id: AC1
+            title: "create Proxy Identity Verifications"
+            given: "the Health or Care Professional is permitted to create Proxy Identity Verifications"
+            when: "they select to create an Identity Verification for a Proxy"
+            then:
+              - "the Identity Evidence type is recorded"
+              - "who carried out the identity verification process is recorded"
+              - "the Identity Verification is created for that Proxy"
+          - id: AC2
+            title: "amend Proxy Identity Verifications"
+            given: "the Health or Care Professional is permitted to amend Proxy Identity Verifications"
+            when: "they select to amend an Identity Verification for a Proxy"
+            then: ["the Identity Verification is amended for that Proxy"]
+          - id: AC3
+            title: "view Proxy Identity Verifications"
+            given: "the Health or Care Professional is permitted to view Identity Verifications"
+            when: "they select to view an Identity Verification for a Proxy"
+            then:
+              - "the Identity Verification is displayed for that Proxy"
+              - "the Identity Evidence type is displayed"
+              - "who carried out the identity verification process is displayed"
+
+      - id: E00209
+        title: "manage Appointments Management Citizen Service Access for a Proxy"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to manage Proxy access to Appointments Management Citizen Service"
+          so_that: "I can manage a Proxy's access to Appointments Management Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Proxy access to the Appointments Management Citizen Service"
+            given: "the Health or Care Professional is permitted to configure Proxy access to Appointments Management Citizen Service"
+            when: "they select to enable a Proxy's access to the Appointments Management Citizen Service"
+            then: ["access to the Appointments Management Citizen Service is enabled for the Proxy"]
+          - id: AC2
+            title: "disable Proxy access to the Appointments Management Citizen Service"
+            given: "the Health or Care Professional is permitted to configure Proxy access to Appointments Management Citizen Service"
+            when: "they select to disable a Proxy's access to the Appointments Management Citizen Service"
+            then: ["access to the Appointments Management Citizen Service is disabled for the Proxy"]
+
+      - id: E00210
+        title: "manage Prescription Ordering Citizen Service Access for a Proxy"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to manage Proxy access to Prescription Ordering Citizen Service"
+          so_that: "I can manage a Proxy's access to Prescription Ordering Citizen Service for Repeat Medication"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Proxy access to Prescription Ordering Citizen Service"
+            given: "the Health or Care Professional is permitted to configure Proxy access to Prescription Ordering Citizen Service"
+            when: "they select to enable a Proxy's access to the Prescription Ordering Citizen Service"
+            then: ["access to the Prescription Ordering Citizen Service is enabled for the Proxy"]
+          - id: AC2
+            title: "disable Proxy access to Prescription Ordering Citizen Service"
+            given: "the Health or Care Professional is permitted to configure Proxy access to Prescription Ordering Citizen Service"
+            when: "they select to disable a Proxy's access to the Prescription Ordering Citizen Service"
+            then: ["access to the Prescription Ordering Citizen Service is disabled for the Proxy"]
+
+      - id: E00212
+        title: "manage View Record Citizen Service Access for a Proxy"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to manage Proxy access to View Record Citizen Service"
+          so_that: "I can manage a Proxy's access to View Record Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Proxy access to Summary Information Record Access Level"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to enable a Proxy's access to Summary Information Record Level"
+            then: ["Summary Information Record Access Level is enabled for the Proxy"]
+          - id: AC2
+            title: "enable Proxy access to Detailed Coded Record Access Level"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to enable a Proxy's access to Detailed Coded Record Access Level"
+            then: ["Detailed Coded Record Access Level is enabled for the Proxy"]
+          - id: AC3
+            title: "enable Proxy access to Document Access Level"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services; and Detailed Coded Recorded Access Level is enabled"
+            when: "they select to enable a Proxy's access to Document Access Level"
+            then: ["Document Access Level is enabled for the Proxy"]
+          - id: AC4
+            title: "enable Proxy access to View Record Full Record"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to enable a Proxy's access to Full Record Level and record a start date for data to be available from"
+            then: ["View Record Full Record Access Level is enabled for the Proxy"]
+          - id: AC5
+            title: "disable Proxy access to a Record Access Level"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to disable a Proxy's access to a Record Access Level"
+            then: ["that Record Access Level is disabled for the Proxy"]
+        implementation_details:
+          - "The Access Level for a Proxy will not exceed the configured Access Level for the Practice"
+
+      - id: E00752
+        title: "display Proxies when managing Patient Electronic Patient Records (EPRs)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "view an indication of any Proxies with Citizen Service Access for a Patient and their information when managing the Patient's EPR"
+          so_that: "I can make informed decisions about the Patient's care and determine which elements should be Restricted from View Record Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "display Proxy information when viewing Patient EPRs"
+            given: "the Health or Care Professional is permitted to view EPRs and the Patient has a Proxy"
+            when: "the Health or Care Professional selects to view a Patient's EPR"
+            then:
+              - "an indication of any Proxies with access to Citizen Services on behalf of the Patient is displayed"
+              - "the Proxy's name can be displayed"
+              - "the Proxy's legal basis for access can be displayed"
+              - "the Proxy's relationship to the Patient can be displayed"
+              - "the Proxy's Citizen Service Access can be displayed"
+          - id: AC2
+            title: "display Proxy information when updating Patient EPRs"
+            given: "the Health or Care Professional is permitted to update EPRs and the Patient has a Proxy"
+            when: "the Health or Care Professional selects to update an EPR"
+            then:
+              - "an indication of any Proxies with access to Citizen Services on behalf of the Patient is displayed"
+              - "the Proxy's name can be displayed"
+              - "the Proxy's legal basis for access can be displayed"
+              - "the Proxy's relationship to the Patient can be displayed"
+              - "the Proxy's Citizen Service Access can be displayed"
+
+      - id: E00753
+        title: "view Proxy Citizen Service usage"
+        user_story:
+          role: "Health or Care Professional"
+          want: "view Proxy Citizen Service usage"
+          so_that: "I can see a Proxy's activity on Citizen Services on behalf of a Patient"
+        acceptance_criteria:
+          - id: AC1
+            title: "view Proxy Citizen Service usage"
+            given: "the Health or Care Professional is permitted to view Proxy Citizen Services usage"
+            when: "the Health or Care Professional selects to view a Proxy's Citizen Services usage"
+            then: ["the Proxy's Citizen Services usage is displayed"]
+        supporting_info: >
+          Examples of Proxy Citizen Services usage MAY include, but are not limited to:
+          Proxy views of a Patient's Record; Proxy management of a Patient's Appointments
+          on behalf of the Patient; Proxy Prescription Ordering on behalf of the Patient.
+
+      - id: E00754
+        title: "view Patient Citizen Service usage"
+        user_story:
+          role: "Health or Care Professional"
+          want: "view Patient Citizen Service usage"
+          so_that: "I can see a Patient's activity on Citizen Services"
+        acceptance_criteria:
+          - id: AC1
+            title: "view Patient Citizen Service usage"
+            given: "the Health or Care Professional is permitted to view Patient Citizen Services usage"
+            when: "the Health or Care Professional selects to view a Patient's Citizen Services usage"
+            then: ["the Patient's Citizen Services usage is displayed"]
+        supporting_info: >
+          Examples of Patient Citizen Services usage MAY include, but are not limited to:
+          Views of a Patient's Record; Management of a Patient's Appointments; Prescription Ordering.
+
+      - id: E00211
+        title: "manage Acute Prescription Request Citizen Service for a Proxy"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Proxy access to the Acute Prescription Request Citizen Service"
+          so_that: "I can manage Proxy access to the Acute Prescription Request Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Proxy access to the Acute Prescription Request Citizen Service"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to enable Proxy access to the Acute Prescription Request Citizen Service"
+            then: ["access to the Acute Prescription Request Citizen Service is enabled for the Proxy"]
+          - id: AC2
+            title: "disable Proxy access to the Acute Prescription Request Citizen Service"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to disable the Proxy access to the Acute Prescription Request Citizen Service"
+            then: ["access to the Acute Prescription Request Citizen Service is disabled for the Proxy"]
+
+  may:
+    description: >
+      Describes additional functionality associated with the Capability. Suppliers should
+      consider all MAY Epics as part of their User Research. Suppliers can choose to map
+      their Solutions to these Epics and they will be evaluated via Capability Assessment.
+      Contracting Authorities or purchasing organisations may require these Epics as
+      product qualification or requirements criteria.
+    items:
+      - id: E00186
+        title: "search for Electronic Patient Records (EPRs)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "search for Electronic Patient Records (EPRs)"
+          so_that: "I can find Electronic Patient Records for Patients"
+        acceptance_criteria:
+          - id: AC1
+            title: "search for an Electronic Patient Record (EPR)"
+            given: "the Health or Care Professional is permitted to view EPRs"
+            when: "they search for an Electronic Patient Record (EPR)"
+            then: ["the search results are displayed"]
+        supporting_info: >
+          Demographic Information to search with MAY include: Family name, Given name,
+          Preferred name, Date of birth, NHS Number, Address, Postcode, Telephone number,
+          Registration Type, Local Patient identifier.
+
+      - id: E00187
+        title: "search content of an Electronic Patient Record (EPR)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to search the content of an Electronic Patient Record (EPR)"
+          so_that: "I can view Patient information relevant to my search term"
+        acceptance_criteria:
+          - id: AC1
+            title: "search the content of an Electronic Patient Record (EPR)"
+            given: "the Health or Care Professional has permission to manage an EPR"
+            when: "the Health or Care Professional enters a search term"
+            then: ["content that matches the search term in the EPR is displayed"]
+        implementation_details:
+          - "Searches will include: all/any combination of coded or structured data; a specified text string across both structured data and free text fields; a document using classification and/or document properties"
+
+      - id: E00188
+        title: "search the contents of documents attached to an Electronic Patient Record (EPR)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to search the contents of a document attached to an EPR"
+          so_that: "I can view content within the document that is relevant to my search term"
+        acceptance_criteria:
+          - id: AC1
+            title: "search the contents of a document"
+            given: "there is a document attached to an EPR"
+            when: "the Health or Care Professional selects to search the content of a document for a specific term"
+            then: ["document contents that match the search term are displayed"]
+
+      - id: E00189
+        title: "print the Electronic Patient Record (EPR)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to print the Electronic Patient Record (EPR)"
+          so_that: "the EPR can be printed"
+        acceptance_criteria:
+          - id: AC1
+            title: "print the Electronic Patient Record (EPR)"
+            given: "the Health or Care Professional is permitted to manage an EPR"
+            when: "the Health or Care Professional selects to print an EPR"
+            then: ["the EPR is printed"]
+
+      - id: E00190
+        title: "export the Electronic Patient Record (EPR)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be able to export the Electronic Patient Record (EPR)"
+          so_that: "the EPR can be exported into an electronic file format"
+        acceptance_criteria:
+          - id: AC1
+            title: "export the Electronic Patient Record (EPR)"
+            given: "the Health or Care Professional is permitted to export an EPR"
+            when: "the Health or Care Professional selects to export an EPR"
+            then: ["the EPR is exported"]
+
+      - id: E00191
+        title: "manage a personalised display of Electronic Patient Records (EPRs)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage a personalised display for Electronic Patient Records (EPRs)"
+          so_that: "I have a personalised display of EPRs that can be saved and applied to all EPRs"
+        acceptance_criteria:
+          - id: AC1
+            title: "create a personalised display"
+            given: "the Health or Care Professional is permitted to view EPRs"
+            when: "they select to create a personalised display for EPRs"
+            then: ["a personalised display is created"]
+          - id: AC2
+            title: "view EPRs using personalised display"
+            given: "the Health or Care Professional has created a personalised display"
+            when: "they select to view an EPR"
+            then: ["the EPR is displayed with the personalised display applied"]
+          - id: AC3
+            title: "amend a personalised display"
+            given: "the Health or Care Professional has created a personalised display"
+            when: "they select to amend the personalised display"
+            then: ["the personalised display is amended"]
+          - id: AC4
+            title: "delete a personalised display"
+            given: "the Health or Care Professional has created a personalised display"
+            when: "they select to delete the personalised display"
+            then:
+              - "the personalised display is deleted"
+              - "the default display is applied to all Patient Records the Health or Care Professional views"
+
+      - id: E00192
+        title: "notifications for outstanding actions on an Electronic Patient Record (EPR)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "be notified when there are outstanding actions on an EPR"
+          so_that: "I am notified of the outstanding actions"
+        acceptance_criteria:
+          - id: AC1
+            title: "notification of outstanding actions"
+            given: "the Health or Care Professional is accessing the EPR"
+            when: "there are outstanding actions relating to the Patient"
+            then: ["the Health or Care Professional is notified"]
+        supporting_info: >
+          Outstanding actions MAY include: incompleteness of a registration record,
+          contact details requiring verification, outstanding tasks, outstanding Referrals,
+          documents with outstanding filing status.
+
+      - id: E00193
+        title: "manage Patient Related Persons"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Patient Related Persons"
+          so_that: "there is an up to date record of Patient Related Persons"
+        acceptance_criteria:
+          - id: AC1
+            title: "create Patient Related Persons"
+            given: "the Health or Care Professional is permitted to create a Patient Related Person"
+            when: "they select to create a Patient Related Person"
+            then: ["the Patient Related Person is created"]
+          - id: AC2
+            title: "amend Patient Related Persons"
+            given: "the Health or Care Professional is permitted to amend a Patient Related Person"
+            when: "they select to amend a Patient Related Person"
+            then: ["the Patient Related Person is amended"]
+          - id: AC3
+            title: "view Patient Related Persons"
+            given: "the Health or Care Professional is permitted to view a Patient Related Person"
+            when: "they select to view a Patient Related Person"
+            then: ["the Patient Related Person is displayed"]
+          - id: AC4
+            title: "delete Patient Related Persons"
+            given: "the Health or Care Professional is permitted to delete a Patient Related Person"
+            when: "they select to delete a Patient Related Person"
+            then: ["the Patient Related Person is deleted"]
+        supporting_info: >
+          Types of Related Persons MAY include: Family member, Carer, Next of Kin,
+          Cared for Individual, Psychiatric nurse, Patient's social worker.
+
+      - id: E00194
+        title: "manage Patient Problem lists"
+        user_story:
+          role: "Health or Care Professional"
+          want: "a problem-orientated approach to recording and viewing Patient data"
+          so_that: "information from the EPR relating to a single Problem can be viewed together"
+        acceptance_criteria:
+          - id: AC1
+            title: "add a new Problem to the Patient's Problem list"
+            given: "the Health or Care Professional is permitted to manage Patient Problem lists"
+            when: "the Health or Care Professional selects to create a new Problem"
+            then: ["the Problem is created on the Patient's Problem list"]
+          - id: AC2
+            title: "remove Problem from the Patient's Problem list"
+            given: "the Health or Care Professional is permitted to manage Patient Problem lists"
+            when: "the Health or Care Professional selects to remove a Problem"
+            then: ["the Problem is removed from the Patient's Problem list"]
+
+      - id: E00195
+        title: "manage manual Patient Alerts for Electronic Patient Records (EPRs)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manually manage Patient Alerts for EPRs"
+          so_that: "key characteristics relating to the Patient are indicated to Health or Care Professionals"
+        acceptance_criteria:
+          - id: AC1
+            title: "create a manual Patient Alert"
+            given: "the Health or Care Professional is permitted to manage Patient Alerts"
+            when: "the Health or Care Professional selects to create a Patient Alert"
+            then: ["the Patient Alert is created"]
+          - id: AC2
+            title: "view manual Patient Alerts"
+            given: "the Health or Care Professional is permitted to view EPRs and a manual Patient Alert is recorded"
+            when: "the Health or Care Professional selects to view a Patient's EPR"
+            then: ["the Patient Alert is displayed"]
+          - id: AC3
+            title: "remove a manual Patient Alert"
+            given: "the Health or Care Professional is permitted to manage Patient Alerts"
+            when: "the Health or Care Professional selects to remove a Patient Alert"
+            then: ["the Patient Alert is removed"]
+
+      - id: E00196
+        title: "manage automatic Patient Alerts for Electronic Patient Records (EPRs)"
+        user_story:
+          role: "Health or Care Professional"
+          want: "Patient Alerts to be automatically displayed for EPRs"
+          so_that: "key characteristics relating to the Patient are indicated automatically"
+        acceptance_criteria:
+          - id: AC1
+            title: "create automatic Patient Alerts"
+            given: "the Health or Care Professional is permitted to manage automatic Patient Alerts"
+            when: "the Health or Care Professional selects to create an automatic Patient Alert"
+            then:
+              - "they can specify the criteria for the Patient Alert to be displayed"
+              - "the automatic Patient Alert is created"
+          - id: AC2
+            title: "view configuration for automatic Patient Alerts"
+            given: "the Health or Care Professional is permitted to manage automatic Patient Alerts"
+            when: "the Health or Care Professional selects to view the configuration of an automatic Patient Alert"
+            then: ["the configuration for the automatic Patient Alert is displayed"]
+          - id: AC3
+            title: "amend automatic Patient Alerts"
+            given: "the Health or Care Professional is permitted to manage automatic Patient Alerts"
+            when: "the Health or Care Professional selects to amend an automatic Patient Alert"
+            then: ["the automatic Patient Alert is amended"]
+          - id: AC4
+            title: "view automatic Patient Alerts for Patients"
+            given: "there are automatic Patient Alerts created and the criteria for an automatic Patient Alert is met"
+            when: "the Health or Care Professional selects to view a Patient's EPR"
+            then: ["the Patient Alert is displayed for that Patient's EPR"]
+          - id: AC5
+            title: "delete automatic Patient Alerts"
+            given: "the Health or Care Professional is permitted to manage automatic Patient Alerts"
+            when: "the Health or Care Professional selects to delete an automatic Patient Alert"
+            then:
+              - "the automatic Patient Alert is deleted"
+              - "it is no longer displayed for Patients"
+
+      - id: E00197
+        title: "support Registrations for Private Patients"
+        user_story:
+          role: "Health or Care Professional"
+          want: "categorise Patients as being Private Registrations"
+          so_that: "I can support Private Registrations"
+        acceptance_criteria:
+          - id: AC1
+            title: "record Patient Registration Type as Private"
+            given: "the Health or Care Professional is permitted to create Patient Registrations"
+            when: "the Health or Care Professional selects to create a Patient Registration"
+            then:
+              - "the Registration Type can be recorded as Private"
+              - "the Patient's individual GP can be recorded"
+              - "the Patient Registration is created"
+
+      - id: E00198
+        title: "support Registrations for Other Services"
+        user_story:
+          role: "Health or Care Professional"
+          want: "categorise Patients as Registered for Other Services"
+          so_that: "I can support Registrations for Other Services"
+        acceptance_criteria:
+          - id: AC1
+            title: "record Patient Registration Type as Other Services"
+            given: "the Healthcare Organisation is permitted to create Patient Registrations"
+            when: "the Health or Care Professional selects to create a Patient Registration"
+            then:
+              - "the Patient's Registration Type can be recorded as Other Services"
+              - "the Patient's individual GP can be recorded"
+              - "the Patient Registration is created"
+        supporting_info: >
+          Examples of Registrations for Other Services MAY include: Enhanced services,
+          Locally commissioned services.
+
+      - id: E00199
+        title: "manage Subject Access Request (SAR) requests"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage SAR requests"
+          so_that: "I can manage SAR requests"
+        acceptance_criteria:
+          - id: AC1
+            title: "create SAR requests"
+            given: "the Health or Care Professional is permitted to create SAR requests"
+            when: "they select to create a SAR request"
+            then: ["the SAR request is created"]
+          - id: AC2
+            title: "amend SAR requests"
+            given: "the Health or Care Professional is permitted to amend SAR requests"
+            when: "they select to amend a SAR request"
+            then: ["the SAR request is amended"]
+          - id: AC3
+            title: "view SAR requests"
+            given: "the Health or Care Professional is permitted to view SAR requests"
+            when: "they select to view a SAR request"
+            then: ["the SAR request is displayed"]
+          - id: AC4
+            title: "delete SAR requests"
+            given: "the Health or Care Professional is permitted to delete SAR requests"
+            when: "they select to delete a SAR request"
+            then: ["the SAR request is deleted"]
+        implementation_details:
+          - "Enable the Patient's EPR to be screened by Authorised Users for data that could be detrimental to the Patient if viewed and/or third party information before responding to a Subject Access Request"
+          - "Adhere to the General Data Protection Regulation (GDPR)"
+
+      - id: E00200
+        title: "view Subject Access Request reports"
+        user_story:
+          role: "Health or Care Professional"
+          want: "view Subject Access Request reports"
+          so_that: "I can see Subject Access Request activity"
+        acceptance_criteria:
+          - id: AC1
+            title: "view Subject Access Request reports"
+            given: "the Health or Care Professional is permitted to view Subject Access Request reports"
+            when: "the Health or Care Professional selects to view a Subject Access Request report"
+            then: ["the Subject Access Request report is displayed"]
+
+      - id: E00201
+        title: "verify Patient Contact Details"
+        user_story:
+          role: "Health or Care Professional"
+          want: "verify a Patient's Contact Details"
+          so_that: "I have a record that the Patient's Contact Details have been verified"
+        acceptance_criteria:
+          - id: AC1
+            title: "successful verification of a Patient's Contact Details"
+            given: "the Health or Care Professional is permitted to verify a Patient's Contact Details"
+            when: "they select to verify the Patient's Contact Details and verification is successful"
+            then: ["the Contact Details status is updated to Verified"]
+          - id: AC2
+            title: "manual update to a Patient's Contact Details verification status"
+            given: "the Health or Care Professional is permitted to amend the verification status of a Patient's Contact Details"
+            when: "they select to amend the verification status"
+            then: ["the verification status is amended"]
+        implementation_details:
+          - "Verify Patient Contact Details via a time-limited challenge-response mechanism, where the Solution will request confirmation details in the response"
+        supporting_info: >
+          Contact Details requiring verification MAY include: Email Address, Mobile Phone Number.
+          Verification statuses MAY include: Verified, Unverified (default for new details),
+          Requires Re-verification.
+
+      - id: E00202
+        title: "configure Welcome Message for Citizen Services"
+        user_story:
+          role: "Health or Care Professional"
+          want: "configure a Welcome Message for Citizen Services"
+          so_that: "a Welcome Message for Citizen Services is displayed for Citizens when accessing Citizen Services"
+        acceptance_criteria:
+          - id: AC1
+            title: "configure a Welcome Message for Citizen Services"
+            given: "the Health or Care Professional is permitted to configure a Welcome Message for Citizen Services"
+            when: "they select to configure a Welcome Message"
+            then: ["the Welcome Message is configured"]
+
+      - id: E00205
+        title: "manage Acute Prescription Request Citizen Service for a Patient and the Practice"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Patient access to the Acute Prescription Request Citizen Service"
+          so_that: "I can manage Patient access to the Acute Prescription Request Citizen Service"
+        acceptance_criteria:
+          - id: AC1
+            title: "enable Patient access to the Acute Prescription Request Citizen Service"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to enable a Patient's access to the Acute Prescription Request Citizen Service"
+            then: ["access to the Acute Prescription Request Citizen Service is enabled for the Patient"]
+          - id: AC2
+            title: "disable Patient access to the Acute Prescription Request Citizen Service"
+            given: "the Health or Care Professional is permitted to configure access to Citizen Services"
+            when: "they select to disable the Patient's access to the Acute Prescription Request Citizen Service"
+            then: ["access to the Acute Prescription Request Citizen Service is disabled for the Patient"]
+          - id: AC3
+            title: "enable Acute Prescription Request Citizen Service for the Practice"
+            given: "the Health or Care Professional is permitted to enable a Citizen Service for the Practice"
+            when: "they select to enable the Acute Prescription Request Citizen Service for the Practice"
+            then: ["the Acute Prescription Request Citizen Service is enabled for the Practice"]
+          - id: AC4
+            title: "disable Acute Prescription Request Citizen Service for the Practice"
+            given: "the Health or Care Professional is permitted to disable a Citizen Service for the Practice"
+            when: "they select to disable the Acute Prescription Request for the Practice"
+            then: ["the Acute Prescription Request Citizen Service is disabled for the Practice"]
+
+      - id: E00213
+        title: "identify Patients outside of Catchment Area"
+        user_story:
+          role: "Health or Care Professional"
+          want: "Patients that reside outside the Catchment Area to be identified"
+          so_that: "Patients that reside outside the Catchment Area are identified"
+        acceptance_criteria:
+          - id: AC1
+            title: "identify Patients outside of catchment area"
+            given: "the Health or Care Professional is permitted to view EPRs"
+            when: "the Health or Care Professional selects to view an EPR and the Patient resides outside the Catchment area"
+            then: ["the Patient is identified as residing outside the Catchment Area"]
+
+      - id: E00214
+        title: "view Patient reports"
+        user_story:
+          role: "Health or Care Professional"
+          want: "view Patient reports"
+          so_that: "I can see Patient activity"
+        acceptance_criteria:
+          - id: AC1
+            title: "view Patient reports"
+            given: "the Health or Care Professional is permitted to view Patient reports"
+            when: "the Health or Care Professional selects to view a Patient report"
+            then: ["the report is displayed"]
+
+      - id: E00215
+        title: "manage Patient Cohorts from Search Results"
+        user_story:
+          role: "Health or Care Professional"
+          want: "manage Patient Cohorts from Search Results"
+          so_that: "Patient Cohorts can be managed"
+        acceptance_criteria:
+          - id: AC1
+            title: "create Patient Cohorts from Search Results"
+            given: "the Health or Care Professional is permitted to manage Patient Cohorts and there are Search Results available"
+            when: "the Health or Care Professional selects to create a Patient Cohort from Search Results"
+            then: ["the Patient Cohort is created"]
+          - id: AC2
+            title: "update Patient Cohorts"
+            given: "the Health or Care Professional is permitted to manage Patient Cohorts"
+            when: "the Health or Care Professional selects to update a Patient Cohort"
+            then: ["the Patient Cohort is updated"]
+          - id: AC3
+            title: "delete Patient Cohorts"
+            given: "the Health or Care Professional is permitted to manage Patient Cohorts"
+            when: "the Health or Care Professional selects to delete a Patient Cohort"
+            then: ["the Patient Cohort is deleted"]
+
+      - id: E00216
+        title: "Patient-based report on Capitation"
+        user_story:
+          role: "Health or Care Professional"
+          want: "generate a report on current registered Patients"
+          so_that: "I have a Patient-based report on Capitation"
+        acceptance_criteria:
+          - id: AC1
+            title: "generate a Patient-based report on Capitation"
+            given: "the Health or Care Professional is permitted to generate a report"
+            when: "they select to generate a report on current registered Patients listed by their GP"
+            then: ["the report results are displayed"]
+
+      - id: E00217
+        title: "Patient-based report on childhood vaccinations and immunisations"
+        user_story:
+          role: "Health or Care Professional"
+          want: "generate a Patient-based report on childhood vaccinations and immunisations"
+          so_that: "I can understand vaccination and immunisation coverage for my Patients"
+        acceptance_criteria:
+          - id: AC1
+            title: "generate a Patient-based report on childhood vaccinations and immunisations"
+            given: "the Health or Care Professional is permitted to generate a report"
+            when: "they select to generate a Patient-based report on childhood vaccinations and immunisations"
+            then: ["the report results are displayed"]
+        implementation_details:
+          - "Support existing Childhood Immunisation Schemes as per the General Medical Services Statement of Financial Entitlements Directions"
+
+      - id: E00218
+        title: "Patient-based report on Carers"
+        user_story:
+          role: "Health or Care Professional"
+          want: "generate a Patient-based report on Carers"
+          so_that: "I can understand which of my Patients have Carers"
+        acceptance_criteria:
+          - id: AC1
+            title: "generate a Patient-based report on Carers"
+            given: "the Health or Care Professional is permitted to generate a report"
+            when: "they select to generate a Patient-based report on Carers"
+            then: ["the report results are displayed"]
+        supporting_info: >
+          Examples of reports on Carers MAY include: a list of Carers linked to Patients;
+          Carers links to specified Patient Characteristics.
+
+roadmap:
+  items:
+    - title: "Automated Patient Registration - uplift to include all encounter types"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+        - "Register with a GP Surgery Service"
+      status: Published
+      effective_date: "2026-11-16"
+      description: >
+        Update to automated Patient Registration - Register with a GP Surgery Service
+        requirements to automatically process GP Registrations for encounter types 1, 2, 4
+        and 5 in addition to encounter type 3, that is already being processed.
+      change_type: Uplift
+      change_route: "Managed Capacity - Other"
+
+    - title: "Ingestion of Pharmacy First Urgent Medicine Supply information from Community Pharmacies into GP Solutions"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+        - "Digital Medicines and Pharmacy FHIR Payload"
+        - "Consultation Management - Community Pharmacy"
+      status: Published
+      effective_date: "2026-12-09"
+      description: >
+        Render HTML and ingest structured Pharmacy First Urgent Medicine Supply information
+        from Community Pharmacies into Patient Electronic Patient Records (EPRs) in GP Solutions.
+      change_type: Uplift
+      change_route: "Managed Capacity - Minor/Patch uplifts"
+
+    - title: "Patient Flags Service - Reasonable Adjustments (RA) Flag"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+        - "Multicast Notification Service (MNS)"
+      status: Published
+      effective_date: "2027-01-08"
+      description: >
+        Enable national sharing and management of Patients Reasonable Adjustments Flag
+        via the Patient Flags Service - FHIR API.
+      change_type: New
+      change_route: "Managed Capacity - Other"
+
+    - title: "Patient Flags Service - Child Protection - Information Sharing (CP-IS) Flag"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+        - "Patient Flags Service"
+      status: Published
+      effective_date: "2027-02-08"
+      description: >
+        Enable national sharing and management of Patients Child Protection - Information
+        Sharing Flags via the Patient Flags Service - FHIR API.
+      change_type: Uplift
+      change_route: "Managed Capacity - Other"
+
+    - title: "Patient Flags Service - Female Genital Mutilation (FGM) Flag"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+        - "Patient Flags Service"
+      status: Published
+      effective_date: "2027-03-08"
+      description: >
+        Enable national sharing and management of Female Genital Mutilation Flag data
+        via the Patient Flags Service - FHIR API.
+      change_type: Uplift
+      change_route: "Managed Capacity - Other"
+
+    - title: "National Proxy Service"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+        - "Validated Relationship Service (VRS)"
+        - "GP Connect (Patient Facing) User Permissions"
+        - "GP Connect (Patient Facing) Access Record"
+        - "GP Connect (Patient Facing) Prescriptions"
+        - "Multicast Notification Service (MNS)"
+      status: Published
+      effective_date: "2027-04-20"
+      description: >
+        Integrate with the National Proxy Service.
+      change_type: New
+      change_route: "Managed Capacity - Other"
+
+    - title: "Recording and displaying Unknown Clinical Trial Medication"
+      capabilities:
+        - "Prescribing - GP"
+        - "Patient Information Maintenance - GP"
+      status: Draft
+      effective_date: null
+      description: >
+        Record and display Unknown Clinical Trial Medication to improve visibility and
+        support safer prescribing.
+      change_type: Uplift
+      change_route: "Managed Capacity - Other"
+
+    - title: "Calculate QRISK3 Scores"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+      status: Draft
+      effective_date: null
+      description: >
+        Uplift to the Patient Information Maintenance - GP Capability to include a new
+        MUST Epic for calculating QRISK3 scores.
+      change_type: Uplift
+      change_route: "Managed Capacity - Minor/Patch uplifts"
+
+    - title: "NHS Health Check online"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+        - "Multicast Notification Service (MNS)"
+      status: Draft
+      effective_date: null
+      description: >
+        Ingestion of NHS Health Check online data into Patients' Electronic Patient Records (EPRs).
+      change_type: New
+      change_route: "Managed Capacity - Other"
+
+    - title: "Access documents in the National Document Repository (NDR) via the National Record Locator Service (NRLS)"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+      status: Draft
+      effective_date: null
+      description: >
+        GP Practice Solutions to integrate with the National Record Locator Service (NRLS)
+        to view and download associated documents.
+      change_type: New
+      change_route: "Managed Capacity - Other"
+
+    - title: "Improved GP contract indicators for Index of Deprivation"
+      capabilities:
+        - "GPES Data Extraction"
+        - "Patient Information Maintenance - GP"
+      status: Draft
+      effective_date: null
+      description: >
+        Uplifts to the GPES Data Extraction and indicators for GP Index of Deprivation.
+      change_type: Uplift
+      change_route: "Managed Capacity - Minor/Patch uplifts"
+
+    - title: "Data environment for OpenSAFELY"
+      capabilities:
+        - "Patient Information Maintenance - GP"
+      status: Draft
+      effective_date: null
+      description: >
+        GP system Supplier data environment Standard for OpenSAFELY.
+      change_type: New
+      change_route: "Managed Capacity - Other"
