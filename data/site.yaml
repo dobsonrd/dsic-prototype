@@ -1,0 +1,32 @@
+# DSIC Capabilities & Standards — Site Manifest
+# This file is the canonical registry of all capabilities and standards in this catalogue.
+# The index.html home page is rendered from this source.
+#
+# Schema: /schema/site.schema.yaml
+# Last updated: 2026-10-01
+
+site:
+  name: "Digital Services for Integrated Care (DSIC) Capabilities & Standards"
+  version: "1.0"
+  last_updated: "2026-10-01"
+  description: >
+    The landing page for the DSIC Catalogue Capabilities & Standards.
+    Catalogue Solutions must demonstrate they meet a Capability or Standard
+    in order to be listed on the catalogue.
+
+links:
+  introduction: "https://nhse-dsic.atlassian.net/wiki/spaces/DCSDCS/pages/12671614977/Introduction+to+Capabilities+and+Standards"
+  roadmap: "https://nhse-dsic.atlassian.net/wiki/spaces/DCSDR"
+  contracting_vehicles: "https://nhse-dsic.atlassian.net/wiki/spaces/DCSH"
+
+capabilities:
+  - id: C13
+    name: "Patient Information Maintenance - GP"
+    category: "Patient care management"
+    status: Effective
+    version: "10.0.2"
+    effective_date: "2026-09-23"
+    url: "capability-C13.html"
+    file: "data/capabilities/C13.yaml"
+
+standards: []
