@@ -5,7 +5,7 @@
 # This file contains the 11 retained/new requirements.
 # Wording is unchanged from the source document, including original typos (noted inline).
 #
-# Section order: Hosting Quality (new) · Baseline Assurance · Network · Device Management
+# Section order: Minimum Hosting Standard (new) · Baseline Assurance · Network · Device Management
 #
 # Schema: /schema/standard.schema.yaml
 # Last updated: 2026-10-09
@@ -22,7 +22,7 @@ metadata:
 sections:
 
   - id: hosting-quality
-    name: "Hosting Quality"
+    name: "Minimum Hosting Standard"
     requirements:
 
       - id: CH5.0
