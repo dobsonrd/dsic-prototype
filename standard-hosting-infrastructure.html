@@ -129,6 +129,10 @@
     /* Level cell */
     .col-lvl-cell { text-align: center; white-space: nowrap; }
 
+    /* Paragraph spacing inside category cells */
+    .dsic-req-table td p { margin-top: 0; margin-bottom: 0.375rem; }
+    .dsic-req-table td p:last-child { margin-bottom: 0; }
+
     /* Sub-bullet list inside req cell */
     .dsic-req-table .nhsuk-list { margin-bottom: 0.5rem; }
     .dsic-req-table .nhsuk-list li { font-size: inherit; }
@@ -282,150 +286,6 @@
       <!-- ══════════════════════════════════════════════════════════════ -->
       <section class="dsic-section" id="baseline-assurance">
         <h2 class="nhsuk-heading-l">Baseline Assurance Standard Requirements</h2>
-
-        <!-- Cloud Minimum Hosting Requirements (CH5.0) -->
-        <h3 class="nhsuk-heading-m" id="CH5.0">Cloud Minimum Hosting Requirements</h3>
-        <div class="dsic-req-meta">
-          <code class="dsic-req-id">CH5.0</code>
-          <strong class="nhsuk-tag">MUST</strong>
-          <span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
-            <span class="dsic-vehicle">Digital Pathways</span>
-            <span class="dsic-vehicle">Solution Registry</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-        <p class="nhsuk-body">The Supplier will ensure that the cloud provider used to host the Solution, and the Supplier's configuration of that provider's services, meet the quality level set out for the Solution's Category. This applies to every cloud service and region the Solution uses. Provider certification is in addition to the Supplier's own certification under the Information Governance Standard. Hosting topology is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
-        <div class="dsic-req-table-wrap">
-          <table class="dsic-criteria-table dsic-criteria-standalone">
-            <thead>
-              <tr>
-                <th class="crit-label" scope="col">Criterion</th>
-                <th class="crit-a" scope="col">Category A</th>
-                <th class="crit-b" scope="col">Category B</th>
-                <th class="crit-c" scope="col">Category C</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Provider certification<br><small>(every service &amp; region)</small></th>
-                <td>ISO/IEC 27001 from a UKAS or IAF-accredited body, with ISO/IEC 27017 and 27018, plus a SOC 2 Type II report or CSA STAR Level 2</td>
-                <td>ISO/IEC 27001 from a UKAS or IAF-accredited body, plus one of ISO/IEC 27017, SOC 2 Type II or CSA STAR Level 2</td>
-                <td>ISO/IEC 27001 from a UKAS or IAF-accredited body</td>
-              </tr>
-              <tr>
-                <th scope="row">NCSC Cloud Security Principles</th>
-                <td>Provider publishes its response to all 14 principles; Supplier documents which responsibilities sit with the provider and which with the Supplier</td>
-                <td>Provider publishes its response to all 14 principles</td>
-                <td>Provider publishes its response to all 14 principles</td>
-              </tr>
-              <tr>
-                <th scope="row">Hosting topology</th>
-                <td>Hosted in a region with at least three availability zones, with production spread across them; also uses a second UK region where the provider has one</td>
-                <td>Production spread across at least two availability zones</td>
-                <td>Single availability zone acceptable</td>
-              </tr>
-              <tr>
-                <th scope="row">Secure configuration</th>
-                <td>Cloud tenancy configured against a recognised hardening baseline (e.g. CIS Benchmarks or the provider's security baseline), with continuous compliance monitoring and deviations documented</td>
-                <td>Configured against a recognised hardening baseline, reviewed at least annually</td>
-                <td>Provider's default security baseline enabled, with exceptions documented</td>
-              </tr>
-              <tr class="row-assurance">
-                <th scope="row">Assurance approach</th>
-                <td><em>Full Assessment</em></td>
-                <td><em>Self-certification with Supporting Evidence</em></td>
-                <td><em>Self-certification</em></td>
-              </tr>
-              <tr>
-                <th scope="row">Evidence</th>
-                <td>Certificates and reports with scope, list of services and regions used, responsibility matrix, latest configuration compliance report</td>
-                <td>Certificates with scope, list of services and regions used, latest baseline review</td>
-                <td>Statement naming the provider, services and regions, with certificate reference</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Data Centre Minimum Hosting Requirements (DC1.0) -->
-        <h3 class="nhsuk-heading-m" id="DC1.0">Data Centre Minimum Hosting Requirements</h3>
-        <div class="dsic-req-meta">
-          <code class="dsic-req-id">DC1.0</code>
-          <strong class="nhsuk-tag">MUST</strong>
-          <span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">All CVs (co-location or Supplier-owned facilities)</span>
-          </div>
-        </div>
-        <p class="nhsuk-body">The Supplier will ensure that every data centre used to host the Solution, including secondary sites, meets the quality level set out for the Solution's Category. This applies to co-location facilities and to facilities owned by the Supplier. Where a facility is operated by a third party, evidence is to relate to the data centre operator, and operator certification is in addition to the Supplier's own certification under the Information Governance Standard. Security of the facility is set by SEC1.0. Site and resilience design is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
-        <div class="dsic-req-table-wrap">
-          <table class="dsic-criteria-table dsic-criteria-standalone">
-            <thead>
-              <tr>
-                <th class="crit-label" scope="col">Criterion</th>
-                <th class="crit-a" scope="col">Category A</th>
-                <th class="crit-b" scope="col">Category B</th>
-                <th class="crit-c" scope="col">Category C</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Facility availability</th>
-                <td>BS EN 50600 Availability Class 3 or above, independently certified or audited (Uptime Institute Tier III or TIA-942 Rated 3 accepted)</td>
-                <td>BS EN 50600 Availability Class 3 design alignment, evidenced by operator documentation</td>
-                <td>BS EN 50600 Availability Class 2 or above</td>
-              </tr>
-              <tr>
-                <th scope="row">Sites</th>
-                <td>Two geographically separate sites, both meeting this column; separation justified by a location risk assessment</td>
-                <td>Two geographically separate sites; the primary meets this column and the secondary meets Category C</td>
-                <td>One site meeting this column, plus a geographically separate location for backup data</td>
-              </tr>
-              <tr>
-                <th scope="row">Operator management systems</th>
-                <td>ISO/IEC 27001 (UKAS or IAF-accredited) and ISO 9001, with Statement of Applicability and scope covering the facilities used</td>
-                <td>ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</td>
-                <td>ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</td>
-              </tr>
-              <tr>
-                <th scope="row">Power and network</th>
-                <td>Concurrently maintainable power and cooling; dual Internet (and NHS Network where used) connections via diverse carriers and entry points</td>
-                <td>Standby generation that can be refuelled in use; dual connections via diverse routes where available</td>
-                <td>Standby power sufficient for controlled shutdown; carrier details documented</td>
-              </tr>
-              <tr>
-                <th scope="row">Platform hardening</th>
-                <td>Operating systems, hypervisors and network devices hardened against a recognised baseline, with compliance checked at least quarterly and deviations documented</td>
-                <td>Hardened against a recognised baseline, reviewed at least annually</td>
-                <td>Non-essential services and protocols disabled, with the approach documented</td>
-              </tr>
-              <tr>
-                <th scope="row">Facility audit</th>
-                <td>Annual independent audit; results and work-off plans available to the Authority</td>
-                <td>Annual audit; results available on request</td>
-                <td>Operator audit statement</td>
-              </tr>
-              <tr class="row-assurance">
-                <th scope="row">Assurance approach</th>
-                <td><em>Full Assessment</em></td>
-                <td><em>Self-certification with Supporting Evidence</em></td>
-                <td><em>Self-certification</em></td>
-              </tr>
-              <tr>
-                <th scope="row">Evidence</th>
-                <td>Certificates with scope, availability class certification or audit report, location risk assessment, latest hardening compliance report, latest audit</td>
-                <td>Certificates with scope, operator design documentation, latest baseline review</td>
-                <td>Statement naming the facilities and operator, with certificate reference</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- HD1.0, SEC1.0 -->
         <div class="dsic-req-table-wrap">
           <table class="dsic-req-table">
             <thead>
@@ -439,6 +299,94 @@
               </tr>
             </thead>
             <tbody>
+
+              <!-- CH5.0 -->
+              <tr>
+                <td class="dsic-req-id">CH5.0</td>
+                <td>
+                  <p class="dsic-req-title">Cloud Minimum Hosting Requirements</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span></p>
+                  <p>The Supplier will ensure that the cloud provider used to host the Solution, and the Supplier's configuration of that provider's services, meet the quality level set out for the Solution's Category. This applies to every cloud service and region the Solution uses. Provider certification is in addition to the Supplier's own certification under the Information Governance Standard. Hosting topology is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
+                    <span class="dsic-vehicle">Digital Pathways</span>
+                    <span class="dsic-vehicle">Solution Registry</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>
+                  <p><strong>Provider certification:</strong> ISO/IEC 27001 from a UKAS or IAF-accredited body, with ISO/IEC 27017 and 27018, plus a SOC 2 Type II report or CSA STAR Level 2</p>
+                  <p><strong>NCSC Cloud Security Principles:</strong> Provider publishes its response to all 14 principles; Supplier documents which responsibilities sit with the provider and which with the Supplier</p>
+                  <p><strong>Hosting topology:</strong> Hosted in a region with at least three availability zones, with production spread across them; also uses a second UK region where the provider has one</p>
+                  <p><strong>Secure configuration:</strong> Cloud tenancy configured against a recognised hardening baseline (e.g. CIS Benchmarks or the provider's security baseline), with continuous compliance monitoring and deviations documented</p>
+                  <p><em><strong>Assurance:</strong> Full Assessment</em></p>
+                  <p><strong>Evidence:</strong> Certificates and reports with scope, list of services and regions used, responsibility matrix, latest configuration compliance report</p>
+                </td>
+                <td>
+                  <p><strong>Provider certification:</strong> ISO/IEC 27001 from a UKAS or IAF-accredited body, plus one of ISO/IEC 27017, SOC 2 Type II or CSA STAR Level 2</p>
+                  <p><strong>NCSC Cloud Security Principles:</strong> Provider publishes its response to all 14 principles</p>
+                  <p><strong>Hosting topology:</strong> Production spread across at least two availability zones</p>
+                  <p><strong>Secure configuration:</strong> Configured against a recognised hardening baseline, reviewed at least annually</p>
+                  <p><em><strong>Assurance:</strong> Self-certification with Supporting Evidence</em></p>
+                  <p><strong>Evidence:</strong> Certificates with scope, list of services and regions used, latest baseline review</p>
+                </td>
+                <td>
+                  <p><strong>Provider certification:</strong> ISO/IEC 27001 from a UKAS or IAF-accredited body</p>
+                  <p><strong>NCSC Cloud Security Principles:</strong> Provider publishes its response to all 14 principles</p>
+                  <p><strong>Hosting topology:</strong> Single availability zone acceptable</p>
+                  <p><strong>Secure configuration:</strong> Provider's default security baseline enabled, with exceptions documented</p>
+                  <p><em><strong>Assurance:</strong> Self-certification</em></p>
+                  <p><strong>Evidence:</strong> Statement naming the provider, services and regions, with certificate reference</p>
+                </td>
+              </tr>
+
+              <!-- DC1.0 -->
+              <tr>
+                <td class="dsic-req-id">DC1.0</td>
+                <td>
+                  <p class="dsic-req-title">Data Centre Minimum Hosting Requirements</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
+                  <p>The Supplier will ensure that every data centre used to host the Solution, including secondary sites, meets the quality level set out for the Solution's Category. This applies to co-location facilities and to facilities owned by the Supplier. Where a facility is operated by a third party, evidence is to relate to the data centre operator, and operator certification is in addition to the Supplier's own certification under the Information Governance Standard. Security of the facility is set by SEC1.0. Site and resilience design is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">All CVs (co-location or Supplier-owned facilities)</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>
+                  <p><strong>Facility availability:</strong> BS EN 50600 Availability Class 3 or above, independently certified or audited (Uptime Institute Tier III or TIA-942 Rated 3 accepted)</p>
+                  <p><strong>Sites:</strong> Two geographically separate sites, both meeting this column; separation justified by a location risk assessment</p>
+                  <p><strong>Operator management systems:</strong> ISO/IEC 27001 (UKAS or IAF-accredited) and ISO 9001, with Statement of Applicability and scope covering the facilities used</p>
+                  <p><strong>Power and network:</strong> Concurrently maintainable power and cooling; dual Internet (and NHS Network where used) connections via diverse carriers and entry points</p>
+                  <p><strong>Platform hardening:</strong> Operating systems, hypervisors and network devices hardened against a recognised baseline, with compliance checked at least quarterly and deviations documented</p>
+                  <p><strong>Facility audit:</strong> Annual independent audit; results and work-off plans available to the Authority</p>
+                  <p><em><strong>Assurance:</strong> Full Assessment</em></p>
+                  <p><strong>Evidence:</strong> Certificates with scope, availability class certification or audit report, location risk assessment, latest hardening compliance report, latest audit</p>
+                </td>
+                <td>
+                  <p><strong>Facility availability:</strong> BS EN 50600 Availability Class 3 design alignment, evidenced by operator documentation</p>
+                  <p><strong>Sites:</strong> Two geographically separate sites; the primary meets this column and the secondary meets Category C</p>
+                  <p><strong>Operator management systems:</strong> ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</p>
+                  <p><strong>Power and network:</strong> Standby generation that can be refuelled in use; dual connections via diverse routes where available</p>
+                  <p><strong>Platform hardening:</strong> Hardened against a recognised baseline, reviewed at least annually</p>
+                  <p><strong>Facility audit:</strong> Annual audit; results available on request</p>
+                  <p><em><strong>Assurance:</strong> Self-certification with Supporting Evidence</em></p>
+                  <p><strong>Evidence:</strong> Certificates with scope, operator design documentation, latest baseline review</p>
+                </td>
+                <td>
+                  <p><strong>Facility availability:</strong> BS EN 50600 Availability Class 2 or above</p>
+                  <p><strong>Sites:</strong> One site meeting this column, plus a geographically separate location for backup data</p>
+                  <p><strong>Operator management systems:</strong> ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</p>
+                  <p><strong>Power and network:</strong> Standby power sufficient for controlled shutdown; carrier details documented</p>
+                  <p><strong>Platform hardening:</strong> Non-essential services and protocols disabled, with the approach documented</p>
+                  <p><strong>Facility audit:</strong> Operator audit statement</p>
+                  <p><em><strong>Assurance:</strong> Self-certification</em></p>
+                  <p><strong>Evidence:</strong> Statement naming the facilities and operator, with certificate reference</p>
+                </td>
+              </tr>
 
               <!-- HD1.0 -->
               <tr>
@@ -474,9 +422,9 @@
                   </div>
                 </td>
                 <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
-                <td>Self-certification with Supporting Evidence<br><br>Supporting evidence to include: Documentation that covers all aspects listed within the Requirement.</td>
-                <td>Self-certification with Supporting Evidence<br><br>Supporting evidence to include: Documentation that covers all aspects listed within the Requirement.</td>
-                <td>Self-certification with Supporting Evidence<br><br>Supporting evidence to include: Documentation that covers all aspects listed within the Requirement.</td>
+                <td>Self-certification with Supporting Evidence — supporting evidence to include documentation covering all aspects listed within the requirement.</td>
+                <td>Self-certification with Supporting Evidence — supporting evidence to include documentation covering all aspects listed within the requirement.</td>
+                <td>Self-certification with Supporting Evidence — supporting evidence to include documentation covering all aspects listed within the requirement.</td>
               </tr>
 
               <!-- SEC1.0 -->
