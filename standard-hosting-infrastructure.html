@@ -92,18 +92,7 @@
     /* Standalone criteria table — not nested, used for CH5.0 and DC1.0 */
     .dsic-criteria-standalone {
       border: 1px solid #d8dde0;
-      font-size: 0.9375rem;
       min-width: 700px;
-    }
-    .dsic-criteria-standalone th,
-    .dsic-criteria-standalone td {
-      padding: 0.625rem 0.875rem;
-    }
-    .dsic-criteria-standalone tbody th {
-      font-weight: 700;
-      font-size: 0.875rem;
-      background: #f0f4f5;
-      width: 18%;
     }
 
     /* Body rows */
@@ -114,7 +103,6 @@
     /* ID cell */
     .dsic-req-id {
       font-family: "Courier New", Courier, monospace;
-      font-size: 0.875rem;
       font-weight: 700;
       color: #212b32;
       white-space: nowrap;
@@ -143,7 +131,7 @@
 
     /* Sub-bullet list inside req cell */
     .dsic-req-table .nhsuk-list { margin-bottom: 0.5rem; }
-    .dsic-req-table .nhsuk-list li { font-size: 0.9rem; }
+    .dsic-req-table .nhsuk-list li { font-size: inherit; }
 
     /* Note inside table */
     .dsic-req-note {
@@ -154,18 +142,32 @@
     }
     .dsic-req-note::before { content: "Note: "; font-weight: 700; font-style: normal; }
 
-    /* ── Criteria table (nested inside CH5/DC1 rows) ─────────────────── */
+    /* Hosting type indicators */
+    .dsic-hosting-row { margin: 0.25rem 0 0.5rem; }
+    .dsic-hosting-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 3px;
+      padding: 2px 7px;
+      margin-right: 0.25rem;
+      white-space: nowrap;
+    }
+    .dsic-hosting-tag--cloud { background: #d1e8ff; color: #003078; }
+    .dsic-hosting-tag--dc    { background: #ffe5d0; color: #6b2800; }
+
+    /* ── Criteria table (CH5/DC1) ───────────────────────────────────── */
     .dsic-criteria-wrap { padding: 0 !important; }
 
     .dsic-criteria-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
     }
     .dsic-criteria-table th,
     .dsic-criteria-table td {
       border: 1px solid #d8dde0;
-      padding: 0.5rem 0.75rem;
+      padding: 0.625rem 0.875rem;
       vertical-align: top;
       line-height: 1.5;
     }
@@ -176,7 +178,6 @@
     .dsic-criteria-table thead .crit-c     { background: #41b6e6; color: #212b32; }
     .dsic-criteria-table tbody th {
       font-weight: 700;
-      font-size: 0.8125rem;
       background: #f0f4f5;
       width: 18%;
     }
@@ -289,6 +290,7 @@
         <h3 class="nhsuk-heading-m" id="CH5.0">CH5.0 — Cloud Hosting Quality</h3>
         <div class="dsic-req-meta">
           <strong class="nhsuk-tag">MUST</strong>
+          <span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span>
           <div class="dsic-vehicles">
             <span class="dsic-vehicle">GP IT Futures</span>
             <span class="dsic-vehicle">Tech Innovation</span>
@@ -355,6 +357,7 @@
         <h3 class="nhsuk-heading-m" id="DC1.0">DC1.0 — Data Centre Hosting Quality</h3>
         <div class="dsic-req-meta">
           <strong class="nhsuk-tag">MUST</strong>
+          <span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span>
           <div class="dsic-vehicles">
             <span class="dsic-vehicle">All CVs (co-location or Supplier-owned facilities)</span>
           </div>
@@ -449,6 +452,7 @@
                 <td class="dsic-req-id">HD1.0</td>
                 <td>
                   <p class="dsic-req-title">Documentation</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier will provide documentation which represents the non-functional technical architecture of the Solution, including but not limited to: data centre design, local and wide network architecture, and physical technology models. Documentation should include diagrams, and associated textual descriptions, as necessary to enable effective assurance of key Solution aspects as noted below:</p>
                   <p><strong>Non-Functional Specification</strong> — defines the non-functional aspects of the system including but not limited to:</p>
                   <ul class="nhsuk-list nhsuk-list--bullet">
@@ -487,6 +491,7 @@
                 <td class="dsic-req-id">SEC1.0</td>
                 <td>
                   <p class="dsic-req-title">Security</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>Due to the sensitive nature of the information in this section, the details are held in the file "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" and can be requested by emailing <a href="mailto:england.buying.catalogue@nhs.net">england.buying.catalogue@nhs.net</a>.</p>
                   <p>The Supplier will comply with all requirements in the "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" file.</p>
                   <div class="dsic-vehicles">
@@ -536,6 +541,7 @@
                 <td class="dsic-req-id">HNT2.0</td>
                 <td>
                   <p class="dsic-req-title">Network - QoS</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>Communications in and out of the data centre will adhere to the HSCN connection Agreement and NHS Network QoS policy for the classification of data across the network, to enable network traffic prioritisation and 'class of service' to reduce network latency. The Supplier will evidence their adherence to the QoS policy, to the Authority, for changes to the system in how it communicates across the NHS Network, prior to release.</p>
                   <p class="dsic-req-note">See: HSCN Quality of Service overview · HSCN Technical Guidance. "HCSN Technical Guidance" is the original wording in v2.0.9 (typo).</p>
                   <div class="dsic-vehicles">
@@ -556,6 +562,7 @@
                 <td class="dsic-req-id">HNT2.1</td>
                 <td>
                   <p class="dsic-req-title">NHS Network Connectivity</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier's NHS Network connections to be compliant with the HSCN Connection Agreement and compliant with the DNS and IP addressing policies for the network, where HSCN is used.</p>
                   <div class="dsic-vehicles">
                     <span class="dsic-vehicle">GP IT Futures</span>
@@ -575,6 +582,7 @@
                 <td class="dsic-req-id">HNT3.1</td>
                 <td>
                   <p class="dsic-req-title">NHS Networking Compliance</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier to provide evidence that the system complies with the requirements and best practice operating principals and guidance when operating over the NHS Network. Specifically the system to:</p>
                   <ul class="nhsuk-list nhsuk-list--bullet">
                     <li>Comply with the NHS Network QoS (Quality of Service) Policy</li>
@@ -601,6 +609,7 @@
                 <td class="dsic-req-id">HNT4.0</td>
                 <td>
                   <p class="dsic-req-title">QoS Policy Acceptance</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier will have completed a NHS Network QoS Policy review, where the Suppliers application makes use of or is accessed across the NHS Network, have demonstrated the application and services adhere to the NHS Network policy. NHS Network QoS rules may need to be amended as a part of this review. Updates to refreshed QoS policies to be applied as required.</p>
                   <p class="dsic-req-note">See: HSCN Quality of Service overview.</p>
                   <div class="dsic-vehicles">
@@ -621,6 +630,7 @@
                 <td class="dsic-req-id">HNT40.0</td>
                 <td>
                   <p class="dsic-req-title">HSCN Connectivity</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier to ensure HSCN connectivity is procured where there are any systems or services the Supplier needs to reach that are only on the HSCN network.</p>
                   <p class="dsic-req-note">HNT40.0 has no title in the standard itself; the title above is taken from the retained-requirements list.</p>
                   <div class="dsic-vehicles">
@@ -666,6 +676,7 @@
                 <td class="dsic-req-id">HDM1.0</td>
                 <td>
                   <p class="dsic-req-title">Lights Out Policy</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier will provide a 'lights out' operational model for the systems with specific processes to allow named engineer access to the environment.</p>
                   <div class="dsic-vehicles">
                     <span class="dsic-vehicle">GP IT Futures</span>
@@ -684,6 +695,7 @@
                 <td class="dsic-req-id">HDM4.0</td>
                 <td>
                   <p class="dsic-req-title">Remote Systems Maintenance</p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>It will be possible for the Supplier to perform software related maintenance and upgrade remotely without requiring physical access to the data hall.</p>
                   <div class="dsic-vehicles">
                     <span class="dsic-vehicle">GP IT Futures</span>
