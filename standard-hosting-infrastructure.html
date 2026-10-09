@@ -18,6 +18,16 @@
     .nhsuk-header svg.nhsuk-header__logo { color: #fff; }
     .nhsuk-header__service-name { font-size: 1.5rem; font-weight: 700; }
 
+    /* Disclaimer banner */
+    .dsic-disclaimer-banner {
+      background: #d4351c;
+      padding: 0.5rem 0;
+      font-size: 0.875rem;
+      color: #ffffff;
+    }
+    .dsic-disclaimer-banner .nhsuk-width-container { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+    .dsic-disclaimer-banner strong { color: #ffffff; }
+
     /* Prototype banner */
     .dsic-prototype-banner {
       background: #fff9c4;
@@ -203,6 +213,14 @@
 <body>
 
   <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+  <!-- Disclaimer banner -->
+  <div class="dsic-disclaimer-banner" role="complementary" aria-label="Disclaimer">
+    <div class="nhsuk-width-container">
+      <strong>Not official NHS content.</strong>
+      <span>This is an independent prototype and does not represent NHS England or any NHS organisation. It is not authoritative, has no official status, and should not be relied upon for any purpose.</span>
+    </div>
+  </div>
 
   <!-- Prototype banner -->
   <div class="dsic-prototype-banner" role="complementary" aria-label="Prototype notice">
