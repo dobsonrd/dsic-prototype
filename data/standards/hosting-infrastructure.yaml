@@ -26,7 +26,7 @@ sections:
     requirements:
 
       - id: CH5.0
-        title: "Cloud Hosting Quality"
+        title: "Cloud Minimum Hosting Requirements"
         section: "Cloud Hosting"
         level: MUST
         contracting_vehicles:
@@ -87,7 +87,7 @@ sections:
             c: "Statement naming the provider, services and regions, with certificate reference"
 
       - id: DC1.0
-        title: "Data Centre Hosting Quality"
+        title: "Data Centre Minimum Hosting Requirements"
         section: "Data Centre Hosting"
         level: MUST
         contracting_vehicles:

@@ -246,9 +246,14 @@
       <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">Hosting and Infrastructure</h1>
 
       <div class="dsic-tags-row">
-        <strong class="nhsuk-tag nhsuk-tag--green">Effective</strong>
+        <strong class="nhsuk-tag nhsuk-tag--yellow">Draft proposal</strong>
         <strong class="nhsuk-tag nhsuk-tag--red">Standard</strong>
         <strong class="nhsuk-tag nhsuk-tag--grey">S29 · v2.0.9</strong>
+      </div>
+
+      <div class="nhsuk-warning-callout nhsuk-u-margin-bottom-4">
+        <h2 class="nhsuk-warning-callout__label">Proposal<span class="nhsuk-u-visually-hidden">:</span></h2>
+        <p>This page reflects <strong>S29 v2.0.9</strong> (effective 14 August 2026) with two proposed new requirements: <strong>CH5.0</strong> (Cloud Minimum Hosting Requirements) and <strong>DC1.0</strong> (Data Centre Minimum Hosting Requirements). These have not yet been published in a formal version of the standard.</p>
       </div>
 
       <dl class="nhsuk-summary-list">
@@ -300,7 +305,7 @@
               <tr>
                 <td class="dsic-req-id">CH5.0</td>
                 <td>
-                  <p class="dsic-req-title">Cloud Minimum Hosting Requirements</p>
+                  <p class="dsic-req-title">Cloud Minimum Hosting Requirements <strong class="nhsuk-tag nhsuk-tag--blue">New</strong></p>
                   <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span></p>
                   <p>The Supplier will ensure that the cloud provider used to host the Solution, and the Supplier's configuration of that provider's services, meet the quality level set out for the Solution's Category. This applies to every cloud service and region the Solution uses. Cloud provider certification is in addition to the Supplier's own certification under the Information Governance Standard. Hosting topology is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
                   <div class="dsic-vehicles">
@@ -319,18 +324,24 @@
                   <p><strong>NCSC Cloud Security Principles:</strong> Cloud provider publishes its response to all 14 principles; Supplier documents which responsibilities sit with the cloud provider and which with the Supplier</p>
                   <p><strong>Hosting topology:</strong> Hosted in a region with at least three availability zones, with production spread across them; also uses a second UK region where the provider has one</p>
                   <p><strong>Secure configuration:</strong> Cloud tenancy configured against a recognised hardening baseline (e.g. CIS Benchmarks or the provider's security baseline), with continuous compliance monitoring and deviations documented</p>
+                  <p><em><strong>Assurance approach:</strong> Full Assessment</em></p>
+                  <p><strong>Evidence:</strong> Certificates and reports with scope, list of services and regions used, responsibility matrix, latest configuration compliance report</p>
                 </td>
                 <td>
                   <p><strong>Cloud provider certification:</strong> ISO/IEC 27001 from a UKAS or IAF-accredited body, plus one of ISO/IEC 27017, SOC 2 Type II or CSA STAR Level 2</p>
                   <p><strong>NCSC Cloud Security Principles:</strong> Cloud provider publishes its response to all 14 principles</p>
                   <p><strong>Hosting topology:</strong> Production spread across at least two availability zones</p>
                   <p><strong>Secure configuration:</strong> Configured against a recognised hardening baseline, reviewed at least annually</p>
+                  <p><em><strong>Assurance approach:</strong> Self-certification with Supporting Evidence</em></p>
+                  <p><strong>Evidence:</strong> Certificates with scope, list of services and regions used, latest baseline review</p>
                 </td>
                 <td>
                   <p><strong>Cloud provider certification:</strong> ISO/IEC 27001 from a UKAS or IAF-accredited body</p>
                   <p><strong>NCSC Cloud Security Principles:</strong> Cloud provider publishes its response to all 14 principles</p>
                   <p><strong>Hosting topology:</strong> Single availability zone acceptable</p>
                   <p><strong>Secure configuration:</strong> Cloud provider's default security baseline enabled, with exceptions documented</p>
+                  <p><em><strong>Assurance approach:</strong> Self-certification</em></p>
+                  <p><strong>Evidence:</strong> Statement naming the cloud provider, services and regions, with certificate reference</p>
                 </td>
               </tr>
 
@@ -338,7 +349,7 @@
               <tr>
                 <td class="dsic-req-id">DC1.0</td>
                 <td>
-                  <p class="dsic-req-title">Data Centre Minimum Hosting Requirements</p>
+                  <p class="dsic-req-title">Data Centre Minimum Hosting Requirements <strong class="nhsuk-tag nhsuk-tag--blue">New</strong></p>
                   <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier will ensure that every data centre used to host the Solution, including secondary sites, meets the quality level set out for the Solution's Category. This applies to co-location facilities and to facilities owned by the Supplier. Where a facility is operated by a third party, evidence is to relate to the data centre operator, and operator certification is in addition to the Supplier's own certification under the Information Governance Standard. Security of the facility is set by SEC1.0. Site and resilience design is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
                   <div class="dsic-vehicles">
@@ -353,6 +364,8 @@
                   <p><strong>Power and network:</strong> Concurrently maintainable power and cooling; dual Internet (and NHS Network where used) connections via diverse carriers and entry points</p>
                   <p><strong>Platform hardening:</strong> Operating systems, hypervisors and network devices hardened against a recognised baseline, with compliance checked at least quarterly and deviations documented</p>
                   <p><strong>Facility audit:</strong> Annual independent audit; results and work-off plans available to the Authority</p>
+                  <p><em><strong>Assurance approach:</strong> Full Assessment</em></p>
+                  <p><strong>Evidence:</strong> Certificates with scope, availability class certification or audit report, location risk assessment, latest hardening compliance report, latest audit</p>
                 </td>
                 <td>
                   <p><strong>Facility availability:</strong> BS EN 50600 Availability Class 3 design alignment, evidenced by operator documentation</p>
@@ -361,6 +374,8 @@
                   <p><strong>Power and network:</strong> Standby generation that can be refuelled in use; dual connections via diverse routes where available</p>
                   <p><strong>Platform hardening:</strong> Hardened against a recognised baseline, reviewed at least annually</p>
                   <p><strong>Facility audit:</strong> Annual audit; results available on request</p>
+                  <p><em><strong>Assurance approach:</strong> Self-certification with Supporting Evidence</em></p>
+                  <p><strong>Evidence:</strong> Certificates with scope, operator design documentation, latest baseline review</p>
                 </td>
                 <td>
                   <p><strong>Facility availability:</strong> BS EN 50600 Availability Class 2 or above</p>
@@ -369,6 +384,8 @@
                   <p><strong>Power and network:</strong> Standby power sufficient for controlled shutdown; carrier details documented</p>
                   <p><strong>Platform hardening:</strong> Non-essential services and protocols disabled, with the approach documented</p>
                   <p><strong>Facility audit:</strong> Operator audit statement</p>
+                  <p><em><strong>Assurance approach:</strong> Self-certification</em></p>
+                  <p><strong>Evidence:</strong> Statement naming the facilities and operator, with certificate reference</p>
                 </td>
               </tr>
 
@@ -377,7 +394,7 @@
                 <td class="dsic-req-id">HD1.0</td>
                 <td>
                   <p class="dsic-req-title">Documentation</p>
-                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier will provide documentation which represents the non-functional technical architecture of the Solution, including but not limited to: data centre design, local and wide network architecture, and physical technology models. Documentation should include diagrams, and associated textual descriptions, as necessary to enable effective assurance of key Solution aspects as noted below:</p>
                   <p><strong>Non-Functional Specification</strong> — defines the non-functional aspects of the system including but not limited to:</p>
                   <ul class="nhsuk-list nhsuk-list--bullet">
@@ -466,7 +483,7 @@
                 <td class="dsic-req-id">HNT2.0</td>
                 <td>
                   <p class="dsic-req-title">Network - QoS</p>
-                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>Communications in and out of the data centre will adhere to the HSCN connection Agreement and NHS Network QoS policy for the classification of data across the network, to enable network traffic prioritisation and 'class of service' to reduce network latency. The Supplier will evidence their adherence to the QoS policy, to the Authority, for changes to the system in how it communicates across the NHS Network, prior to release.</p>
                   <p class="dsic-req-note">See: HSCN Quality of Service overview · HSCN Technical Guidance. "HCSN Technical Guidance" is the original wording in v2.0.9 (typo).</p>
                   <div class="dsic-vehicles">
@@ -487,7 +504,7 @@
                 <td class="dsic-req-id">HNT2.1</td>
                 <td>
                   <p class="dsic-req-title">NHS Network Connectivity</p>
-                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier's NHS Network connections to be compliant with the HSCN Connection Agreement and compliant with the DNS and IP addressing policies for the network, where HSCN is used.</p>
                   <div class="dsic-vehicles">
                     <span class="dsic-vehicle">GP IT Futures</span>
@@ -507,7 +524,7 @@
                 <td class="dsic-req-id">HNT3.1</td>
                 <td>
                   <p class="dsic-req-title">NHS Networking Compliance</p>
-                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier to provide evidence that the system complies with the requirements and best practice operating principals and guidance when operating over the NHS Network. Specifically the system to:</p>
                   <ul class="nhsuk-list nhsuk-list--bullet">
                     <li>Comply with the NHS Network QoS (Quality of Service) Policy</li>
@@ -534,7 +551,7 @@
                 <td class="dsic-req-id">HNT4.0</td>
                 <td>
                   <p class="dsic-req-title">QoS Policy Acceptance</p>
-                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier will have completed a NHS Network QoS Policy review, where the Suppliers application makes use of or is accessed across the NHS Network, have demonstrated the application and services adhere to the NHS Network policy. NHS Network QoS rules may need to be amended as a part of this review. Updates to refreshed QoS policies to be applied as required.</p>
                   <p class="dsic-req-note">See: HSCN Quality of Service overview.</p>
                   <div class="dsic-vehicles">
@@ -555,7 +572,7 @@
                 <td class="dsic-req-id">HNT40.0</td>
                 <td>
                   <p class="dsic-req-title">HSCN Connectivity</p>
-                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
+                  <p class="dsic-hosting-row"><span class="dsic-hosting-tag dsic-hosting-tag--cloud">Cloud hosted</span><span class="dsic-hosting-tag dsic-hosting-tag--dc">Data centre hosted</span></p>
                   <p>The Supplier to ensure HSCN connectivity is procured where there are any systems or services the Supplier needs to reach that are only on the HSCN network.</p>
                   <p class="dsic-req-note">HNT40.0 has no title in the standard itself; the title above is taken from the retained-requirements list.</p>
                   <div class="dsic-vehicles">
