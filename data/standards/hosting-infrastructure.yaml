@@ -1,0 +1,219 @@
+# Hosting and Infrastructure Standard — Retained Requirements
+# DSIC Capability Catalogue — NHS England Digital Services for Integrated Care
+#
+# This file contains the nine requirements proposed to remain in the
+# Hosting and Infrastructure Standard, taken from version 2.0.9.
+# Wording is unchanged from the source document, including original typos (noted inline).
+#
+# Schema: /schema/standard.schema.yaml
+# Last updated: 2026-10-09
+
+metadata:
+  id: "hosting-infrastructure"
+  name: "Hosting and Infrastructure"
+  version: "2.0.9"
+  type: Standard
+  status: Effective
+  note: >
+    This file contains the nine retained requirements proposed to stay in the
+    Hosting and Infrastructure Standard. Wording is unchanged from version 2.0.9,
+    including original typos (noted inline).
+
+sections:
+
+  - id: baseline-assurance
+    name: "Baseline Assurance Standard Requirements"
+    requirements:
+
+      - id: HD1.0
+        title: "Documentation"
+        section: "Reporting & Documentation"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - Tech Innovation
+          - DFOCVC
+          - Community Pharmacy Clinical Services
+          - Digital Pathways
+          - Solution Registry
+          - Digital Primary Care
+        assurance: "Self-certification with Supporting Evidence"
+        supporting_evidence: >
+          Documentation that covers all aspects listed within the Requirement.
+        text: >
+          The Supplier will provide documentation which represents the non-functional
+          technical architecture of the Solution, including but not limited to: data
+          centre design, local and wide network architecture, and physical technology models.
+          Documentation should include diagrams, and associated textual descriptions, as
+          necessary to enable effective assurance of key Solution aspects as noted below:
+        sub_requirements:
+          - title: "Non-Functional Specification"
+            description: >
+              Defines the non-functional aspects of the system including but not limited to:
+            items:
+              - "Details of any relevant contract service schedule(s)"
+              - "Business continuity and disaster recovery design"
+              - "Data Centre resilience design"
+              - "Backup and Recovery Processes"
+              - "Configuration Management including identification, control and verification"
+              - "Performance monitoring design including categorisation of transactions and design of monitoring software including links into the Authority Solutions where relevant e.g. National Monitoring System (NMS)"
+              - "Overall systems security design"
+              - "Migration design showing design for process and data, details of any tools developed to support migration, details of duration and outages required to perform migration and data cleansing strategy"
+              - "Capacity management design incorporating an indicative sizing model, a business transaction data forecast, an impact assessment on existing infrastructure and a baseline capacity plan"
+              - "Availability Management design, including Component Failure Impact Assessment and monitoring"
+              - "Services impact assessment including expected service management processes, helpdesk, maintenance, performance management and reporting changes"
+              - "Support Model design, including dependencies on third parties (including NHS National Service Desk), support hours, escalation model and incident severity guidelines"
+        notes:
+          - "Document artefacts to be concise with a preference for diagrammatical form where the Supplier utilises as much of their own internal documentation as possible to reduce extra document production."
+
+      - id: SEC1.0
+        title: "Security"
+        section: "Security"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - Tech Innovation
+          - DFOCVC
+          - Community Pharmacy Clinical Services
+          - Digital Pathways
+          - Solution Registry
+          - Digital Primary Care
+        assurance: >
+          Refer to "Co-location and Provider Data Centre Hosting & Infrastructure
+          Requirements - Security" file for details.
+        text: >
+          Due to the sensitive nature of the information in this section, the details are
+          held in the file "Co-location and Provider Data Centre Hosting & Infrastructure
+          Requirements - Security" and can be requested by emailing
+          england.buying.catalogue@nhs.net. The Supplier will comply with all requirements
+          in the "Co-location and Provider Data Centre Hosting & Infrastructure Requirements
+          - Security" file.
+
+  - id: network
+    name: "Network"
+    requirements:
+
+      - id: HNT2.0
+        title: "Network - QoS"
+        section: "Network"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - Tech Innovation
+          - DFOCVC
+          - Digital Primary Care
+        assurance: "Self-certification"
+        text: >
+          Communications in and out of the data centre will adhere to the HSCN connection
+          Agreement and NHS Network QoS policy for the classification of data across the
+          network, to enable network traffic prioritisation and 'class of service' to reduce
+          network latency. The Supplier will evidence their adherence to the QoS policy, to
+          the Authority, for changes to the system in how it communicates across the NHS
+          Network, prior to release.
+        references:
+          - text: "HSCN Quality of Service overview"
+          - text: "HSCN Technical Guidance"
+        notes:
+          - "\"HCSN Technical Guidance\" is the original wording in v2.0.9 (typo for HSCN)."
+
+      - id: HNT2.1
+        title: "NHS Network Connectivity"
+        section: "Network"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - Tech Innovation
+          - DFOCVC
+          - Digital Primary Care
+        assurance: "Self-certification"
+        text: >
+          The Supplier's NHS Network connections to be compliant with the HSCN Connection
+          Agreement and compliant with the DNS and IP addressing policies for the network,
+          where HSCN is used.
+
+      - id: HNT3.1
+        title: "NHS Networking Compliance"
+        section: "Network"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - Tech Innovation
+          - DFOCVC
+          - Digital Primary Care
+        assurance: "Self-certification"
+        text: >
+          The Supplier to provide evidence that the system complies with the requirements
+          and best practice operating principals and guidance when operating over the NHS
+          Network. Specifically the system to:
+        items:
+          - "Comply with the NHS Network QoS (Quality of Service) Policy"
+          - "Performs adequately within the network latency constraints"
+          - "Performs adequately within the typical bandwidth (downstream and upstream) provided to consumers"
+          - "Collaborate with the Authority and relevant network providers to resolve escalated performance issues which could include installing diagnostic probes into the DC environment"
+        notes:
+          - "\"operating principals\" is the original wording in v2.0.9 (should be \"principles\")."
+
+      - id: HNT4.0
+        title: "QoS Policy Acceptance"
+        section: "Network"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - Tech Innovation
+          - DFOCVC
+          - Digital Primary Care
+        assurance: "Self-certification"
+        text: >
+          The Supplier will have completed a NHS Network QoS Policy review, where the
+          Suppliers application makes use of or is accessed across the NHS Network, have
+          demonstrated the application and services adhere to the NHS Network policy. NHS
+          Network QoS rules may need to be amended as a part of this review. Updates to
+          refreshed QoS policies to be applied as required.
+        references:
+          - text: "HSCN Quality of Service overview"
+
+      - id: HNT40.0
+        title: "HSCN Connectivity"
+        section: "Network"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - Tech Innovation
+          - DFOCVC
+          - Digital Primary Care
+        assurance: "Self-certification"
+        text: >
+          The Supplier to ensure HSCN connectivity is procured where there are any systems
+          or services the Supplier needs to reach that are only on the HSCN network.
+        notes:
+          - "HNT40.0 has no title in the standard itself; the title above is taken from the retained-requirements list."
+
+  - id: device-management
+    name: "Device Management"
+    requirements:
+
+      - id: HDM1.0
+        title: "Lights Out Policy"
+        section: "Device Management"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - DFOCVC
+          - Digital Primary Care
+        assurance: "Self-certification"
+        text: >
+          The Supplier will provide a 'lights out' operational model for the systems with
+          specific processes to allow named engineer access to the environment.
+
+      - id: HDM4.0
+        title: "Remote Systems Maintenance"
+        section: "Device Management"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - DFOCVC
+          - Digital Primary Care
+        assurance: "Self-certification"
+        text: >
+          It will be possible for the Supplier to perform software related maintenance and
+          upgrade remotely without requiring physical access to the data hall.

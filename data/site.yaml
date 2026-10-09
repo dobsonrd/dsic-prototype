@@ -29,4 +29,11 @@ capabilities:
     url: "capability-C13.html"
     file: "data/capabilities/C13.yaml"
 
-standards: []
+standards:
+  - id: hosting-infrastructure
+    name: "Hosting and Infrastructure"
+    version: "2.0.9"
+    status: Effective
+    requirements: 9
+    url: "standard-hosting-infrastructure.html"
+    file: "data/standards/hosting-infrastructure.yaml"
