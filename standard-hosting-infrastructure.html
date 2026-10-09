@@ -144,6 +144,65 @@
       color: #212b32;
       white-space: nowrap;
     }
+
+    /* Category A/B/C comparison tables */
+    .dsic-category-table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0;
+      border: 1px solid #d8dde0;
+      border-radius: 4px;
+    }
+    .dsic-category-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+    .dsic-category-table th,
+    .dsic-category-table td {
+      padding: 0.625rem 0.875rem;
+      border: 1px solid #d8dde0;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .dsic-category-table thead th {
+      font-weight: 700;
+      text-align: center;
+      border-bottom: 2px solid #d8dde0;
+    }
+    .dsic-category-table thead th:first-child { text-align: left; background: #f0f4f5; }
+    .dsic-category-table thead .dsic-cat-a { background: #003087; color: #fff; }
+    .dsic-category-table thead .dsic-cat-b { background: #005eb8; color: #fff; }
+    .dsic-category-table thead .dsic-cat-c { background: #41b6e6; color: #212b32; }
+    .dsic-category-table tbody th {
+      font-weight: 700;
+      background: #f0f4f5;
+      width: 20%;
+      min-width: 120px;
+    }
+    .dsic-category-table tbody tr:last-child td,
+    .dsic-category-table tbody tr:last-child th { border-bottom: none; }
+    /* Assurance approach row — highlight */
+    .dsic-category-table tr.dsic-assurance-row th,
+    .dsic-category-table tr.dsic-assurance-row td {
+      background: #f8f9fa;
+      font-style: italic;
+    }
+
+    /* Editorial notes box */
+    .dsic-editorial {
+      background: #fff4e6;
+      border-left: 4px solid #ffb347;
+      padding: 1rem 1.25rem;
+      margin-top: 2rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .dsic-editorial__title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0 0 0.75rem;
+      color: #212b32;
+    }
   </style>
 </head>
 
@@ -206,11 +265,11 @@
         </div>
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Requirements</dt>
-          <dd class="nhsuk-summary-list__value">9 retained requirements (from v2.0.9)</dd>
+          <dd class="nhsuk-summary-list__value">11 retained requirements (from v2.0.9)</dd>
         </div>
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Sections</dt>
-          <dd class="nhsuk-summary-list__value">Baseline Assurance · Network · Device Management</dd>
+          <dd class="nhsuk-summary-list__value">Baseline Assurance · Network · Device Management · Hosting Quality</dd>
         </div>
       </dl>
 
@@ -221,6 +280,7 @@
           <li><a href="#baseline-assurance">Baseline Assurance (2)</a></li>
           <li><a href="#network">Network (5)</a></li>
           <li><a href="#device-management">Device Management (2)</a></li>
+          <li><a href="#hosting-quality">Hosting Quality (2)</a></li>
         </ul>
       </nav>
 
@@ -459,6 +519,172 @@
           </div>
         </div>
       </section>
+
+      <!-- ── Section: Hosting Quality ──────────────────────────────────── -->
+      <section class="dsic-section" id="hosting-quality">
+        <h2 class="nhsuk-heading-l dsic-section-title">Hosting Quality</h2>
+
+        <!-- CH5.0 -->
+        <div class="dsic-requirement">
+          <div class="dsic-requirement__header">
+            <span class="dsic-req-id">CH5.0</span>
+            <h3 class="dsic-requirement__title">Cloud Hosting Quality</h3>
+            <strong class="nhsuk-tag">MUST</strong>
+          </div>
+          <p class="dsic-requirement__meta">Section: Cloud Hosting</p>
+          <div class="dsic-requirement__text">
+            <p>The Supplier will ensure that the cloud provider used to host the Solution, and the Supplier's configuration of that provider's services, meet the quality level set out for the Solution's Category. This applies to every cloud service and region the Solution uses. Provider certification is in addition to the Supplier's own certification under the Information Governance Standard. Hosting topology is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
+          </div>
+          <div class="dsic-category-table-wrap">
+            <table class="dsic-category-table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th class="dsic-cat-a" scope="col">Category A</th>
+                  <th class="dsic-cat-b" scope="col">Category B</th>
+                  <th class="dsic-cat-c" scope="col">Category C</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Provider certification<br><small>(every service &amp; region)</small></th>
+                  <td>ISO/IEC 27001 from a UKAS or IAF-accredited body, with ISO/IEC 27017 and 27018, plus a SOC 2 Type II report or CSA STAR Level 2</td>
+                  <td>ISO/IEC 27001 from a UKAS or IAF-accredited body, plus one of ISO/IEC 27017, SOC 2 Type II or CSA STAR Level 2</td>
+                  <td>ISO/IEC 27001 from a UKAS or IAF-accredited body</td>
+                </tr>
+                <tr>
+                  <th scope="row">NCSC Cloud Security Principles</th>
+                  <td>Provider publishes its response to all 14 principles; Supplier documents which responsibilities sit with the provider and which with the Supplier</td>
+                  <td>Provider publishes its response to all 14 principles</td>
+                  <td>Provider publishes its response to all 14 principles</td>
+                </tr>
+                <tr>
+                  <th scope="row">Hosting topology</th>
+                  <td>Hosted in a region with at least three availability zones, with production spread across them; also uses a second UK region where the provider has one</td>
+                  <td>Production spread across at least two availability zones</td>
+                  <td>Single availability zone acceptable</td>
+                </tr>
+                <tr>
+                  <th scope="row">Secure configuration</th>
+                  <td>Cloud tenancy configured against a recognised hardening baseline (e.g. CIS Benchmarks or the provider's security baseline), with continuous compliance monitoring and deviations documented</td>
+                  <td>Configured against a recognised hardening baseline, reviewed at least annually</td>
+                  <td>Provider's default security baseline enabled, with exceptions documented</td>
+                </tr>
+                <tr class="dsic-assurance-row">
+                  <th scope="row">Assurance approach</th>
+                  <td>Full Assessment</td>
+                  <td>Self-certification with Supporting Evidence</td>
+                  <td>Self-certification</td>
+                </tr>
+                <tr>
+                  <th scope="row">Evidence</th>
+                  <td>Certificates and reports with scope, list of services and regions used, responsibility matrix, latest configuration compliance report</td>
+                  <td>Certificates with scope, list of services and regions used, latest baseline review</td>
+                  <td>Statement naming the provider, services and regions, with certificate reference</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="dsic-vehicles">
+            <span class="dsic-vehicle">GP IT Futures</span>
+            <span class="dsic-vehicle">Tech Innovation</span>
+            <span class="dsic-vehicle">DFOCVC</span>
+            <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
+            <span class="dsic-vehicle">Digital Pathways</span>
+            <span class="dsic-vehicle">Solution Registry</span>
+            <span class="dsic-vehicle">Digital Primary Care</span>
+          </div>
+        </div>
+
+        <!-- DC1.0 -->
+        <div class="dsic-requirement">
+          <div class="dsic-requirement__header">
+            <span class="dsic-req-id">DC1.0</span>
+            <h3 class="dsic-requirement__title">Data Centre Hosting Quality</h3>
+            <strong class="nhsuk-tag">MUST</strong>
+          </div>
+          <p class="dsic-requirement__meta">Section: Data Centre Hosting</p>
+          <div class="dsic-requirement__text">
+            <p>The Supplier will ensure that every data centre used to host the Solution, including secondary sites, meets the quality level set out for the Solution's Category. This applies to co-location facilities and to facilities owned by the Supplier. Where a facility is operated by a third party, evidence is to relate to the data centre operator, and operator certification is in addition to the Supplier's own certification under the Information Governance Standard. Security of the facility is set by SEC1.0. Site and resilience design is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
+          </div>
+          <div class="dsic-category-table-wrap">
+            <table class="dsic-category-table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th class="dsic-cat-a" scope="col">Category A</th>
+                  <th class="dsic-cat-b" scope="col">Category B</th>
+                  <th class="dsic-cat-c" scope="col">Category C</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Facility availability</th>
+                  <td>BS EN 50600 Availability Class 3 or above, independently certified or audited (Uptime Institute Tier III or TIA-942 Rated 3 accepted)</td>
+                  <td>BS EN 50600 Availability Class 3 design alignment, evidenced by operator documentation</td>
+                  <td>BS EN 50600 Availability Class 2 or above</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sites</th>
+                  <td>Two geographically separate sites, both meeting this column; separation justified by a location risk assessment</td>
+                  <td>Two geographically separate sites; the primary meets this column and the secondary meets Category C</td>
+                  <td>One site meeting this column, plus a geographically separate location for backup data</td>
+                </tr>
+                <tr>
+                  <th scope="row">Operator management systems</th>
+                  <td>ISO/IEC 27001 (UKAS or IAF-accredited) and ISO 9001, with Statement of Applicability and scope covering the facilities used</td>
+                  <td>ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</td>
+                  <td>ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</td>
+                </tr>
+                <tr>
+                  <th scope="row">Power and network</th>
+                  <td>Concurrently maintainable power and cooling; dual Internet (and NHS Network where used) connections via diverse carriers and entry points</td>
+                  <td>Standby generation that can be refuelled in use; dual connections via diverse routes where available</td>
+                  <td>Standby power sufficient for controlled shutdown; carrier details documented</td>
+                </tr>
+                <tr>
+                  <th scope="row">Platform hardening</th>
+                  <td>Operating systems, hypervisors and network devices hardened against a recognised baseline, with compliance checked at least quarterly and deviations documented</td>
+                  <td>Hardened against a recognised baseline, reviewed at least annually</td>
+                  <td>Non-essential services and protocols disabled, with the approach documented</td>
+                </tr>
+                <tr>
+                  <th scope="row">Facility audit</th>
+                  <td>Annual independent audit; results and work-off plans available to the Authority</td>
+                  <td>Annual audit; results available on request</td>
+                  <td>Operator audit statement</td>
+                </tr>
+                <tr class="dsic-assurance-row">
+                  <th scope="row">Assurance approach</th>
+                  <td>Full Assessment</td>
+                  <td>Self-certification with Supporting Evidence</td>
+                  <td>Self-certification</td>
+                </tr>
+                <tr>
+                  <th scope="row">Evidence</th>
+                  <td>Certificates with scope, availability class certification or audit report, location risk assessment, latest hardening compliance report, latest audit</td>
+                  <td>Certificates with scope, operator design documentation, latest baseline review</td>
+                  <td>Statement naming the facilities and operator, with certificate reference</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="dsic-vehicles">
+            <span class="dsic-vehicle">All Contracting Vehicles (co-location or Supplier-owned facilities)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Editorial Notes ────────────────────────────────────────────── -->
+      <div class="dsic-editorial" id="editorial-notes">
+        <p class="dsic-editorial__title">Notes on the retained requirements list</p>
+        <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0">
+          <li><strong>CH1.0–CH4.0</strong> are not on the retained list. If the cloud data classification, risk assessment and DPIA steps are not moving to IG, they disappear — CH5.0 does not replace them and would become the only cloud requirement in the standard.</li>
+          <li><strong>ES1.0 and ES2.0</strong> are not on the retained list. IG's GP-IG-14.2-5 covers data location via the cloud good practice guide, but has no step requiring Authority permission for hosting outside England.</li>
+          <li><strong>HD1.0</strong> is written for data centres (references "data centre design" and "Data Centre resilience design"). A small wording change to "hosting design (data centre, or cloud region and zone)" would make it work for cloud Solutions too.</li>
+          <li><strong>The introduction's hosting options table</strong> points to sections that will no longer exist and needs repointing to CH5.0 and DC1.0.</li>
+        </ul>
+      </div>
 
     </main>
   </div>

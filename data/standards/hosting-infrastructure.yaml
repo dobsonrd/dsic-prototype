@@ -217,3 +217,169 @@ sections:
         text: >
           It will be possible for the Supplier to perform software related maintenance and
           upgrade remotely without requiring physical access to the data hall.
+
+  - id: hosting-quality
+    name: "Hosting Quality"
+    requirements:
+
+      - id: CH5.0
+        title: "Cloud Hosting Quality"
+        section: "Cloud Hosting"
+        level: MUST
+        contracting_vehicles:
+          - GP IT Futures
+          - Tech Innovation
+          - DFOCVC
+          - Community Pharmacy Clinical Services
+          - Digital Pathways
+          - Solution Registry
+          - Digital Primary Care
+        text: >
+          The Supplier will ensure that the cloud provider used to host the Solution, and
+          the Supplier's configuration of that provider's services, meet the quality level
+          set out for the Solution's Category. This applies to every cloud service and
+          region the Solution uses. Provider certification is in addition to the Supplier's
+          own certification under the Information Governance Standard. Hosting topology is
+          to be shown in the documentation provided under HD1.0. Recovery objectives,
+          backup and failover testing are set by the Business Continuity and Disaster
+          Recovery Standard. Equivalent standards will be accepted where the Supplier
+          demonstrates equivalence.
+        categories:
+          - criterion: "Provider certification (covering every service and region used)"
+            category_a: >
+              ISO/IEC 27001 from a UKAS or IAF-accredited body, with ISO/IEC 27017 and 27018,
+              plus a SOC 2 Type II report or CSA STAR Level 2
+            category_b: >
+              ISO/IEC 27001 from a UKAS or IAF-accredited body, plus one of ISO/IEC 27017,
+              SOC 2 Type II or CSA STAR Level 2
+            category_c: "ISO/IEC 27001 from a UKAS or IAF-accredited body"
+          - criterion: "NCSC Cloud Security Principles"
+            category_a: >
+              Provider publishes its response to all 14 principles; Supplier documents which
+              responsibilities sit with the provider and which with the Supplier
+            category_b: "Provider publishes its response to all 14 principles"
+            category_c: "Provider publishes its response to all 14 principles"
+          - criterion: "Hosting topology"
+            category_a: >
+              Hosted in a region with at least three availability zones, with production
+              spread across them; also uses a second UK region where the provider has one
+            category_b: "Production spread across at least two availability zones"
+            category_c: "Single availability zone acceptable"
+          - criterion: "Secure configuration"
+            category_a: >
+              Cloud tenancy configured against a recognised hardening baseline (e.g. CIS
+              Benchmarks or the provider's security baseline), with continuous compliance
+              monitoring and deviations documented
+            category_b: >
+              Configured against a recognised hardening baseline, reviewed at least annually
+            category_c: >
+              Provider's default security baseline enabled, with exceptions documented
+          - criterion: "Assurance approach"
+            category_a: "Full Assessment"
+            category_b: "Self-certification with Supporting Evidence"
+            category_c: "Self-certification"
+          - criterion: "Evidence"
+            category_a: >
+              Certificates and reports with scope, list of services and regions used,
+              responsibility matrix, latest configuration compliance report
+            category_b: >
+              Certificates with scope, list of services and regions used, latest baseline review
+            category_c: >
+              Statement naming the provider, services and regions, with certificate reference
+
+      - id: DC1.0
+        title: "Data Centre Hosting Quality"
+        section: "Data Centre Hosting"
+        level: MUST
+        contracting_vehicles:
+          - "All Contracting Vehicles under which co-location or Supplier-owned facilities are permitted"
+        text: >
+          The Supplier will ensure that every data centre used to host the Solution,
+          including secondary sites, meets the quality level set out for the Solution's
+          Category. This applies to co-location facilities and to facilities owned by the
+          Supplier. Where a facility is operated by a third party, evidence is to relate to
+          the data centre operator, and operator certification is in addition to the
+          Supplier's own certification under the Information Governance Standard. Security
+          of the facility is set by SEC1.0. Site and resilience design is to be shown in
+          the documentation provided under HD1.0. Recovery objectives, backup and failover
+          testing are set by the Business Continuity and Disaster Recovery Standard.
+          Equivalent standards will be accepted where the Supplier demonstrates equivalence.
+        categories:
+          - criterion: "Facility availability"
+            category_a: >
+              BS EN 50600 Availability Class 3 or above, independently certified or audited
+              (Uptime Institute Tier III or TIA-942 Rated 3 accepted)
+            category_b: >
+              BS EN 50600 Availability Class 3 design alignment, evidenced by operator
+              documentation
+            category_c: "BS EN 50600 Availability Class 2 or above"
+          - criterion: "Sites"
+            category_a: >
+              Two geographically separate sites, both meeting this column; separation
+              justified by a location risk assessment
+            category_b: >
+              Two geographically separate sites; the primary meets this column and the
+              secondary meets Category C
+            category_c: >
+              One site meeting this column, plus a geographically separate location for
+              backup data
+          - criterion: "Operator management systems"
+            category_a: >
+              ISO/IEC 27001 (UKAS or IAF-accredited) and ISO 9001, with Statement of
+              Applicability and scope covering the facilities used
+            category_b: >
+              ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used
+            category_c: >
+              ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used
+          - criterion: "Power and network"
+            category_a: >
+              Concurrently maintainable power and cooling; dual Internet (and NHS Network
+              where used) connections via diverse carriers and entry points
+            category_b: >
+              Standby generation that can be refuelled in use; dual connections via diverse
+              routes where available
+            category_c: >
+              Standby power sufficient for controlled shutdown; carrier details documented
+          - criterion: "Platform hardening"
+            category_a: >
+              Operating systems, hypervisors and network devices hardened against a
+              recognised baseline, with compliance checked at least quarterly and deviations
+              documented
+            category_b: >
+              Hardened against a recognised baseline, reviewed at least annually
+            category_c: >
+              Non-essential services and protocols disabled, with the approach documented
+          - criterion: "Facility audit"
+            category_a: >
+              Annual independent audit; results and work-off plans available to the Authority
+            category_b: "Annual audit; results available on request"
+            category_c: "Operator audit statement"
+          - criterion: "Assurance approach"
+            category_a: "Full Assessment"
+            category_b: "Self-certification with Supporting Evidence"
+            category_c: "Self-certification"
+          - criterion: "Evidence"
+            category_a: >
+              Certificates with scope, availability class certification or audit report,
+              location risk assessment, latest hardening compliance report, latest audit
+            category_b: >
+              Certificates with scope, operator design documentation, latest baseline review
+            category_c: >
+              Statement naming the facilities and operator, with certificate reference
+
+editorial_notes:
+  - >
+    CH1.0 to CH4.0 are not on the retained list. If the cloud data classification, risk
+    assessment and DPIA steps are not moving to IG, they disappear, and CH5.0 does not
+    replace them. It would also become the only cloud requirement in the standard.
+  - >
+    ES1.0 and ES2.0 are not on the retained list either. IG's GP-IG-14.2-5 covers data
+    location by pointing to the cloud good practice guide, but it has no step requiring
+    Authority permission for hosting outside England.
+  - >
+    HD1.0 is written for data centres. It asks for "data centre design" and "Data Centre
+    resilience design". A small wording change to "hosting design (data centre, or cloud
+    region and zone)" would make it work for cloud Solutions too.
+  - >
+    The introduction's hosting options table points to sections that will no longer exist,
+    so it needs repointing to CH5.0 and DC1.0.
