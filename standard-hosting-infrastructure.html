@@ -4,9 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hosting and Infrastructure Standard — DSIC Catalogue. Retained requirements for suppliers onboarding to the NHS England Digital Services for Integrated Care catalogue.">
+  <meta name="description" content="Hosting and Infrastructure Standard S29 — DSIC Catalogue. Retained requirements for NHS England Digital Services for Integrated Care.">
   <title>Hosting and Infrastructure Standard — DSIC Catalogue</title>
-
   <!--
     Prototype: DSIC Capabilities as Code
     This page is generated from: data/standards/hosting-infrastructure.yaml
@@ -29,180 +28,143 @@
     .dsic-prototype-banner .nhsuk-width-container { display: flex; align-items: center; gap: 0.75rem; }
     .dsic-prototype-banner strong { color: #212b32; }
 
-    /* Tags row */
+    /* Tags */
     .dsic-tags-row { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem; }
-
-    /* Requirement ID badge */
-    .dsic-req-id {
-      font-family: "Courier New", Courier, monospace;
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: #425563;
-      background: #f0f4f5;
-      border: 1px solid #d8dde0;
-      border-radius: 3px;
-      padding: 0 5px;
-      margin-right: 8px;
-      white-space: nowrap;
-    }
-
-    /* Requirement card */
-    .dsic-requirement {
-      border: 1px solid #d8dde0;
-      border-left: 4px solid #005eb8;
-      border-radius: 0 4px 4px 0;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1rem;
-      background: #fff;
-    }
-    .dsic-requirement__header {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.75rem;
-    }
-    .dsic-requirement__title {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: #212b32;
-      margin: 0;
-      line-height: 1.3;
-    }
-    .dsic-requirement__meta {
-      font-size: 0.875rem;
-      color: #425563;
-      margin: 0.5rem 0;
-    }
-    .dsic-requirement__text { margin: 0.75rem 0; }
-
-    /* Assurance box */
-    .dsic-assurance {
-      background: #f0f4f5;
-      border-left: 3px solid #425563;
-      padding: 0.625rem 0.875rem;
-      margin: 0.75rem 0;
-      font-size: 0.9375rem;
-    }
-    .dsic-assurance__label {
-      font-weight: 700;
-      font-size: 0.8125rem;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      color: #425563;
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    /* Sub-requirements list */
-    .dsic-sub-req {
-      background: #f8f9fa;
-      border: 1px solid #e8edee;
-      border-radius: 4px;
-      padding: 0.875rem 1rem;
-      margin: 0.75rem 0;
-    }
-    .dsic-sub-req__title { font-weight: 700; margin: 0 0 0.5rem; font-size: 1rem; }
-
-    /* Notes */
-    .dsic-note {
-      font-size: 0.875rem;
-      color: #425563;
-      font-style: italic;
-      margin: 0.5rem 0 0;
-    }
-    .dsic-note::before { content: "Note: "; font-weight: 700; font-style: normal; }
 
     /* On this page nav */
     .dsic-page-nav {
       border-top: 1px solid #d8dde0;
       border-bottom: 1px solid #d8dde0;
       padding: 0.75rem 0;
-      margin: 1.25rem 0 1.5rem;
+      margin: 1.25rem 0 1.75rem;
     }
-    .dsic-page-nav__label { font-size: 1rem; font-weight: 700; color: #425563; margin-right: 0.75rem; white-space: nowrap; }
+    .dsic-page-nav__label { font-weight: 700; color: #425563; margin-right: 0.75rem; font-size: 1rem; white-space: nowrap; }
     .dsic-page-nav__list { display: inline; list-style: none; margin: 0; padding: 0; }
     .dsic-page-nav__list li { display: inline; }
     .dsic-page-nav__list li + li::before { content: "·"; margin: 0 0.4rem; color: #768692; }
-    .dsic-page-nav__list a { font-size: 1rem; }
 
-    /* Section spacing */
+    /* Section */
     .dsic-section { margin-bottom: 2.5rem; }
-    .dsic-section-title {
-      border-bottom: 2px solid #005eb8;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.25rem;
+
+    /* ── Requirements table (Confluence-style) ──────────────────────── */
+    .dsic-req-table-wrap { overflow-x: auto; margin-bottom: 1rem; }
+
+    .dsic-req-table {
+      width: 100%;
+      min-width: 800px;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+      border: 1px solid #d8dde0;
     }
 
-    /* Contracting vehicles inline list */
-    .dsic-vehicles { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.375rem; }
-    .dsic-vehicle {
-      font-size: 0.8125rem;
-      background: #e8edee;
-      border-radius: 3px;
-      padding: 0 6px;
+    .dsic-req-table th,
+    .dsic-req-table td {
+      border: 1px solid #d8dde0;
+      padding: 0.625rem 0.875rem;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    /* Column header row */
+    .dsic-req-table thead th {
+      font-weight: 700;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      text-align: left;
+    }
+    .dsic-req-table thead .col-id   { background: #f0f4f5; width: 6rem; }
+    .dsic-req-table thead .col-req  { background: #f0f4f5; }
+    .dsic-req-table thead .col-lvl  { background: #f0f4f5; width: 5rem; text-align: center; }
+    .dsic-req-table thead .col-a    { background: #003087; color: #fff; width: 17%; text-align: center; }
+    .dsic-req-table thead .col-b    { background: #005eb8; color: #fff; width: 17%; text-align: center; }
+    .dsic-req-table thead .col-c    { background: #41b6e6; color: #212b32; width: 17%; text-align: center; }
+
+    /* Body rows */
+    .dsic-req-table tbody tr:nth-child(odd)  { background: #fff; }
+    .dsic-req-table tbody tr:nth-child(even) { background: #f8f9fa; }
+    .dsic-req-table tbody td { background: inherit; }
+
+    /* ID cell */
+    .dsic-req-id {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.875rem;
+      font-weight: 700;
       color: #212b32;
       white-space: nowrap;
     }
 
-    /* Category A/B/C comparison tables */
-    .dsic-category-table-wrap {
-      overflow-x: auto;
-      margin: 1rem 0;
-      border: 1px solid #d8dde0;
-      border-radius: 4px;
+    /* Requirement title */
+    .dsic-req-title {
+      font-weight: 700;
+      margin: 0 0 0.375rem;
+      font-size: 1rem;
     }
-    .dsic-category-table {
+
+    /* Contracting vehicle tags */
+    .dsic-vehicles { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem; }
+    .dsic-vehicle {
+      font-size: 0.75rem;
+      background: #e8edee;
+      border-radius: 3px;
+      padding: 1px 5px;
+      color: #425563;
+      white-space: nowrap;
+    }
+
+    /* Level cell */
+    .col-lvl-cell { text-align: center; white-space: nowrap; }
+
+    /* Sub-bullet list inside req cell */
+    .dsic-req-table .nhsuk-list { margin-bottom: 0.5rem; }
+    .dsic-req-table .nhsuk-list li { font-size: 0.9rem; }
+
+    /* Note inside table */
+    .dsic-req-note {
+      font-size: 0.8125rem;
+      color: #425563;
+      font-style: italic;
+      margin: 0.375rem 0 0;
+    }
+    .dsic-req-note::before { content: "Note: "; font-weight: 700; font-style: normal; }
+
+    /* ── Criteria table (nested inside CH5/DC1 rows) ─────────────────── */
+    .dsic-criteria-wrap { padding: 0 !important; }
+
+    .dsic-criteria-table {
       width: 100%;
-      min-width: 640px;
       border-collapse: collapse;
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
     }
-    .dsic-category-table th,
-    .dsic-category-table td {
-      padding: 0.625rem 0.875rem;
+    .dsic-criteria-table th,
+    .dsic-criteria-table td {
       border: 1px solid #d8dde0;
+      padding: 0.5rem 0.75rem;
       vertical-align: top;
       line-height: 1.5;
     }
-    .dsic-category-table thead th {
+    .dsic-criteria-table thead th { font-weight: 700; text-align: center; }
+    .dsic-criteria-table thead .crit-label { text-align: left; background: #f0f4f5; }
+    .dsic-criteria-table thead .crit-a     { background: #003087; color: #fff; }
+    .dsic-criteria-table thead .crit-b     { background: #005eb8; color: #fff; }
+    .dsic-criteria-table thead .crit-c     { background: #41b6e6; color: #212b32; }
+    .dsic-criteria-table tbody th {
       font-weight: 700;
-      text-align: center;
-      border-bottom: 2px solid #d8dde0;
-    }
-    .dsic-category-table thead th:first-child { text-align: left; background: #f0f4f5; }
-    .dsic-category-table thead .dsic-cat-a { background: #003087; color: #fff; }
-    .dsic-category-table thead .dsic-cat-b { background: #005eb8; color: #fff; }
-    .dsic-category-table thead .dsic-cat-c { background: #41b6e6; color: #212b32; }
-    .dsic-category-table tbody th {
-      font-weight: 700;
+      font-size: 0.8125rem;
       background: #f0f4f5;
-      width: 20%;
-      min-width: 120px;
+      width: 18%;
     }
-    .dsic-category-table tbody tr:last-child td,
-    .dsic-category-table tbody tr:last-child th { border-bottom: none; }
-    /* Assurance approach row — highlight */
-    .dsic-category-table tr.dsic-assurance-row th,
-    .dsic-category-table tr.dsic-assurance-row td {
-      background: #f8f9fa;
-      font-style: italic;
-    }
+    .dsic-criteria-table tr.row-assurance th,
+    .dsic-criteria-table tr.row-assurance td { font-style: italic; background: #fafafa; }
 
-    /* Editorial notes box */
+    /* ── Editorial notes ─────────────────────────────────────────────── */
     .dsic-editorial {
       background: #fff4e6;
       border-left: 4px solid #ffb347;
       padding: 1rem 1.25rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       border-radius: 0 4px 4px 0;
     }
-    .dsic-editorial__title {
-      font-weight: 700;
-      font-size: 1rem;
-      margin: 0 0 0.75rem;
-      color: #212b32;
-    }
+    .dsic-editorial__title { font-weight: 700; font-size: 1rem; margin: 0 0 0.75rem; }
   </style>
 </head>
 
@@ -214,7 +176,7 @@
   <div class="dsic-prototype-banner" role="complementary" aria-label="Prototype notice">
     <div class="nhsuk-width-container">
       <strong>Prototype</strong>
-      <span>This page demonstrates DSIC standards rendered from a YAML source file. <a href="data/standards/hosting-infrastructure.yaml">View source data (hosting-infrastructure.yaml)</a></span>
+      <span>This page is rendered from a YAML source file. <a href="data/standards/hosting-infrastructure.yaml">View source (hosting-infrastructure.yaml)</a></span>
     </div>
   </div>
 
@@ -249,27 +211,30 @@
 
     <main class="nhsuk-main-wrapper" id="maincontent" role="main">
 
-      <!-- Heading & metadata -->
       <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">Hosting and Infrastructure</h1>
 
       <div class="dsic-tags-row">
         <strong class="nhsuk-tag nhsuk-tag--green">Effective</strong>
         <strong class="nhsuk-tag nhsuk-tag--red">Standard</strong>
-        <strong class="nhsuk-tag nhsuk-tag--grey">v2.0.9</strong>
+        <strong class="nhsuk-tag nhsuk-tag--grey">S29 · v2.0.9</strong>
       </div>
 
       <dl class="nhsuk-summary-list">
         <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Type</dt>
-          <dd class="nhsuk-summary-list__value">Standard</dd>
+          <dt class="nhsuk-summary-list__key">Standard ID</dt>
+          <dd class="nhsuk-summary-list__value"><code>S29</code></dd>
         </div>
         <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Requirements</dt>
-          <dd class="nhsuk-summary-list__value">11 retained requirements (from v2.0.9)</dd>
+          <dt class="nhsuk-summary-list__key">Effective date</dt>
+          <dd class="nhsuk-summary-list__value"><time datetime="2026-08-14">14 August 2026</time></dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Requirements shown</dt>
+          <dd class="nhsuk-summary-list__value">11 (9 retained from v2.0.9 · 2 new)</dd>
         </div>
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Sections</dt>
-          <dd class="nhsuk-summary-list__value">Baseline Assurance · Network · Device Management · Hosting Quality</dd>
+          <dd class="nhsuk-summary-list__value">Hosting Quality · Baseline Assurance · Network · Device Management</dd>
         </div>
       </dl>
 
@@ -277,405 +242,483 @@
       <nav class="dsic-page-nav" aria-label="On this page">
         <span class="dsic-page-nav__label">On this page:</span>
         <ul class="dsic-page-nav__list">
+          <li><a href="#hosting-quality">Hosting Quality (2)</a></li>
           <li><a href="#baseline-assurance">Baseline Assurance (2)</a></li>
           <li><a href="#network">Network (5)</a></li>
           <li><a href="#device-management">Device Management (2)</a></li>
-          <li><a href="#hosting-quality">Hosting Quality (2)</a></li>
+          <li><a href="#editorial-notes">Notes</a></li>
         </ul>
       </nav>
 
-      <!-- ── Section: Baseline Assurance ───────────────────────────────── -->
-      <section class="dsic-section" id="baseline-assurance">
-        <h2 class="nhsuk-heading-l dsic-section-title">Baseline Assurance Standard Requirements</h2>
 
-        <!-- HD1.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">HD1.0</span>
-            <h3 class="dsic-requirement__title">Documentation</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Reporting &amp; Documentation</p>
-          <div class="dsic-assurance">
-            <span class="dsic-assurance__label">Assurance</span>
-            Self-certification with Supporting Evidence — documentation that covers all aspects listed within the Requirement.
-          </div>
-          <div class="dsic-requirement__text">
-            <p>The Supplier will provide documentation which represents the non-functional technical architecture of the Solution, including but not limited to: data centre design, local and wide network architecture, and physical technology models. Documentation should include diagrams, and associated textual descriptions, as necessary to enable effective assurance of key Solution aspects as noted below:</p>
-          </div>
-          <div class="dsic-sub-req">
-            <p class="dsic-sub-req__title">Non-Functional Specification</p>
-            <p>Defines the non-functional aspects of the system including but not limited to:</p>
-            <ul class="nhsuk-list nhsuk-list--bullet">
-              <li>Details of any relevant contract service schedule(s)</li>
-              <li>Business continuity and disaster recovery design</li>
-              <li>Data Centre resilience design</li>
-              <li>Backup and Recovery Processes</li>
-              <li>Configuration Management including identification, control and verification</li>
-              <li>Performance monitoring design including categorisation of transactions and design of monitoring software including links into the Authority Solutions where relevant e.g. National Monitoring System (NMS)</li>
-              <li>Overall systems security design</li>
-              <li>Migration design showing design for process and data, details of any tools developed to support migration, details of duration and outages required to perform migration and data cleansing strategy</li>
-              <li>Capacity management design incorporating an indicative sizing model, a business transaction data forecast, an impact assessment on existing infrastructure and a baseline capacity plan</li>
-              <li>Availability Management design, including Component Failure Impact Assessment and monitoring</li>
-              <li>Services impact assessment including expected service management processes, helpdesk, maintenance, performance management and reporting changes</li>
-              <li>Support Model design, including dependencies on third parties (including NHS National Service Desk), support hours, escalation model and incident severity guidelines</li>
-            </ul>
-          </div>
-          <p class="dsic-note">Document artefacts to be concise with a preference for diagrammatical form where the Supplier utilises as much of their own internal documentation as possible to reduce extra document production.</p>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
-            <span class="dsic-vehicle">Digital Pathways</span>
-            <span class="dsic-vehicle">Solution Registry</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-
-        <!-- SEC1.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">SEC1.0</span>
-            <h3 class="dsic-requirement__title">Security</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Security</p>
-          <div class="dsic-assurance">
-            <span class="dsic-assurance__label">Assurance</span>
-            Refer to "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" file for details.
-          </div>
-          <div class="dsic-requirement__text">
-            <p>Due to the sensitive nature of the information in this section, the details are held in the file "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" and can be requested by emailing <a href="mailto:england.buying.catalogue@nhs.net">england.buying.catalogue@nhs.net</a>.</p>
-            <p>The Supplier will comply with all requirements in the "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" file.</p>
-          </div>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
-            <span class="dsic-vehicle">Digital Pathways</span>
-            <span class="dsic-vehicle">Solution Registry</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Section: Network ───────────────────────────────────────────── -->
-      <section class="dsic-section" id="network">
-        <h2 class="nhsuk-heading-l dsic-section-title">Network</h2>
-
-        <!-- HNT2.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">HNT2.0</span>
-            <h3 class="dsic-requirement__title">Network - QoS</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Network</p>
-          <div class="dsic-assurance"><span class="dsic-assurance__label">Assurance</span>Self-certification</div>
-          <div class="dsic-requirement__text">
-            <p>Communications in and out of the data centre will adhere to the HSCN connection Agreement and NHS Network QoS policy for the classification of data across the network, to enable network traffic prioritisation and 'class of service' to reduce network latency. The Supplier will evidence their adherence to the QoS policy, to the Authority, for changes to the system in how it communicates across the NHS Network, prior to release.</p>
-            <p>See: HSCN Quality of Service overview · HSCN Technical Guidance</p>
-          </div>
-          <p class="dsic-note">"HCSN Technical Guidance" is the original wording in v2.0.9 (typo for HSCN).</p>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-
-        <!-- HNT2.1 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">HNT2.1</span>
-            <h3 class="dsic-requirement__title">NHS Network Connectivity</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Network</p>
-          <div class="dsic-assurance"><span class="dsic-assurance__label">Assurance</span>Self-certification</div>
-          <div class="dsic-requirement__text">
-            <p>The Supplier's NHS Network connections to be compliant with the HSCN Connection Agreement and compliant with the DNS and IP addressing policies for the network, where HSCN is used.</p>
-          </div>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-
-        <!-- HNT3.1 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">HNT3.1</span>
-            <h3 class="dsic-requirement__title">NHS Networking Compliance</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Network</p>
-          <div class="dsic-assurance"><span class="dsic-assurance__label">Assurance</span>Self-certification</div>
-          <div class="dsic-requirement__text">
-            <p>The Supplier to provide evidence that the system complies with the requirements and best practice operating principals and guidance when operating over the NHS Network. Specifically the system to:</p>
-            <ul class="nhsuk-list nhsuk-list--bullet">
-              <li>Comply with the NHS Network QoS (Quality of Service) Policy</li>
-              <li>Performs adequately within the network latency constraints</li>
-              <li>Performs adequately within the typical bandwidth (downstream and upstream) provided to consumers</li>
-              <li>Collaborate with the Authority and relevant network providers to resolve escalated performance issues which could include installing diagnostic probes into the DC environment</li>
-            </ul>
-          </div>
-          <p class="dsic-note">"operating principals" is the original wording in v2.0.9 (should be "principles").</p>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-
-        <!-- HNT4.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">HNT4.0</span>
-            <h3 class="dsic-requirement__title">QoS Policy Acceptance</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Network</p>
-          <div class="dsic-assurance"><span class="dsic-assurance__label">Assurance</span>Self-certification</div>
-          <div class="dsic-requirement__text">
-            <p>The Supplier will have completed a NHS Network QoS Policy review, where the Suppliers application makes use of or is accessed across the NHS Network, have demonstrated the application and services adhere to the NHS Network policy. NHS Network QoS rules may need to be amended as a part of this review. Updates to refreshed QoS policies to be applied as required.</p>
-            <p>See: HSCN Quality of Service overview</p>
-          </div>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-
-        <!-- HNT40.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">HNT40.0</span>
-            <h3 class="dsic-requirement__title">HSCN Connectivity</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Network</p>
-          <div class="dsic-assurance"><span class="dsic-assurance__label">Assurance</span>Self-certification</div>
-          <div class="dsic-requirement__text">
-            <p>The Supplier to ensure HSCN connectivity is procured where there are any systems or services the Supplier needs to reach that are only on the HSCN network.</p>
-          </div>
-          <p class="dsic-note">HNT40.0 has no title in the standard itself; the title above is taken from the retained-requirements list.</p>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Section: Device Management ────────────────────────────────── -->
-      <section class="dsic-section" id="device-management">
-        <h2 class="nhsuk-heading-l dsic-section-title">Device Management</h2>
-
-        <!-- HDM1.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">HDM1.0</span>
-            <h3 class="dsic-requirement__title">Lights Out Policy</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Device Management</p>
-          <div class="dsic-assurance"><span class="dsic-assurance__label">Assurance</span>Self-certification</div>
-          <div class="dsic-requirement__text">
-            <p>The Supplier will provide a 'lights out' operational model for the systems with specific processes to allow named engineer access to the environment.</p>
-          </div>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-
-        <!-- HDM4.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">HDM4.0</span>
-            <h3 class="dsic-requirement__title">Remote Systems Maintenance</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Device Management</p>
-          <div class="dsic-assurance"><span class="dsic-assurance__label">Assurance</span>Self-certification</div>
-          <div class="dsic-requirement__text">
-            <p>It will be possible for the Supplier to perform software related maintenance and upgrade remotely without requiring physical access to the data hall.</p>
-          </div>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Section: Hosting Quality ──────────────────────────────────── -->
+      <!-- ══════════════════════════════════════════════════════════════ -->
+      <!-- SECTION: Hosting Quality                                       -->
+      <!-- ══════════════════════════════════════════════════════════════ -->
       <section class="dsic-section" id="hosting-quality">
-        <h2 class="nhsuk-heading-l dsic-section-title">Hosting Quality</h2>
+        <h2 class="nhsuk-heading-l">Hosting Quality</h2>
+        <p class="nhsuk-body">New requirements defining minimum quality standards for cloud-hosted and data-centre-hosted solutions, replacing the previous hosting options table. Each requirement uses a tiered Category A / B / C model.</p>
 
         <!-- CH5.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">CH5.0</span>
-            <h3 class="dsic-requirement__title">Cloud Hosting Quality</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Cloud Hosting</p>
-          <div class="dsic-requirement__text">
-            <p>The Supplier will ensure that the cloud provider used to host the Solution, and the Supplier's configuration of that provider's services, meet the quality level set out for the Solution's Category. This applies to every cloud service and region the Solution uses. Provider certification is in addition to the Supplier's own certification under the Information Governance Standard. Hosting topology is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
-          </div>
-          <div class="dsic-category-table-wrap">
-            <table class="dsic-category-table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th class="dsic-cat-a" scope="col">Category A</th>
-                  <th class="dsic-cat-b" scope="col">Category B</th>
-                  <th class="dsic-cat-c" scope="col">Category C</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Provider certification<br><small>(every service &amp; region)</small></th>
-                  <td>ISO/IEC 27001 from a UKAS or IAF-accredited body, with ISO/IEC 27017 and 27018, plus a SOC 2 Type II report or CSA STAR Level 2</td>
-                  <td>ISO/IEC 27001 from a UKAS or IAF-accredited body, plus one of ISO/IEC 27017, SOC 2 Type II or CSA STAR Level 2</td>
-                  <td>ISO/IEC 27001 from a UKAS or IAF-accredited body</td>
-                </tr>
-                <tr>
-                  <th scope="row">NCSC Cloud Security Principles</th>
-                  <td>Provider publishes its response to all 14 principles; Supplier documents which responsibilities sit with the provider and which with the Supplier</td>
-                  <td>Provider publishes its response to all 14 principles</td>
-                  <td>Provider publishes its response to all 14 principles</td>
-                </tr>
-                <tr>
-                  <th scope="row">Hosting topology</th>
-                  <td>Hosted in a region with at least three availability zones, with production spread across them; also uses a second UK region where the provider has one</td>
-                  <td>Production spread across at least two availability zones</td>
-                  <td>Single availability zone acceptable</td>
-                </tr>
-                <tr>
-                  <th scope="row">Secure configuration</th>
-                  <td>Cloud tenancy configured against a recognised hardening baseline (e.g. CIS Benchmarks or the provider's security baseline), with continuous compliance monitoring and deviations documented</td>
-                  <td>Configured against a recognised hardening baseline, reviewed at least annually</td>
-                  <td>Provider's default security baseline enabled, with exceptions documented</td>
-                </tr>
-                <tr class="dsic-assurance-row">
-                  <th scope="row">Assurance approach</th>
-                  <td>Full Assessment</td>
-                  <td>Self-certification with Supporting Evidence</td>
-                  <td>Self-certification</td>
-                </tr>
-                <tr>
-                  <th scope="row">Evidence</th>
-                  <td>Certificates and reports with scope, list of services and regions used, responsibility matrix, latest configuration compliance report</td>
-                  <td>Certificates with scope, list of services and regions used, latest baseline review</td>
-                  <td>Statement naming the provider, services and regions, with certificate reference</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">GP IT Futures</span>
-            <span class="dsic-vehicle">Tech Innovation</span>
-            <span class="dsic-vehicle">DFOCVC</span>
-            <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
-            <span class="dsic-vehicle">Digital Pathways</span>
-            <span class="dsic-vehicle">Solution Registry</span>
-            <span class="dsic-vehicle">Digital Primary Care</span>
-          </div>
+        <h3 class="nhsuk-heading-m" id="CH5.0">CH5.0 — Cloud Hosting Quality</h3>
+        <div class="dsic-req-table-wrap">
+          <table class="dsic-req-table">
+            <thead>
+              <tr>
+                <th class="col-id" scope="col">ID</th>
+                <th class="col-req" scope="col">Requirement</th>
+                <th class="col-lvl" scope="col">Level</th>
+                <th class="col-a" scope="col">Category A</th>
+                <th class="col-b" scope="col">Category B</th>
+                <th class="col-c" scope="col">Category C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="dsic-req-id">CH5.0</td>
+                <td>
+                  <p class="dsic-req-title">Cloud Hosting Quality</p>
+                  <p>The Supplier will ensure that the cloud provider used to host the Solution, and the Supplier's configuration of that provider's services, meet the quality level set out for the Solution's Category. This applies to every cloud service and region the Solution uses. Provider certification is in addition to the Supplier's own certification under the Information Governance Standard. Hosting topology is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
+                    <span class="dsic-vehicle">Digital Pathways</span>
+                    <span class="dsic-vehicle">Solution Registry</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td class="dsic-criteria-wrap" colspan="3">
+                  <table class="dsic-criteria-table">
+                    <thead>
+                      <tr>
+                        <th class="crit-label" scope="col"></th>
+                        <th class="crit-a" scope="col">Category A</th>
+                        <th class="crit-b" scope="col">Category B</th>
+                        <th class="crit-c" scope="col">Category C</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Provider certification<br><small>(every service &amp; region)</small></th>
+                        <td>ISO/IEC 27001 from a UKAS or IAF-accredited body, with ISO/IEC 27017 and 27018, plus a SOC 2 Type II report or CSA STAR Level 2</td>
+                        <td>ISO/IEC 27001 from a UKAS or IAF-accredited body, plus one of ISO/IEC 27017, SOC 2 Type II or CSA STAR Level 2</td>
+                        <td>ISO/IEC 27001 from a UKAS or IAF-accredited body</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">NCSC Cloud Security Principles</th>
+                        <td>Provider publishes its response to all 14 principles; Supplier documents which responsibilities sit with the provider and which with the Supplier</td>
+                        <td>Provider publishes its response to all 14 principles</td>
+                        <td>Provider publishes its response to all 14 principles</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Hosting topology</th>
+                        <td>Hosted in a region with at least three availability zones, with production spread across them; also uses a second UK region where the provider has one</td>
+                        <td>Production spread across at least two availability zones</td>
+                        <td>Single availability zone acceptable</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Secure configuration</th>
+                        <td>Cloud tenancy configured against a recognised hardening baseline (e.g. CIS Benchmarks or the provider's security baseline), with continuous compliance monitoring and deviations documented</td>
+                        <td>Configured against a recognised hardening baseline, reviewed at least annually</td>
+                        <td>Provider's default security baseline enabled, with exceptions documented</td>
+                      </tr>
+                      <tr class="row-assurance">
+                        <th scope="row">Assurance approach</th>
+                        <td><em>Full Assessment</em></td>
+                        <td><em>Self-certification with Supporting Evidence</em></td>
+                        <td><em>Self-certification</em></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Evidence</th>
+                        <td>Certificates and reports with scope, list of services and regions used, responsibility matrix, latest configuration compliance report</td>
+                        <td>Certificates with scope, list of services and regions used, latest baseline review</td>
+                        <td>Statement naming the provider, services and regions, with certificate reference</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <!-- DC1.0 -->
-        <div class="dsic-requirement">
-          <div class="dsic-requirement__header">
-            <span class="dsic-req-id">DC1.0</span>
-            <h3 class="dsic-requirement__title">Data Centre Hosting Quality</h3>
-            <strong class="nhsuk-tag">MUST</strong>
-          </div>
-          <p class="dsic-requirement__meta">Section: Data Centre Hosting</p>
-          <div class="dsic-requirement__text">
-            <p>The Supplier will ensure that every data centre used to host the Solution, including secondary sites, meets the quality level set out for the Solution's Category. This applies to co-location facilities and to facilities owned by the Supplier. Where a facility is operated by a third party, evidence is to relate to the data centre operator, and operator certification is in addition to the Supplier's own certification under the Information Governance Standard. Security of the facility is set by SEC1.0. Site and resilience design is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
-          </div>
-          <div class="dsic-category-table-wrap">
-            <table class="dsic-category-table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th class="dsic-cat-a" scope="col">Category A</th>
-                  <th class="dsic-cat-b" scope="col">Category B</th>
-                  <th class="dsic-cat-c" scope="col">Category C</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Facility availability</th>
-                  <td>BS EN 50600 Availability Class 3 or above, independently certified or audited (Uptime Institute Tier III or TIA-942 Rated 3 accepted)</td>
-                  <td>BS EN 50600 Availability Class 3 design alignment, evidenced by operator documentation</td>
-                  <td>BS EN 50600 Availability Class 2 or above</td>
-                </tr>
-                <tr>
-                  <th scope="row">Sites</th>
-                  <td>Two geographically separate sites, both meeting this column; separation justified by a location risk assessment</td>
-                  <td>Two geographically separate sites; the primary meets this column and the secondary meets Category C</td>
-                  <td>One site meeting this column, plus a geographically separate location for backup data</td>
-                </tr>
-                <tr>
-                  <th scope="row">Operator management systems</th>
-                  <td>ISO/IEC 27001 (UKAS or IAF-accredited) and ISO 9001, with Statement of Applicability and scope covering the facilities used</td>
-                  <td>ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</td>
-                  <td>ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</td>
-                </tr>
-                <tr>
-                  <th scope="row">Power and network</th>
-                  <td>Concurrently maintainable power and cooling; dual Internet (and NHS Network where used) connections via diverse carriers and entry points</td>
-                  <td>Standby generation that can be refuelled in use; dual connections via diverse routes where available</td>
-                  <td>Standby power sufficient for controlled shutdown; carrier details documented</td>
-                </tr>
-                <tr>
-                  <th scope="row">Platform hardening</th>
-                  <td>Operating systems, hypervisors and network devices hardened against a recognised baseline, with compliance checked at least quarterly and deviations documented</td>
-                  <td>Hardened against a recognised baseline, reviewed at least annually</td>
-                  <td>Non-essential services and protocols disabled, with the approach documented</td>
-                </tr>
-                <tr>
-                  <th scope="row">Facility audit</th>
-                  <td>Annual independent audit; results and work-off plans available to the Authority</td>
-                  <td>Annual audit; results available on request</td>
-                  <td>Operator audit statement</td>
-                </tr>
-                <tr class="dsic-assurance-row">
-                  <th scope="row">Assurance approach</th>
-                  <td>Full Assessment</td>
-                  <td>Self-certification with Supporting Evidence</td>
-                  <td>Self-certification</td>
-                </tr>
-                <tr>
-                  <th scope="row">Evidence</th>
-                  <td>Certificates with scope, availability class certification or audit report, location risk assessment, latest hardening compliance report, latest audit</td>
-                  <td>Certificates with scope, operator design documentation, latest baseline review</td>
-                  <td>Statement naming the facilities and operator, with certificate reference</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="dsic-vehicles">
-            <span class="dsic-vehicle">All Contracting Vehicles (co-location or Supplier-owned facilities)</span>
-          </div>
+        <h3 class="nhsuk-heading-m" id="DC1.0">DC1.0 — Data Centre Hosting Quality</h3>
+        <div class="dsic-req-table-wrap">
+          <table class="dsic-req-table">
+            <thead>
+              <tr>
+                <th class="col-id" scope="col">ID</th>
+                <th class="col-req" scope="col">Requirement</th>
+                <th class="col-lvl" scope="col">Level</th>
+                <th class="col-a" scope="col">Category A</th>
+                <th class="col-b" scope="col">Category B</th>
+                <th class="col-c" scope="col">Category C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="dsic-req-id">DC1.0</td>
+                <td>
+                  <p class="dsic-req-title">Data Centre Hosting Quality</p>
+                  <p>The Supplier will ensure that every data centre used to host the Solution, including secondary sites, meets the quality level set out for the Solution's Category. This applies to co-location facilities and to facilities owned by the Supplier. Where a facility is operated by a third party, evidence is to relate to the data centre operator, and operator certification is in addition to the Supplier's own certification under the Information Governance Standard. Security of the facility is set by SEC1.0. Site and resilience design is to be shown in the documentation provided under HD1.0. Recovery objectives, backup and failover testing are set by the Business Continuity and Disaster Recovery Standard. Equivalent standards will be accepted where the Supplier demonstrates equivalence.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">All CVs (co-location or Supplier-owned facilities)</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td class="dsic-criteria-wrap" colspan="3">
+                  <table class="dsic-criteria-table">
+                    <thead>
+                      <tr>
+                        <th class="crit-label" scope="col"></th>
+                        <th class="crit-a" scope="col">Category A</th>
+                        <th class="crit-b" scope="col">Category B</th>
+                        <th class="crit-c" scope="col">Category C</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Facility availability</th>
+                        <td>BS EN 50600 Availability Class 3 or above, independently certified or audited (Uptime Institute Tier III or TIA-942 Rated 3 accepted)</td>
+                        <td>BS EN 50600 Availability Class 3 design alignment, evidenced by operator documentation</td>
+                        <td>BS EN 50600 Availability Class 2 or above</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Sites</th>
+                        <td>Two geographically separate sites, both meeting this column; separation justified by a location risk assessment</td>
+                        <td>Two geographically separate sites; the primary meets this column and the secondary meets Category C</td>
+                        <td>One site meeting this column, plus a geographically separate location for backup data</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Operator management systems</th>
+                        <td>ISO/IEC 27001 (UKAS or IAF-accredited) and ISO 9001, with Statement of Applicability and scope covering the facilities used</td>
+                        <td>ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</td>
+                        <td>ISO/IEC 27001 (UKAS or IAF-accredited) covering the facilities used</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Power and network</th>
+                        <td>Concurrently maintainable power and cooling; dual Internet (and NHS Network where used) connections via diverse carriers and entry points</td>
+                        <td>Standby generation that can be refuelled in use; dual connections via diverse routes where available</td>
+                        <td>Standby power sufficient for controlled shutdown; carrier details documented</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Platform hardening</th>
+                        <td>Operating systems, hypervisors and network devices hardened against a recognised baseline, with compliance checked at least quarterly and deviations documented</td>
+                        <td>Hardened against a recognised baseline, reviewed at least annually</td>
+                        <td>Non-essential services and protocols disabled, with the approach documented</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Facility audit</th>
+                        <td>Annual independent audit; results and work-off plans available to the Authority</td>
+                        <td>Annual audit; results available on request</td>
+                        <td>Operator audit statement</td>
+                      </tr>
+                      <tr class="row-assurance">
+                        <th scope="row">Assurance approach</th>
+                        <td><em>Full Assessment</em></td>
+                        <td><em>Self-certification with Supporting Evidence</em></td>
+                        <td><em>Self-certification</em></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Evidence</th>
+                        <td>Certificates with scope, availability class certification or audit report, location risk assessment, latest hardening compliance report, latest audit</td>
+                        <td>Certificates with scope, operator design documentation, latest baseline review</td>
+                        <td>Statement naming the facilities and operator, with certificate reference</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <!-- ── Editorial Notes ────────────────────────────────────────────── -->
+
+      <!-- ══════════════════════════════════════════════════════════════ -->
+      <!-- SECTION: Baseline Assurance                                    -->
+      <!-- ══════════════════════════════════════════════════════════════ -->
+      <section class="dsic-section" id="baseline-assurance">
+        <h2 class="nhsuk-heading-l">Baseline Assurance Standard Requirements</h2>
+        <div class="dsic-req-table-wrap">
+          <table class="dsic-req-table">
+            <thead>
+              <tr>
+                <th class="col-id" scope="col">ID</th>
+                <th class="col-req" scope="col">Requirement</th>
+                <th class="col-lvl" scope="col">Level</th>
+                <th class="col-a" scope="col">Category A</th>
+                <th class="col-b" scope="col">Category B</th>
+                <th class="col-c" scope="col">Category C</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- HD1.0 -->
+              <tr>
+                <td class="dsic-req-id">HD1.0</td>
+                <td>
+                  <p class="dsic-req-title">Documentation</p>
+                  <p>The Supplier will provide documentation which represents the non-functional technical architecture of the Solution, including but not limited to: data centre design, local and wide network architecture, and physical technology models. Documentation should include diagrams, and associated textual descriptions, as necessary to enable effective assurance of key Solution aspects as noted below:</p>
+                  <p><strong>Non-Functional Specification</strong> — defines the non-functional aspects of the system including but not limited to:</p>
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Details of any relevant contract service schedule(s)</li>
+                    <li>Business continuity and disaster recovery design</li>
+                    <li>Data Centre resilience design</li>
+                    <li>Backup and Recovery Processes</li>
+                    <li>Configuration Management including identification, control and verification</li>
+                    <li>Performance monitoring design including categorisation of transactions and links into the Authority Solutions where relevant e.g. National Monitoring System (NMS)</li>
+                    <li>Overall systems security design</li>
+                    <li>Migration design showing design for process and data, details of any tools developed, duration and outages required, and data cleansing strategy</li>
+                    <li>Capacity management design incorporating an indicative sizing model, business transaction data forecast, impact assessment on existing infrastructure and a baseline capacity plan</li>
+                    <li>Availability Management design, including Component Failure Impact Assessment and monitoring</li>
+                    <li>Services impact assessment including expected service management processes, helpdesk, maintenance, performance management and reporting changes</li>
+                    <li>Support Model design, including dependencies on third parties (including NHS National Service Desk), support hours, escalation model and incident severity guidelines</li>
+                  </ul>
+                  <p class="dsic-req-note">Document artefacts to be concise with a preference for diagrammatical form where the Supplier utilises as much of their own internal documentation as possible to reduce extra document production.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
+                    <span class="dsic-vehicle">Digital Pathways</span>
+                    <span class="dsic-vehicle">Solution Registry</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Self-certification with Supporting Evidence<br><br>Supporting evidence to include: Documentation that covers all aspects listed within the Requirement.</td>
+                <td>Self-certification with Supporting Evidence<br><br>Supporting evidence to include: Documentation that covers all aspects listed within the Requirement.</td>
+                <td>Self-certification with Supporting Evidence<br><br>Supporting evidence to include: Documentation that covers all aspects listed within the Requirement.</td>
+              </tr>
+
+              <!-- SEC1.0 -->
+              <tr>
+                <td class="dsic-req-id">SEC1.0</td>
+                <td>
+                  <p class="dsic-req-title">Security</p>
+                  <p>Due to the sensitive nature of the information in this section, the details are held in the file "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" and can be requested by emailing <a href="mailto:england.buying.catalogue@nhs.net">england.buying.catalogue@nhs.net</a>.</p>
+                  <p>The Supplier will comply with all requirements in the "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" file.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Community Pharmacy Clinical Services</span>
+                    <span class="dsic-vehicle">Digital Pathways</span>
+                    <span class="dsic-vehicle">Solution Registry</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Refer to "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" file for details.</td>
+                <td>Refer to "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" file for details.</td>
+                <td>Refer to "Co-location and Provider Data Centre Hosting &amp; Infrastructure Requirements - Security" file for details.</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+
+      <!-- ══════════════════════════════════════════════════════════════ -->
+      <!-- SECTION: Network                                               -->
+      <!-- ══════════════════════════════════════════════════════════════ -->
+      <section class="dsic-section" id="network">
+        <h2 class="nhsuk-heading-l">Network</h2>
+        <p class="nhsuk-body-s nhsuk-u-color-secondary-text-static nhsuk-u-margin-bottom-3">The NHS Wide Area Network is known as HSCN (Health and Social Care Network), successor to N3.</p>
+        <div class="dsic-req-table-wrap">
+          <table class="dsic-req-table">
+            <thead>
+              <tr>
+                <th class="col-id" scope="col">ID</th>
+                <th class="col-req" scope="col">Requirement</th>
+                <th class="col-lvl" scope="col">Level</th>
+                <th class="col-a" scope="col">Category A</th>
+                <th class="col-b" scope="col">Category B</th>
+                <th class="col-c" scope="col">Category C</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- HNT2.0 -->
+              <tr>
+                <td class="dsic-req-id">HNT2.0</td>
+                <td>
+                  <p class="dsic-req-title">Network - QoS</p>
+                  <p>Communications in and out of the data centre will adhere to the HSCN connection Agreement and NHS Network QoS policy for the classification of data across the network, to enable network traffic prioritisation and 'class of service' to reduce network latency. The Supplier will evidence their adherence to the QoS policy, to the Authority, for changes to the system in how it communicates across the NHS Network, prior to release.</p>
+                  <p class="dsic-req-note">See: HSCN Quality of Service overview · HSCN Technical Guidance. "HCSN Technical Guidance" is the original wording in v2.0.9 (typo).</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+              </tr>
+
+              <!-- HNT2.1 -->
+              <tr>
+                <td class="dsic-req-id">HNT2.1</td>
+                <td>
+                  <p class="dsic-req-title">NHS Network Connectivity</p>
+                  <p>The Supplier's NHS Network connections to be compliant with the HSCN Connection Agreement and compliant with the DNS and IP addressing policies for the network, where HSCN is used.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+              </tr>
+
+              <!-- HNT3.1 -->
+              <tr>
+                <td class="dsic-req-id">HNT3.1</td>
+                <td>
+                  <p class="dsic-req-title">NHS Networking Compliance</p>
+                  <p>The Supplier to provide evidence that the system complies with the requirements and best practice operating principals and guidance when operating over the NHS Network. Specifically the system to:</p>
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Comply with the NHS Network QoS (Quality of Service) Policy</li>
+                    <li>Performs adequately within the network latency constraints</li>
+                    <li>Performs adequately within the typical bandwidth (downstream and upstream) provided to consumers</li>
+                    <li>Collaborate with the Authority and relevant network providers to resolve escalated performance issues which could include installing diagnostic probes into the DC environment</li>
+                  </ul>
+                  <p class="dsic-req-note">"operating principals" is the original wording in v2.0.9 (should be "principles").</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+              </tr>
+
+              <!-- HNT4.0 -->
+              <tr>
+                <td class="dsic-req-id">HNT4.0</td>
+                <td>
+                  <p class="dsic-req-title">QoS Policy Acceptance</p>
+                  <p>The Supplier will have completed a NHS Network QoS Policy review, where the Suppliers application makes use of or is accessed across the NHS Network, have demonstrated the application and services adhere to the NHS Network policy. NHS Network QoS rules may need to be amended as a part of this review. Updates to refreshed QoS policies to be applied as required.</p>
+                  <p class="dsic-req-note">See: HSCN Quality of Service overview.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+              </tr>
+
+              <!-- HNT40.0 -->
+              <tr>
+                <td class="dsic-req-id">HNT40.0</td>
+                <td>
+                  <p class="dsic-req-title">HSCN Connectivity</p>
+                  <p>The Supplier to ensure HSCN connectivity is procured where there are any systems or services the Supplier needs to reach that are only on the HSCN network.</p>
+                  <p class="dsic-req-note">HNT40.0 has no title in the standard itself; the title above is taken from the retained-requirements list.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">Tech Innovation</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+
+      <!-- ══════════════════════════════════════════════════════════════ -->
+      <!-- SECTION: Device Management                                     -->
+      <!-- ══════════════════════════════════════════════════════════════ -->
+      <section class="dsic-section" id="device-management">
+        <h2 class="nhsuk-heading-l">Device Management</h2>
+        <div class="dsic-req-table-wrap">
+          <table class="dsic-req-table">
+            <thead>
+              <tr>
+                <th class="col-id" scope="col">ID</th>
+                <th class="col-req" scope="col">Requirement</th>
+                <th class="col-lvl" scope="col">Level</th>
+                <th class="col-a" scope="col">Category A</th>
+                <th class="col-b" scope="col">Category B</th>
+                <th class="col-c" scope="col">Category C</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- HDM1.0 -->
+              <tr>
+                <td class="dsic-req-id">HDM1.0</td>
+                <td>
+                  <p class="dsic-req-title">Lights Out Policy</p>
+                  <p>The Supplier will provide a 'lights out' operational model for the systems with specific processes to allow named engineer access to the environment.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+              </tr>
+
+              <!-- HDM4.0 -->
+              <tr>
+                <td class="dsic-req-id">HDM4.0</td>
+                <td>
+                  <p class="dsic-req-title">Remote Systems Maintenance</p>
+                  <p>It will be possible for the Supplier to perform software related maintenance and upgrade remotely without requiring physical access to the data hall.</p>
+                  <div class="dsic-vehicles">
+                    <span class="dsic-vehicle">GP IT Futures</span>
+                    <span class="dsic-vehicle">DFOCVC</span>
+                    <span class="dsic-vehicle">Digital Primary Care</span>
+                  </div>
+                </td>
+                <td class="col-lvl-cell"><strong class="nhsuk-tag">MUST</strong></td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+                <td>Self-certification</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+
+      <!-- ══════════════════════════════════════════════════════════════ -->
+      <!-- Editorial Notes                                                -->
+      <!-- ══════════════════════════════════════════════════════════════ -->
       <div class="dsic-editorial" id="editorial-notes">
         <p class="dsic-editorial__title">Notes on the retained requirements list</p>
         <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0">
